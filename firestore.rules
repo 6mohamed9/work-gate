@@ -1,0 +1,59 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{db}/documents {
+
+    // ⬇⬇ إيميل المالك — نفس الإيميل في إعداد البوابة ⬇⬇
+    function adminEmail() { return 'mohamedragab161997@gmail.com'; }
+
+    function em()      { return request.auth.token.email; }
+    function signedIn(){ return request.auth != null && request.auth.token.email != null; }
+    function isAdmin() { return signedIn() && em() == adminEmail(); }
+    function hasUser() { return signedIn() && exists(/databases/$(db)/documents/users/$(em())); }
+    function u()       { return get(/databases/$(db)/documents/users/$(em())).data; }
+    function isStaff() { return hasUser() && u().role == 'staff'; }
+    function isDriver(){ return hasUser() && u().role == 'driver' && u().mode != 'read'; }
+    function staffCan(sec) {
+      return isStaff() && (
+        (sec in u().sections && u().sections[sec] == 'edit') ||
+        (!(sec in u().sections) && u().mode == 'edit')
+      );
+    }
+    function staffEdits() { return isStaff() && u().mode == 'edit'; }
+
+    match /config/{d} {
+      allow read:  if isAdmin() || hasUser();
+      allow write: if isAdmin();
+    }
+
+    match /users/{uid} {
+      allow read:  if isAdmin() || isStaff() || (signedIn() && uid == em());
+      allow write: if isAdmin();
+    }
+
+    // البيانات الرئيسية (فواتير/عملاء/مخزن/أقسام...) كمقاطع مجزأة
+    match /state/{id} {
+      // الإدارة والموظفون يقرأون كل شيء؛ المندوب يقرأ الأصناف والإعدادات فقط (للأسعار وقيم المرتجع)
+      allow read:  if isAdmin() || isStaff()
+                   || (isDriver() && id.matches('(products|settings)(\\.p[0-9]+)?'));
+      allow write: if isAdmin() || staffEdits();
+    }
+
+    match /trips/{id} {
+      allow read: if isAdmin() || isStaff()
+                  || (hasUser() && resource.data.driverEmail == em());
+      allow create: if isAdmin() || staffCan('trips')
+                    || (isDriver()
+                        && request.resource.data.driverEmail == em()
+                        && request.resource.data.status == 'active');
+      // المندوب يعدل رحلته النشطة فقط ويستطيع قفلها — ولا يستطيع فتحها أبدًا
+      allow update: if isAdmin() || staffCan('trips')
+                    || (isDriver()
+                        && resource.data.driverEmail == em()
+                        && resource.data.status == 'active'
+                        && request.resource.data.driverEmail == em()
+                        && (request.resource.data.status == 'active'
+                            || request.resource.data.status == 'locked'));
+      allow delete: if isAdmin();
+    }
+  }
+}

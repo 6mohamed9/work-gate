@@ -366,6 +366,75 @@ a.tel{color:var(--green-3);font-weight:800;text-decoration:none;direction:ltr;di
  .fx-pulse,.fx-tilt,.fx-wave,.fx-bounce,.fx-float,.fx-grow,.fx-spin,.fx-spin-slow,.fx-drive,.fx-drive-mini{animation:none}}
 @media print{.pfx,.dv-truck,.netbar{display:none!important}}
 
+/* ══════════════ SUPER SYSTEM v2 — enterprise design layer ══════════════ */
+body{background:
+ radial-gradient(1100px 500px at 90% -10%, color-mix(in srgb, var(--green) 9%, transparent), transparent 60%),
+ radial-gradient(900px 500px at -10% 110%, color-mix(in srgb, var(--amber) 8%, transparent), transparent 60%),
+ var(--paper)}
+/* sidebar: deep glass with glowing pills */
+#sidebar{background:linear-gradient(178deg,color-mix(in srgb,var(--green-2) 96%,#000 4%),#052617 92%);box-shadow:6px 0 30px -18px rgba(0,0,0,.55)}
+#sidebar .brand{padding:20px 18px 14px}
+#sidebar .brand-logo{box-shadow:0 6px 18px -6px rgba(0,0,0,.5);font-size:22px}
+.nav-item{margin:3px 10px;border-radius:13px;padding:11px 14px;transition:all .18s cubic-bezier(.2,.8,.3,1.1);border:1px solid transparent}
+.nav-item:hover{background:rgba(255,255,255,.08);transform:translateX(-3px)}
+[dir="ltr"] .nav-item:hover{transform:translateX(3px)}
+.nav-item.on{background:linear-gradient(120deg,rgba(255,255,255,.16),rgba(255,255,255,.07));border-color:rgba(255,255,255,.18);box-shadow:0 6px 16px -8px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.06)}
+.nav-item.on::before{content:"";position:absolute;inset-inline-start:-10px;top:20%;bottom:20%;width:4px;border-radius:99px;background:var(--amber);box-shadow:0 0 12px var(--amber)}
+.nav-item{position:relative}
+.nav-item svg{filter:drop-shadow(0 2px 3px rgba(0,0,0,.3))}
+/* topbar: floating glass */
+#topbar{background:color-mix(in srgb,var(--card) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);position:sticky;top:30px;z-index:45;box-shadow:0 8px 24px -18px rgba(0,0,0,.25)}
+.top-btn{transition:all .16s;border-radius:12px}
+.top-btn:hover{transform:translateY(-2px) scale(1.06);box-shadow:0 6px 14px -6px rgba(0,0,0,.25)}
+/* hero band */
+.hero{background:linear-gradient(120deg,var(--green-2),var(--green) 55%,color-mix(in srgb,var(--green) 70%,var(--amber) 30%));border-radius:20px;color:#fff;padding:0;margin-bottom:16px;overflow:hidden;position:relative;box-shadow:0 14px 34px -16px color-mix(in srgb,var(--green) 65%,#000)}
+.hero::after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:rgba(255,255,255,.08);top:-160px;inset-inline-end:-90px}
+.hero-in{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:20px 22px;position:relative;z-index:1}
+.hero h2{color:#fff;font-size:1.25rem;margin:0 0 4px}
+.hero p{opacity:.85;font-size:.85rem;margin:0}
+.hero-orbs{display:flex;gap:8px}
+.hero-orbs span{width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.14);display:grid;place-items:center;font-size:20px;animation:fxFloat 3.4s ease-in-out infinite}
+.hero-orbs span:nth-child(2){animation-delay:.5s}.hero-orbs span:nth-child(3){animation-delay:1s}
+@media(max-width:600px){.hero-orbs{display:none}}
+/* cards: lift + depth */
+.card{border-radius:18px;transition:transform .18s ease, box-shadow .18s ease;box-shadow:0 10px 26px -18px rgba(20,40,28,.35), 0 1px 0 rgba(255,255,255,.6) inset}
+.card:hover{transform:translateY(-3px);box-shadow:0 18px 34px -18px rgba(20,40,28,.4)}
+[data-theme="dark"] .card{box-shadow:0 12px 30px -18px rgba(0,0,0,.7)}
+.kpi{border-radius:18px;transition:transform .18s ease;background:linear-gradient(165deg,var(--card),color-mix(in srgb,var(--kc,var(--green)) 6%,var(--card)))}
+.kpi:hover{transform:translateY(-3px) scale(1.01)}
+.kpi .val{letter-spacing:-.01em}
+/* buttons: gradient + press */
+.btn{border-radius:13px;transition:all .15s cubic-bezier(.2,.8,.3,1.2);box-shadow:0 6px 14px -8px rgba(0,0,0,.35)}
+.btn:not(.ghost):not(.soft){background-image:linear-gradient(150deg,rgba(255,255,255,.14),transparent 45%)}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.97)}
+.chip{transition:all .15s;border-radius:99px}
+.chip:hover{transform:translateY(-1px)}
+.chip.on{box-shadow:0 4px 12px -6px color-mix(in srgb,var(--green) 70%,#000)}
+/* tables & modals */
+.tbl thead th{position:sticky;top:0}
+.tbl-wrap,.tbl{border-radius:14px}
+.modal{border-radius:22px;animation:modalPop .28s cubic-bezier(.2,.9,.3,1.15)}
+@keyframes modalPop{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:none}}
+.toast{border-radius:14px;backdrop-filter:blur(8px);box-shadow:0 12px 30px -12px rgba(0,0,0,.4)}
+/* bottom nav: floating dock */
+#bottomnav{border-radius:22px 22px 0 0;box-shadow:0 -10px 30px -16px rgba(0,0,0,.35);backdrop-filter:blur(12px)}
+#bottomnav button{transition:transform .15s}
+#bottomnav button.on{transform:translateY(-4px)}
+/* page transition */
+#page.pg-in{animation:pageSlide .26s ease}
+@keyframes pageSlide{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+/* auto-pilot */
+.ap-chip{position:fixed;top:74px;inset-inline-start:50%;transform:translateX(50%);background:linear-gradient(120deg,var(--navy),#274B8F);color:#fff;font-weight:800;font-size:.85rem;padding:9px 20px;border-radius:99px;z-index:400;box-shadow:0 12px 28px -10px rgba(20,40,90,.6);animation:pgin .25s ease}
+[dir="ltr"] .ap-chip{transform:translateX(-50%)}
+.hl-spot{outline:3px solid var(--amber)!important;outline-offset:3px;border-radius:14px;animation:spotPulse 1.1s ease-in-out 3}
+@keyframes spotPulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--amber) 60%,transparent)}50%{box-shadow:0 0 0 12px transparent}}
+/* driver portal chrome */
+.dv-bar{backdrop-filter:blur(12px);background:color-mix(in srgb,var(--card) 85%,transparent);box-shadow:0 8px 22px -18px rgba(0,0,0,.3)}
+.dv-wrap .kpi{border-radius:18px}
+.endbox2{border-radius:18px;box-shadow:0 10px 24px -16px rgba(160,100,0,.4)}
+@media (prefers-reduced-motion: reduce){.card,.kpi,.btn,.chip,#page.pg-in,.modal{animation:none;transition:none}.hero-orbs span{animation:none}}
+
 </style>
 </head>
 <body>
@@ -2591,6 +2660,15 @@ const V={pq:"",cq:"",croute:"all",mv_pid:"all"};
 function refreshList(id,html){const el=byId(id);if(el)el.innerHTML=html;}
 
 /* ---------- dashboard ---------- */
+function dashHero(){
+ const h=new Date().getHours();
+ const g=LANG==="ar"?(h<12?"صباح الخير":h<18?"مساء الخير":"مساء النور"):(h<12?"Good morning":"Good evening");
+ const nm=(typeof USER!=="undefined"&&USER&&USER.name)?USER.name:(LANG==="ar"?"يا ريّس":"");
+ return`<div class="hero"><div class="hero-in">
+  <div><h2>${g}، ${esc(nm)} 👋</h2><p>${LANG==="ar"?"دي لقطة شغلك دلوقتي — وكل حاجة بتتحدث لحظيًا":"Your business right now — updating live"}</p></div>
+  <div class="hero-orbs"><span>📊</span><span>🚚</span><span>💰</span></div>
+ </div></div>`;
+}
 function page_dash(){
  const today=todayISO();const bal=balances();
  const sToday=db.invoices.filter(v=>v.date===today).reduce((s,v)=>s+invTotals(v).inc,0);
@@ -2600,7 +2678,7 @@ function page_dash(){
  const low=db.products.filter(p=>p.active&&num(p.stock)<=num(p.min));
  const oldBackup=db.customers.length&&(!db.meta.lastBackup||db.meta.lastBackup<daysAgo(7));
  const ins=genInsights().slice(0,3);
- return`
+ return`${dashHero()}
  ${oldBackup?`<div class="tag-note">${t("d_backup_hint")}</div>`:""}
  <div class="grid g4" style="margin-bottom:16px">
   <div class="kpi" style="--kc:var(--green)"><div class="lbl">${ic("receipt")} ${t("d_sales")}</div><div class="val">${money(sToday)}</div><div class="sub">${cur()} — ${t("d_returns")}: ${money(rToday)}</div></div>
@@ -2973,8 +3051,9 @@ function colSave(){
 <script>/* ============ pages 3: reports / assistant / settings / help ============ */
 "use strict";
 /* ---------- reports ---------- */
-let REP={from:todayISO().slice(0,8)+"01",to:todayISO()};
+let REP={from:todayISO().slice(0,8)+"01",to:todayISO()};let __repInit=false;
 function page_rep(){
+ if(!__repInit){__repInit=true;const r=num((db.settings.analytics||{}).range);if(r)REP={from:daysAgo(r-1),to:todayISO()};}
  return`<div class="toolbar">
   <div class="field" style="margin:0"><label>${t("r_from")}</label><input class="inp" type="date" value="${REP.from}" onchange="REP.from=this.value"></div>
   <div class="field" style="margin:0"><label>${t("r_to")}</label><input class="inp" type="date" value="${REP.to}" onchange="REP.to=this.value"></div>
@@ -3048,7 +3127,13 @@ function genInsights(){
  prodStats(daysAgo(29),todayISO()).forEach(s=>{if(s.qout>=20&&s.qret/s.qout>0.15)out.push({kind:"warn",icon:"alert",title:LANG==="ar"?`مرتجع مرتفع: ${s.name}`:`High returns: ${s.name}`,body:LANG==="ar"?`نسبة المرتجع ${(s.qret/s.qout*100).toFixed(0)}% آخر 30 يوم — فكّر تقلل الكمية المحمّلة.`:`Return rate ${(s.qret/s.qout*100).toFixed(0)}% in 30 days — consider loading less.`});});
  const best=prodStats(daysAgo(29),todayISO())[0];
  if(best&&best.inc>0)out.push({kind:"good",icon:"spark",title:LANG==="ar"?`الأكثر دخلًا: ${best.name}`:`Top earner: ${best.name}`,body:LANG==="ar"?`حقق ${money(best.inc)} ${c} آخر 30 يوم — اتأكد إن مخزونه دايمًا متوفر.`:`Made ${money(best.inc)} ${c} in 30 days — keep it stocked.`});
- return out;
+ const n=db.settings.notif||{};
+ return out.filter(x=>{
+  if(x.icon==="box"&&n.low===false)return false;
+  if(x.icon==="wallet"&&n.debt===false)return false;
+  if(x.icon==="alert"&&n.ret===false)return false;
+  if(x.icon==="chart"&&n.week===false)return false;
+  return true;});
 }
 let AI_HIST=[];
 function page_ai(){
@@ -3167,6 +3252,27 @@ function page_set(){
   <p class="hint" style="margin-bottom:10px">${t("dl_hint")}</p>
   <div class="btn-row"><input class="inp" dir="ltr" readonly id="dl-link" value="${esc(typeof deviceLink==="function"&&CFGC?deviceLink():"")}" style="flex:1">
   <button class="btn" onclick="byId('dl-link').select();document.execCommand('copy');toast(t('dl_copied'))">${t("dl_copy")}</button></div>
+ </div>
+
+ <div class="card tabbed" style="--tab:var(--amber)"><h3>🔔 ${LANG==="ar"?"التنبيهات الذكية":"Smart notifications"}</h3>
+  <p class="hint" style="margin-bottom:8px">${LANG==="ar"?"تتحكم في التنبيهات التي تظهر في اللوحة والمساعد الذكي.":"Controls dashboard & assistant alerts."}</p>
+  ${[["low","📦 "+(LANG==="ar"?"أصناف قاربت على النفاد":"Low stock")],["debt","💰 "+(LANG==="ar"?"تنبيهات الشكوك والتحصيل":"Debt alerts")],["ret","↩ "+(LANG==="ar"?"المرتجعات المرتفعة":"High returns")],["week","📈 "+(LANG==="ar"?"ملخص أداء الأسبوع":"Weekly summary")]].map(([k,l])=>`
+  <label class="check-row"><span class="switch"><input type="checkbox" ${((db.settings.notif||{})[k]!==false)?"checked":""} onchange="db.settings.notif=db.settings.notif||{};db.settings.notif['${k}']=this.checked;save();toast(t('st_saved'))"><i></i></span> ${l}</label>`).join("")}
+  <p class="hint" style="margin-top:8px">${LANG==="ar"?"بصراحة: إشعارات SMS/البريد الخارجية تحتاج خدمة مدفوعة وسيرفر — لو احتجتها مستقبلًا نضيفها كخطوة منفصلة.":"External SMS/email push needs a paid service — can be added later."}</p>
+ </div>
+ <div class="card tabbed" style="--tab:var(--navy)"><h3>🔌 ${LANG==="ar"?"المفاتيح والتكاملات":"API keys & integrations"}</h3>
+  <div class="field"><label>Claude API (${LANG==="ar"?"اختياري — للأسئلة الحرة الأذكى":"optional"})</label><input class="inp" type="password" value="${esc(db.settings.aiKey||"")}" placeholder="sk-ant-..." onchange="db.settings.aiKey=this.value.trim();save();toast(t('st_saved'))"></div>
+  <div class="field"><label>Webhook URL (${LANG==="ar"?"للتكاملات المستقبلية — يُحفظ فقط حاليًا":"future"})</label><input class="inp" dir="ltr" value="${esc(db.settings.webhook||"")}" placeholder="https://..." onchange="db.settings.webhook=this.value.trim();save()"></div>
+ </div>
+ <div class="card tabbed"><h3>📊 ${LANG==="ar"?"إعدادات التحليلات":"Analytics"}</h3>
+  <div class="field"><label>${LANG==="ar"?"الفترة الافتراضية لصفحة التقارير":"Default report range"}</label>
+  <select class="inp" onchange="db.settings.analytics={range:num(this.value)};save();__repInit=false;toast(t('st_saved'))">
+   <option value="0" ${!num((db.settings.analytics||{}).range)?"selected":""}>${LANG==="ar"?"الشهر الحالي":"This month"}</option>
+   <option value="7" ${num((db.settings.analytics||{}).range)===7?"selected":""}>${LANG==="ar"?"آخر 7 أيام":"Last 7 days"}</option>
+   <option value="30" ${num((db.settings.analytics||{}).range)===30?"selected":""}>${LANG==="ar"?"آخر 30 يوم":"Last 30 days"}</option>
+   <option value="90" ${num((db.settings.analytics||{}).range)===90?"selected":""}>${LANG==="ar"?"آخر 90 يوم":"Last 90 days"}</option>
+  </select></div>
+  <p class="hint">${LANG==="ar"?"التصدير: Excel بمعادلات حقيقية من أي صفحة، وPDF عبر الطباعة ثم «Save as PDF».":"Excel with live formulas anywhere; PDF via Print → Save as PDF."}</p>
  </div>
  <div class="card tabbed"><h3>📜 ${t("act_title")}</h3>
   <div style="max-height:260px;overflow:auto">
@@ -4081,6 +4187,21 @@ function pageFx(p){
  const f=FXMAP[p]||["🧩","fx-float"];
  let el=byId("pagefx");if(!el){el=document.createElement("div");el.id="pagefx";document.body.appendChild(el);}
  el.textContent=f[0];el.className="pfx "+f[1];
+ const pg=byId("page");if(pg){pg.classList.remove("pg-in");void pg.offsetWidth;pg.classList.add("pg-in");}
+ countUp();
+}
+function countUp(){
+ if(typeof matchMedia!=="undefined"&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+ document.querySelectorAll("#page .kpi .val").forEach(el=>{
+  const txt=el.textContent.trim();
+  if(!/^[\d,]+(\.\d+)?$/.test(txt))return;
+  const target=parseFloat(txt.replace(/,/g,""));if(!isFinite(target)||target<=0)return;
+  const dec=txt.includes(".")?2:0;const t0=performance.now();
+  const step=now=>{const k=Math.min(1,(now-t0)/450);const v=target*(1-Math.pow(1-k,3));
+   el.textContent=v.toLocaleString("en-US",{minimumFractionDigits:dec,maximumFractionDigits:dec});
+   if(k<1)requestAnimationFrame(step);else el.textContent=txt;};
+  requestAnimationFrame(step);
+ });
 }
 
 /* ---------- boot ---------- */
@@ -4119,7 +4240,7 @@ if(typeof document!=="undefined")document.addEventListener("DOMContentLoaded",ma
 <script>/* ============ aiguide: free guidance bot with automated actions + global search ============ */
 "use strict";
 Object.assign(T.ar,{
- g_take:"🚀 خدني هناك ونفّذها",g_guide_hint:"اسألني «إزاي أعمل …؟» عن أي حاجة في النظام — هشرحلك الخطوات وأقدر أوديك للمكان وأفتحلك الشاشة المطلوبة بنفسي.",
+ g_take:"🚀 الطيار الآلي — نفّذها لي",g_ap:"🤖 الطيار الآلي شغّال…",g_guide_hint:"اسألني «إزاي أعمل …؟» عن أي حاجة في النظام — هشرحلك الخطوات وأقدر أوديك للمكان وأفتحلك الشاشة المطلوبة بنفسي.",
  gs_title:"بحث شامل",gs_ph:"ابحث عن عميل، صنف، فاتورة، قسم… (Ctrl+K)",gs_none:"لا توجد نتائج",gs_cust:"عميل",gs_prod:"صنف",gs_inv:"فاتورة",gs_sec:"قسم",gs_page:"صفحة",
 });
 Object.assign(T.en,{g_take:"🚀 Take me there",gs_title:"Global search",gs_ph:"Search customers, products, invoices… (Ctrl+K)",gs_none:"No results"});
@@ -4205,11 +4326,19 @@ function guideMatch(q){
  return score>0?best:null;
 }
 window.AIACT={};
+function apSpot(){
+ const c=document.createElement("div");c.className="ap-chip";c.textContent=t("g_ap");document.body.appendChild(c);
+ setTimeout(()=>c.remove(),2600);
+ setTimeout(()=>{
+  const m=document.querySelector("#modal-root .modal")||document.querySelector("#page .toolbar .btn")||document.querySelector("#page .btn");
+  if(m){m.classList.add("hl-spot");setTimeout(()=>m.classList.remove("hl-spot"),3600);}
+ },520);
+}
 function guideAnswer(gi){
  const g=GUIDE[gi];
  const actId=g.act?("g"+gi):null;
- if(actId)AIACT[actId]=g.act;
- aiPush("assistant",g.s,actId);
+ if(actId)AIACT[actId]=()=>{g.act();apSpot();};
+ aiPush("assistant",(LANG==="ar"?"📋 الخطوات:\n":"Steps:\n")+g.s,actId);
 }
 
 /* ---------- global search (topbar + Ctrl+K) ---------- */
