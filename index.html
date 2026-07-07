@@ -172,7 +172,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:.89rem;min-width:560px}
 .empty p{font-size:.85rem;margin-bottom:14px}
 
 /* ====== modal ====== */
-#modal-root:not(:empty){position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:16px;background:rgba(15,25,18,.55);backdrop-filter:blur(2px);animation:pgin .15s}
+#modal-root:not(:empty){position:fixed;inset:0;z-index:900;display:grid;place-items:center;padding:16px;background:rgba(15,25,18,.55);backdrop-filter:blur(2px);animation:pgin .15s}
 .modal{background:var(--card);border-radius:16px;width:min(620px,100%);max-height:92vh;display:flex;flex-direction:column;box-shadow:0 24px 60px -12px rgba(0,0,0,.4)}
 .modal.wide{width:min(860px,100%)}
 .modal-h{display:flex;align-items:center;gap:10px;padding:15px 20px;border-bottom:1px solid var(--line)}
@@ -182,7 +182,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:.89rem;min-width:560px}
 @media(max-width:600px){#modal-root:not(:empty){align-items:end;padding:0}.modal{border-radius:18px 18px 0 0;max-height:94vh}}
 
 /* ====== toast ====== */
-#toast-root{position:fixed;bottom:20px;inset-inline-start:50%;transform:translateX(50%);z-index:200;display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none}
+#toast-root{position:fixed;bottom:20px;inset-inline-start:50%;transform:translateX(50%);z-index:950;display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none}
 [dir="ltr"] #toast-root{transform:translateX(-50%)}
 .toast{background:var(--navy);color:#fff;border-radius:11px;padding:10px 18px;font-weight:800;font-size:.88rem;box-shadow:var(--shadow);display:flex;gap:9px;align-items:center;animation:tin .2s ease}
 .toast.ok{background:var(--green)}.toast.err{background:var(--red)}
@@ -434,6 +434,10 @@ body{background:
 .dv-wrap .kpi{border-radius:18px}
 .endbox2{border-radius:18px;box-shadow:0 10px 24px -16px rgba(160,100,0,.4)}
 @media (prefers-reduced-motion: reduce){.card,.kpi,.btn,.chip,#page.pg-in,.modal{animation:none;transition:none}.hero-orbs span{animation:none}}
+
+.lg-status{margin-top:12px;font-size:.85rem;font-weight:800;line-height:1.7}
+.lg-status.ok{color:#7CE3A8}.lg-status.err{color:#FCA5A5}
+.wbtn[disabled]{opacity:.6;cursor:wait}
 
 </style>
 </head>
@@ -3822,11 +3826,36 @@ function scrLoginC(side){
   <input class="winp" id="lg-email" type="email" dir="ltr" placeholder="name@email.com" autocomplete="email">
   <button class="wbtn ${mgmt?"gn":"cy"}" id="lg-send">${t("lg_send")}</button>
   <button class="wlink" onclick="scrWelcomeC()">→ ${t("back")}</button>
-  <p class="pmini" id="lg-msg"></p></div></div></div>`);
- byId("lg-send").onclick=async()=>{const em=lcx(byId("lg-email").value);if(!em.includes("@"))return toast(t("invalid_file"),"err");
-  try{await FB.sendSignInLinkToEmail(AUTHC,em,{url:location.origin+location.pathname,handleCodeInApp:true});
-   localStorage.setItem("cloud_pending_email",em);byId("lg-msg").textContent=t("lg_sent");}
-  catch(e){console.warn(e);toast("تعذر الإرسال — تأكد من الإنترنت وأن الدومين مضاف في Firebase Auth","err")}};
+  <p class="lg-status" id="lg-msg"></p></div></div></div>`);
+ const msg=(txt,ok)=>{const m=byId("lg-msg");if(m){m.textContent=txt;m.className="lg-status "+(ok?"ok":"err");}};
+ const sendIt=async()=>{
+  const btn=byId("lg-send");
+  const em=lcx(byId("lg-email").value);
+  if(!em.includes("@")||em.length<5)return msg(LANG==="ar"?"اكتب إيميلًا صحيحًا أولًا":"Enter a valid email first",false);
+  if(!navigator.onLine)return msg(t("net_off"),false);
+  if(!AUTHC)return msg(LANG==="ar"?"إعدادات Firebase غير مكتملة على هذا الجهاز — امسح إعدادات الجهاز وأعد الإعداد":"Firebase config missing on this device",false);
+  btn.disabled=true;const old=btn.textContent;btn.textContent=LANG==="ar"?"⏳ جارٍ الإرسال…":"⏳ Sending…";
+  msg(LANG==="ar"?"لحظة واحدة…":"One moment…",true);
+  try{
+   await FB.sendSignInLinkToEmail(AUTHC,em,{url:location.origin+location.pathname,handleCodeInApp:true});
+   localStorage.setItem("cloud_pending_email",em);
+   msg(t("lg_sent"),true);toast(t("lg_sent"));
+  }catch(e){
+   console.warn("sendlink",e);
+   const c=(e&&e.code)||"";
+   let m;
+   if(c.includes("operation-not-allowed"))m=LANG==="ar"?"مطلوب تفعيل في Firebase: Authentication → Sign-in method → Email/Password → فعّل الخيار وفعّل معه Email link (passwordless) ثم Save":"Enable Email link (passwordless) under Authentication → Sign-in method → Email/Password";
+   else if(c.includes("unauthorized")||c.includes("domain"))m=LANG==="ar"?"الدومين غير مصرح: Firebase → Authentication → Settings → Authorized domains → أضف "+location.hostname:"Add "+location.hostname+" to Authorized domains in Firebase Auth settings";
+   else if(c.includes("invalid-email"))m=LANG==="ar"?"صيغة الإيميل غير صحيحة":"Invalid email format";
+   else if(c.includes("too-many"))m=LANG==="ar"?"محاولات كثيرة — استنى دقيقة وحاول تاني":"Too many attempts — wait a minute";
+   else if(c.includes("network"))m=t("net_off");
+   else m=(LANG==="ar"?"تعذر الإرسال":"Failed to send")+(c?" ("+c+")":"");
+   msg(m,false);toast(m,"err");
+  }finally{btn.disabled=false;btn.textContent=old;}
+ };
+ byId("lg-send").addEventListener("click",sendIt);
+ byId("lg-email").addEventListener("keydown",e=>{if(e.key==="Enter")sendIt()});
+ setTimeout(()=>{const i=byId("lg-email");if(i)i.focus()},120);
 }
 async function doLogoutC(){try{await FB.signOut(AUTHC)}catch(e){}location.reload();}
 
