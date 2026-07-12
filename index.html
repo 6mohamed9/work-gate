@@ -465,6 +465,7 @@ tr.on-row{background:var(--green-soft)}
   <header id="topbar">
    <h1 id="tb-title"></h1><span class="top-date" id="tb-date"></span>
    <div class="top-actions">
+    <button class="top-btn" id="tb-bell" onclick="notifPanel()" title="الإشعارات" style="position:relative">🔔<span id="bell-badge" style="display:none;position:absolute;top:0;inset-inline-end:0;background:#dc2626;color:#fff;border-radius:999px;font-size:10px;line-height:1;padding:2px 5px;font-weight:800;min-width:16px;text-align:center"></span></button>
     <button class="top-btn" id="tb-search" title="بحث (Ctrl+K)">🔎</button>
     <button class="top-btn" id="tb-theme" title="الوضع الليلي">🌙</button>
     <button class="top-btn" id="tb-lang" title="اللغة">🌐</button>
@@ -2234,7 +2235,7 @@ s_title:"المخزن",s_in:"تسجيل استلام (المستلم)",s_dmg:"ت
 /* invoices */
 i_title:"الفاتورة اليومية",i_new:"فاتورة جديدة",i_list:"الفواتير السابقة",i_route:"الخط / البلد",i_worker:"اسم المندوب",i_out:"عدد الخارج",i_vout:"قيمة الخارج",i_ret:"عدد المرتجع",i_vret:"قيمة المرتجع",i_net:"صافي الكمية المباعة",i_income:"إجمالي الدخل",i_price:"السعر",i_addall:"إضافة كل الأصناف",i_addone:"إضافة صنف",i_total:"الإجمالي العام",i_apply:"خصم الكميات من رصيد المخزن",i_saved:"تم حفظ الفاتورة",i_del_q:"سيتم حذف الفاتورة وإرجاع الكميات لرصيد المخزن (إن كانت مخصومة).",i_empty:"لا توجد فواتير بعد",i_empty_p:"سجّل حركة المبيعات والمرتجع لكل يوم، والحسابات كلها تلقائية.",i_head:"بيان حركة المبيعات وفاتورة المخزن اليومية",i_view:"عرض",i_lines_req:"أدخل كمية لصنف واحد على الأقل",i_dup:"نسخ كفاتورة جديدة",
 /* customers */
-c_title:"العملاء",c_new:"عميل جديد",c_name:"اسم العميل",c_route:"البلد / الخط",c_addr:"العنوان",c_phone:"الهاتف",c_phone2:"هاتف آخر",c_bal:"الشكك",c_opening:"شكك سابق (رصيد أول)",c_ledger:"كشف حساب",c_pay:"تسجيل دفعة",c_debt:"إضافة شكك (بيع آجل)",c_empty:"لا يوجد عملاء بعد",c_empty_p:"استورد دفتر عملائك من Google Sheets مباشرة — كل ورقة (بلد) تتحول لخط تلقائيًا.",c_del_q:"سيتم حذف العميل وكل حركاته نهائيًا.",c_amount:"المبلغ",c_desc:"البيان",c_after:"الرصيد بعد الحركة",c_routes_mng:"إدارة الخطوط",c_route_new:"إضافة خط / بلد",c_route_del:"حذف الخط؟ العملاء المرتبطون به سيصبحون بدون خط.",c_no_route:"بدون خط",c_debtors:"عليهم شكوك",c_count:"عدد العملاء",c_tx_pay:"دفعة",c_tx_debt:"شكك",c_paid_today:"المدفوع لليوم",c_bal_after:"الشكك بعد الدفع",c_sheet:"كشف عملاء",c_export_route:"تصدير كشوف Excel (كل خط في ورقة)",
+c_title:"العملاء",c_sec_add:"إضافة قسم عملاء",c_sec_add_q:"اسم قسم العملاء الجديد:",c_sec_del_q:"حذف هذا القسم نهائيًا؟",c_sec_del_no:"القسم فيه عملاء — انقلهم أو احذفهم الأول",dv_cust_t:"دليل العملاء",dv_cust_hint:"عرض فقط — نفس أقسام الإدارة (الستاندات، اللبان، البرافانات، وأي قسم جديد) مع البحث",rf_title:"البلاد / الخطوط",rf_debt:"عليهم شكوك فقط",rf_clear:"مسح الفلتر",rf_sel:"محدد",c_print_f:"طباعة النتائج المعروضة",c_export_f:"تصدير النتائج المعروضة",nf_title:"الإشعارات",nf_empty:"لا توجد إشعارات بعد — أي إضافة أو تعديل من المندوبين هيظهر هنا",nf_hist:"عرض السجل الكامل",nf_hist_t:"سجل إشعارات المندوبين الكامل",nf_new_trip:"بدأ رحلة جديدة",nf_entries:"أضاف / عدّل تسجيلات في رحلته",nf_locked:"قفل رحلته نهائيًا",nf_reopened:"رحلة أُعيد فتحها",nf_open:"فتح التفاصيل",nf_close:"إغلاق",nf_expand:"فتح الرحلة كاملة",nf_markall:"تعليم الكل كمقروء",nf_driver:"المندوب",nf_when:"الوقت",nf_what:"الحدث",nf_last:"آخر تسجيل",c_sec_stands:"عملاء الستاندات",c_sec_lebban:"عملاء اللبان",c_sec_prv:"عملاء البرافانات",c_sec_rename:"إعادة تسمية القسم",c_sec_search:"بحث في القسم (اسم، بلد، عنوان، هاتف)...",c_new:"عميل جديد",c_name:"اسم العميل",c_route:"البلد / الخط",c_addr:"العنوان",c_phone:"الهاتف",c_phone2:"هاتف آخر",c_bal:"الشكك",c_opening:"شكك سابق (رصيد أول)",c_ledger:"كشف حساب",c_pay:"تسجيل دفعة",c_debt:"إضافة شكك (بيع آجل)",c_empty:"لا يوجد عملاء بعد",c_empty_p:"استورد دفتر عملائك من Google Sheets مباشرة — كل ورقة (بلد) تتحول لخط تلقائيًا.",c_del_q:"سيتم حذف العميل وكل حركاته نهائيًا.",c_amount:"المبلغ",c_desc:"البيان",c_after:"الرصيد بعد الحركة",c_routes_mng:"إدارة الخطوط",c_route_new:"إضافة خط / بلد",c_route_del:"حذف الخط؟ العملاء المرتبطون به سيصبحون بدون خط.",c_no_route:"بدون خط",c_debtors:"عليهم شكوك",c_count:"عدد العملاء",c_tx_pay:"دفعة",c_tx_debt:"شكك",c_paid_today:"المدفوع لليوم",c_bal_after:"الشكك بعد الدفع",c_sheet:"كشف عملاء",c_export_route:"تصدير كشوف Excel (كل خط في ورقة)",
 /* collections */
 col_title:"التحصيل",col_pick:"اختر الخط لبدء التحصيل",col_showall:"عرض كل العملاء (حتى بدون شكوك)",col_collected:"إجمالي المحصل",col_save:"حفظ التحصيلات",col_saved:"تم تسجيل التحصيلات",col_print:"طباعة كشف تحصيل",col_hint:"اكتب المبلغ المدفوع أمام كل عميل — الباقي يتحسب فورًا.",col_none:"لا يوجد عملاء بهذا الخط",col_sheet_t:"كشف تحصيل",
 /* reports */
@@ -2259,7 +2260,7 @@ d_sales:"Today's sales",d_col:"Collected today",d_debts:"Total debts",d_low:"Low
 p_title:"Products",p_new:"New product",p_name:"Product name",p_unit:"Unit",p_price:"Sell price",p_cost:"Cost price",p_stock:"Current stock",p_min:"Alert level",p_status:"Status",p_active:"Active",p_hidden:"Inactive",p_empty:"No products yet",p_empty_p:"Add your products or import them from a ready Excel file.",p_del_q:"This product will be deleted permanently. Old moves/invoices keep the name only.",p_unit_bag:"Bag",p_unit_ctn:"Carton",p_unit_pc:"Piece",p_value:"Stock value",
 s_title:"Inventory",s_in:"Receive stock",s_dmg:"Record damaged",s_adj:"Adjust balance",s_moves:"Stock moves",s_type:"Type",s_qty:"Qty",s_product:"Product",s_t_in:"Received",s_t_dmg:"Damaged",s_t_adj:"Adjustment",s_t_out:"Invoice (out)",s_t_ret:"Invoice return",s_low:"Below alert",s_ok:"In stock",s_empty:"No moves yet",s_reason:"Reason / note",s_newbal:"New balance",s_report:"Received & damaged report",
 i_title:"Daily Invoice",i_new:"New invoice",i_list:"Past invoices",i_route:"Route / Town",i_worker:"Salesman",i_out:"Qty out",i_vout:"Value out",i_ret:"Qty returned",i_vret:"Return value",i_net:"Net qty sold",i_income:"Total income",i_price:"Price",i_addall:"Add all products",i_addone:"Add product",i_total:"Grand total",i_apply:"Deduct quantities from stock",i_saved:"Invoice saved",i_del_q:"The invoice will be deleted and quantities returned to stock (if deducted).",i_empty:"No invoices yet",i_empty_p:"Record daily out/returns per product — all math is automatic.",i_head:"Daily sales movement & stock invoice",i_view:"View",i_lines_req:"Enter a quantity for at least one product",i_dup:"Duplicate as new",
-c_title:"Customers",c_new:"New customer",c_name:"Customer name",c_route:"Town / Route",c_addr:"Address",c_phone:"Phone",c_phone2:"Other phone",c_bal:"Debt",c_opening:"Opening debt",c_ledger:"Statement",c_pay:"Record payment",c_debt:"Add debt (credit sale)",c_empty:"No customers yet",c_empty_p:"Import your customer book from Google Sheets — each sheet (town) becomes a route automatically.",c_del_q:"The customer and all their transactions will be deleted permanently.",c_amount:"Amount",c_desc:"Description",c_after:"Balance after",c_routes_mng:"Manage routes",c_route_new:"Add route / town",c_route_del:"Delete route? Its customers become unassigned.",c_no_route:"No route",c_debtors:"With debts",c_count:"Customers",c_tx_pay:"Payment",c_tx_debt:"Debt",c_paid_today:"Paid today",c_bal_after:"Debt after payment",c_sheet:"Customer sheet",c_export_route:"Export Excel books (one sheet per route)",
+c_title:"Customers",c_sec_add:"Add customer section",c_sec_add_q:"New customer section name:",c_sec_del_q:"Delete this section permanently?",c_sec_del_no:"Section has customers — move or delete them first",dv_cust_t:"Customers directory",dv_cust_hint:"Read-only — same sections as management (Stands, Gum, Paravans and any new section) with search",rf_title:"Towns / Routes",rf_debt:"With debts only",rf_clear:"Clear filter",rf_sel:"selected",c_print_f:"Print shown results",c_export_f:"Export shown results",nf_title:"Notifications",nf_empty:"No notifications yet — driver additions and edits will appear here",nf_hist:"View full history",nf_hist_t:"Full driver notifications history",nf_new_trip:"started a new trip",nf_entries:"added / edited entries in their trip",nf_locked:"locked their trip",nf_reopened:"trip was reopened",nf_open:"Open details",nf_close:"Close",nf_expand:"Open full trip",nf_markall:"Mark all read",nf_driver:"Driver",nf_when:"Time",nf_what:"Event",nf_last:"Last entry",c_sec_stands:"Stands Customers",c_sec_lebban:"Lebban Customers",c_sec_prv:"Paravan Customers",c_sec_rename:"Rename section",c_sec_search:"Search this section (name, town, address, phone)...",c_new:"New customer",c_name:"Customer name",c_route:"Town / Route",c_addr:"Address",c_phone:"Phone",c_phone2:"Other phone",c_bal:"Debt",c_opening:"Opening debt",c_ledger:"Statement",c_pay:"Record payment",c_debt:"Add debt (credit sale)",c_empty:"No customers yet",c_empty_p:"Import your customer book from Google Sheets — each sheet (town) becomes a route automatically.",c_del_q:"The customer and all their transactions will be deleted permanently.",c_amount:"Amount",c_desc:"Description",c_after:"Balance after",c_routes_mng:"Manage routes",c_route_new:"Add route / town",c_route_del:"Delete route? Its customers become unassigned.",c_no_route:"No route",c_debtors:"With debts",c_count:"Customers",c_tx_pay:"Payment",c_tx_debt:"Debt",c_paid_today:"Paid today",c_bal_after:"Debt after payment",c_sheet:"Customer sheet",c_export_route:"Export Excel books (one sheet per route)",
 col_title:"Collections",col_pick:"Pick a route to start collecting",col_showall:"Show all customers (even with no debt)",col_collected:"Total collected",col_save:"Save collections",col_saved:"Collections recorded",col_print:"Print collection sheet",col_hint:"Type the paid amount next to each customer — the remainder updates instantly.",col_none:"No customers on this route",col_sheet_t:"Collection sheet",
 r_title:"Reports & Analytics",r_from:"From",r_to:"To",r_sales:"Net sales",r_returns:"Returns value",r_colsum:"Total collected",r_newdebt:"New debts",r_byprod:"Product analysis",r_byroute:"Debts by route",r_trend:"Sales trend",r_top:"Top sellers",r_retrate:"Return rate",r_topdebt:"Top debtors",r_this_month:"This month",r_7:"Last 7 days",r_30:"Last 30 days",r_apply:"Apply",r_nodata:"No data in this period",r_export:"Export report",
 a_title:"AI Assistant",a_insights:"Automatic insights from your data",a_refresh:"Refresh insights",a_chat:"Ask about your business",a_ph:"Type a question... e.g. who owes me the most?",a_send:"Send",a_local_note:"Quick questions work offline. Free-text answers need the AI key below.",a_key:"Claude API key (optional)",a_key_hint:"Enables free-text smart answers when online. The key is stored on this device only; each question sends a general numeric summary (no customer names).",a_model:"Model",a_model_fast:"Fast & economical (Haiku)",a_model_smart:"Smarter (Sonnet)",a_thinking:"Thinking...",a_need_net:"Free questions need internet + an API key. Try the quick buttons, or add a key below.",a_err:"Couldn't reach the assistant. Check internet and the key.",a_q1:"Who are my top debtors?",a_q2:"Best-selling products this month?",a_q3:"How were sales last week?",a_q4:"Which products are running low?",a_q5:"Which route has the most debt?",
@@ -2314,6 +2315,36 @@ function emptyBox(icon,title,p,btnHtml){return`<div class="empty">${ic(icon)}<b>
 const PAGES=[["dash","nav_dash","home"],["inv","nav_inv","receipt"],["cust","nav_cust","users"],["col","nav_col","cash"],["trips","nav_trips","route"],["prod","nav_prod","box"],["stock","nav_stock","store"],["rep","nav_rep","chart"],["ai","nav_ai","spark"],["perm","nav_perm","lock"],["set","nav_set","gear"],["help","nav_help","help"]];
 let CUR="dash";
 function navName(k,l){return (db.settings.navNames||{})[k]||t(l);}
+function custSecs(){const base=[{id:"stands",k:"c_sec_stands"},{id:"lebban",k:"c_sec_lebban"},{id:"prv",k:"c_sec_prv"}];const ov=(db.settings&&db.settings.custSecNames)||{};const extra=(db.settings&&Array.isArray(db.settings.custSecExtra))?db.settings.custSecExtra:[];return base.map(s=>({id:s.id,name:ov[s.id]||t(s.k),extra:false})).concat(extra.map(s=>({id:s.id,name:ov[s.id]||s.name,extra:true})));}
+function custSecAdd(){const nn=prompt(t("c_sec_add_q"));if(nn===null)return;const v=String(nn).trim();if(!v)return;db.settings.custSecExtra=db.settings.custSecExtra||[];const id="cs_"+uid();db.settings.custSecExtra.push({id,name:v});save();toast(t("toast_saved"));V.csec=id;go(CUR);}
+function custSecDel(id){const s=custSecs().find(x=>x.id===id);if(!s||!s.extra)return;
+ if(db.customers.some(c=>cSec(c)===id))return toast(t("c_sec_del_no"),"err");
+ confirmBox(t("delete"),t("c_sec_del_q"),()=>{db.settings.custSecExtra=(db.settings.custSecExtra||[]).filter(x=>x.id!==id);if(db.settings.custSecNames)delete db.settings.custSecNames[id];save();if(V.csec===id)V.csec="stands";toast(t("del_done"));go(CUR);},true);}
+function custSecName(id){const s=custSecs().find(x=>x.id===id);return s?s.name:custSecs()[0].name;}
+function cSec(c){return c&&c.sec?c.sec:"stands";}
+function custSecRename(id){const nn=prompt(t("c_sec_rename"),custSecName(id));if(nn===null)return;const v=String(nn).trim();if(!v)return;db.settings.custSecNames=db.settings.custSecNames||{};db.settings.custSecNames[id]=v;save();toast(t("toast_saved"));go(CUR);}
+function custSecGo(id){V.csec=id;go(CUR);}
+const RF_KEY="nizam_cust_rf_v1";
+function rfAll(){try{return JSON.parse(localStorage.getItem(RF_KEY)||"{}")}catch(e){return{}}}
+function rfState(){const a=rfAll();const s=a[V.csec];return{routes:(s&&Array.isArray(s.routes))?s.routes.filter(id=>db.routes.some(r=>r.id===id)):[],debt:!!(s&&s.debt)};}
+function rfSave(st){const a=rfAll();a[V.csec]=st;try{localStorage.setItem(RF_KEY,JSON.stringify(a))}catch(e){}}
+function rfCount(){const s=rfState();return s.routes.length+(s.debt?1:0);}
+function rfToggleRoute(id,on){const s=rfState();s.routes=s.routes.filter(x=>x!==id);if(on)s.routes.push(id);rfSave(s);rfRefresh();}
+function rfToggleDebt(on){const s=rfState();s.debt=!!on;rfSave(s);rfRefresh();}
+function rfClear(){rfSave({routes:[],debt:false});go(CUR);}
+function rfRefresh(){const b=byId("rf-btn");if(b)b.innerHTML=rfBtnLabel();refreshList("cust-list",custTable());}
+function rfBtnLabel(){const n=rfCount();return `🌍 ${t("rf_title")}${n?` <span class="badge g">${n} ${t("rf_sel")}</span>`:""} ▾`;}
+function rfPanelToggle(){const p=byId("rf-panel");if(!p)return;p.style.display=p.style.display==="none"?"block":"none";}
+function custFiltered(){
+ const bal=balances();const q=(V.cqs[V.csec]||"").trim();const s=rfState();
+ return db.customers.filter(c=>{
+  if(cSec(c)!==V.csec)return false;
+  if(s.debt&&num(bal[c.id])<=0)return false;
+  if(s.routes.length&&!s.routes.includes(c.routeId))return false;
+  if(q&&!(c.name.includes(q)||(c.address||"").includes(q)||(c.phone||"").includes(q)||(c.phone2||"").includes(q)||R_name(c.routeId).includes(q)))return false;
+  return true;
+ }).sort((a,b)=>String(a.name).localeCompare(String(b.name),"ar"));
+}
 function allNav(){
  const base=PAGES.map(([k,l,icn])=>({k,label:navName(k,l),icon:icn})).filter(x=>typeof PERMV!=="function"||PERMV(x.k)!=="hide");
  const customs=(db.custom||[]).map(c=>({k:"cx_"+c.id,label:c.name,icon:c.icon||"box"})).filter(x=>typeof PERMV!=="function"||PERMV("custom")!=="hide");
@@ -2630,11 +2661,28 @@ function printInvoice(id){
 }
 function printCollectSheet(routeId){
  const bal=balances();const list=db.customers.filter(c=>(!routeId||c.routeId===routeId)).sort((a,b)=>String(a.name).localeCompare(String(b.name),"ar"));
+ printCustSheet(list,routeId?R_name(routeId):t("all"),bal);
+}
+function printCustSheet(list,subtitle,bal){
  const rows=list.map((c,i)=>`<tr><td>${i+1}</td><td class="st">${esc(c.name)}</td><td class="st">${esc(c.address||"")}</td><td class="num">${esc(fixPhone(c.phone))}</td><td class="num">${money(bal[c.id])}</td><td style="min-width:62px"></td><td style="min-width:62px"></td></tr>`).join("");
- printHTML(`${pHead(t("col_sheet_t"),routeId?R_name(routeId):t("all"))}
+ printHTML(`${pHead(t("col_sheet_t"),subtitle)}
  <table class="p-tbl green"><thead><tr><th>#</th><th>${t("c_name")}</th><th>${t("c_addr")}</th><th>${t("c_phone")}</th><th>${t("c_bal")}</th><th>${t("c_paid_today")}</th><th>${t("c_bal_after")}</th></tr></thead><tbody>${rows}</tbody>
  <tfoot><tr><td></td><td class="st">${t("total")}</td><td></td><td></td><td class="num">${money(list.reduce((s,c)=>s+num(bal[c.id]),0))}</td><td></td><td></td></tr></tfoot></table>
  <div class="p-foot"><span>${t("collector")}: ................</span><span>${t("sig")}: ................</span></div>`);
+}
+function printCustFiltered(){
+ const list=custFiltered();if(!list.length)return toast(t("no_results"),"err");
+ const s=rfState();const sub=esc(custSecName(V.csec))+(s.routes.length?" — "+s.routes.map(R_name).join("، "):"")+(s.debt?" — "+t("c_debtors"):"");
+ printCustSheet(list,sub,balances());
+}
+function exportCustFiltered(){
+ const list=custFiltered();if(!list.length)return toast(t("no_results"),"err");
+ const bal=balances();
+ const rows=[[t("c_name"),t("c_route"),t("c_addr"),t("c_phone"),t("c_bal")].map(h=>XC(h,XS.head()))];
+ list.forEach(c=>rows.push([XC(c.name,XS.st),XC(R_name(c.routeId),XS.cell),XC(c.address||"",XS.st),XC(fixPhone(c.phone),XS.cell),XC(num(bal[c.id]),XS.money)]));
+ rows.push([XC(t("total"),XS.totTx),XC("",XS.tot),XC("",XS.tot),XC("",XS.tot),XC(list.reduce((s,c)=>s+num(bal[c.id]),0),XSn(XS.tot))]);
+ const wb=mkWB();XLSX.utils.book_append_sheet(wb,mkWS(rows,[24,14,28,15,12]),shName(custSecName(V.csec),new Set()));
+ dlWB(wb,`عملاء-مفلتر-${todayISO()}.xlsx`);
 }
 
 /* ---- AI ---- */
@@ -2671,7 +2719,7 @@ function salesByDay(days){
  const out=[];for(let i=days-1;i>=0;i--){const d=daysAgo(i);const inc=db.invoices.filter(v=>v.date===d).reduce((s,v)=>s+invTotals(v).inc,0);out.push({d,inc});}
  return out;
 }
-const V={pq:"",cq:"",croute:"all",mv_pid:"all"};
+const V={pq:"",cq:"",croute:"all",mv_pid:"all",csec:"stands",cqs:{}};
 function refreshList(id,html){const el=byId(id);if(el)el.innerHTML=html;}
 
 /* ---------- dashboard ---------- */
@@ -2897,36 +2945,42 @@ function invDel(id){askPin(()=>confirmBox(t("delete"),t("i_del_q"),()=>{const v=
 /* ---------- customers ---------- */
 function page_cust(){
  const bal=balances();
- const debts=db.customers.reduce((s,c)=>s+Math.max(0,num(bal[c.id])),0);
+ if(!custSecs().some(s=>s.id===V.csec))V.csec="stands";
+ const secCust=db.customers.filter(c=>cSec(c)===V.csec);
+ const debts=secCust.reduce((s,c)=>s+Math.max(0,num(bal[c.id])),0);
  return`
+ <div class="toolbar" style="margin-bottom:12px;gap:8px;flex-wrap:wrap">
+  ${custSecs().map(s=>`<button class="btn ${V.csec===s.id?"":"ghost"}" style="display:inline-flex;align-items:center;gap:6px" onclick="custSecGo('${s.id}')">${ic("users")} ${esc(s.name)} <span class="badge">${db.customers.filter(c=>cSec(c)===s.id).length}</span></button><button class="icon-btn" title="${t("c_sec_rename")}" onclick="custSecRename('${s.id}')">✎</button>${s.extra?`<button class="icon-btn" title="${t("delete")}" style="color:var(--red)" onclick="custSecDel('${s.id}')">✕</button>`:""}`).join("")}
+  <button class="btn soft" onclick="custSecAdd()">${ic("plus")} ${t("c_sec_add")}</button>
+ </div>
  <div class="grid g3" style="margin-bottom:16px">
-  <div class="kpi" style="--kc:var(--navy)"><div class="lbl">${ic("users")} ${t("c_count")}</div><div class="val">${db.customers.length}</div><div class="sub">${db.routes.length} ${t("i_route")}</div></div>
+  <div class="kpi" style="--kc:var(--navy)"><div class="lbl">${ic("users")} ${esc(custSecName(V.csec))} — ${t("c_count")}</div><div class="val">${secCust.length}</div><div class="sub">${db.routes.length} ${t("i_route")}</div></div>
   <div class="kpi" style="--kc:var(--red)"><div class="lbl">${ic("wallet")} ${t("d_debts")}</div><div class="val">${money(debts)}</div><div class="sub">${cur()}</div></div>
-  <div class="kpi" style="--kc:var(--green)"><div class="lbl">${ic("alert")} ${t("c_debtors")}</div><div class="val">${db.customers.filter(c=>num(bal[c.id])>0).length}</div><div class="sub">${t("c_count")}</div></div>
+  <div class="kpi" style="--kc:var(--green)"><div class="lbl">${ic("alert")} ${t("c_debtors")}</div><div class="val">${secCust.filter(c=>num(bal[c.id])>0).length}</div><div class="sub">${t("c_count")}</div></div>
  </div>
  <div class="toolbar">
-  <div class="search-wrap">${ic("search")}<input class="inp" placeholder="${t("search")}" value="${esc(V.cq)}" oninput="V.cq=this.value;refreshList('cust-list',custTable())"></div>
-  <select class="inp" style="max-width:200px" onchange="V.croute=this.value;refreshList('cust-list',custTable())">
-   <option value="all">${t("all")}</option><option value="debt" ${V.croute==="debt"?"selected":""}>${t("c_debtors")}</option>
-   ${db.routes.map(r=>`<option value="${r.id}" ${V.croute===r.id?"selected":""}>${esc(r.name)}</option>`).join("")}
-  </select>
+  <div class="search-wrap">${ic("search")}<input class="inp" placeholder="${t("c_sec_search")}" value="${esc(V.cqs[V.csec]||"")}" oninput="V.cqs[V.csec]=this.value;refreshList('cust-list',custTable())"></div>
+  <div style="position:relative">
+   <button class="btn ghost" id="rf-btn" onclick="rfPanelToggle()">${rfBtnLabel()}</button>
+   <div id="rf-panel" style="display:none;position:absolute;top:110%;inset-inline-start:0;z-index:60;min-width:240px;max-height:320px;overflow:auto;background:var(--card,#fff);border:1px solid var(--line,#ddd);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.15);padding:10px">
+    <label style="display:flex;gap:8px;align-items:center;padding:6px 4px;font-weight:700"><input type="checkbox" ${rfState().debt?"checked":""} onchange="rfToggleDebt(this.checked)"> ${t("rf_debt")}</label>
+    <hr style="border:none;border-top:1px solid var(--line,#eee);margin:6px 0">
+    ${db.routes.map(r=>`<label style="display:flex;gap:8px;align-items:center;padding:5px 4px"><input type="checkbox" ${rfState().routes.includes(r.id)?"checked":""} onchange="rfToggleRoute('${r.id}',this.checked)"> ${esc(r.name)}</label>`).join("")||`<p class="muted" style="padding:4px">${t("c_no_route")}</p>`}
+    <div class="btn-row" style="margin-top:8px"><button class="btn ghost" style="width:100%" onclick="rfClear()">✕ ${t("rf_clear")}</button></div>
+   </div>
+  </div>
   <button class="btn" onclick="custEdit()">${ic("plus")} ${t("c_new")}</button>
   <button class="btn ghost" onclick="importCustomersUI()">${ic("up")} ${t("importX")}</button>
-  <button class="btn ghost" onclick="exportCustomers()" title="${t("c_export_route")}">${ic("dl")} ${t("exportX")}</button>
+  <button class="btn ghost" onclick="exportCustFiltered()" title="${t("c_export_f")}">${ic("dl")} ${t("c_export_f")}</button>
   <button class="btn ghost" onclick="routesUI()">${ic("route")} ${t("c_routes_mng")}</button>
-  <button class="btn ghost" onclick="printCollectSheet(V.croute!=='all'&&V.croute!=='debt'?V.croute:null)">${ic("print")} ${t("c_sheet")}</button>
+  <button class="btn ghost" onclick="printCustFiltered()" title="${t("c_print_f")}">${ic("print")} ${t("c_print_f")}</button>
  </div>
  <div id="cust-list">${custTable()}</div>`;
 }
 function custTable(){
- const bal=balances();const q=V.cq.trim();
- let list=db.customers.filter(c=>{
-  if(V.croute==="debt"&&num(bal[c.id])<=0)return false;
-  if(V.croute!=="all"&&V.croute!=="debt"&&c.routeId!==V.croute)return false;
-  if(q&&!(c.name.includes(q)||(c.address||"").includes(q)||(c.phone||"").includes(q)))return false;
-  return true;
- }).sort((a,b)=>String(a.name).localeCompare(String(b.name),"ar"));
- if(!db.customers.length)return`<div class="card">${emptyBox("users",t("c_empty"),t("c_empty_p"),`<div class="btn-row" style="justify-content:center"><button class="btn" onclick="importCustomersUI()">${ic("up")} ${t("importX")}</button><button class="btn ghost" onclick="custEdit()">${ic("plus")} ${t("c_new")}</button></div>`)}</div>`;
+ const bal=balances();
+ let list=custFiltered();
+ if(!db.customers.filter(c=>cSec(c)===V.csec).length)return`<div class="card">${emptyBox("users",t("c_empty"),t("c_empty_p"),`<div class="btn-row" style="justify-content:center"><button class="btn" onclick="importCustomersUI()">${ic("up")} ${t("importX")}</button><button class="btn ghost" onclick="custEdit()">${ic("plus")} ${t("c_new")}</button></div>`)}</div>`;
  if(!list.length)return`<div class="card"><p class="muted">${t("no_results")}</p></div>`;
  const shown=list.slice(0,400);
  return`<div class="tbl-wrap"><table class="tbl"><thead><tr><th>${t("c_name")}</th><th>${t("c_route")}</th><th>${t("c_addr")}</th><th>${t("c_phone")}</th><th>${t("c_bal")}</th><th>${t("actions")}</th></tr></thead><tbody>
@@ -2944,7 +2998,7 @@ function custTable(){
  </tbody></table></div>${list.length>400?`<p class="hint" style="margin-top:8px">400 / ${list.length}</p>`:""}`;
 }
 function custEdit(id){
- const c=id?C_get(id):{name:"",routeId:V.croute!=="all"&&V.croute!=="debt"?V.croute:"",address:"",phone:"",phone2:"",opening:0,notes:""};
+ const c=id?C_get(id):{name:"",routeId:(rfState().routes.length===1?rfState().routes[0]:""),address:"",phone:"",phone2:"",opening:0,notes:""};
  modal(`${mhead(id?t("edit"):t("c_new"),"users")}<div class="modal-b">
   <div class="field"><label>${t("c_name")} *</label><input class="inp" id="cf-name" value="${esc(c.name)}"></div>
   <div class="frow">
@@ -2960,7 +3014,7 @@ function custEdit(id){
  </div><div class="modal-f"><button class="btn" id="cf-save">${ic("check")} ${t("save")}</button><button class="btn ghost" onclick="closeModal()">${t("cancel")}</button></div>`);
  byId("cf-save").onclick=()=>{const name=byId("cf-name").value.trim();if(!name)return toast(t("need_name"),"err");
   const vals={name,routeId:byId("cf-route").value,phone:fixPhone(byId("cf-phone").value),phone2:fixPhone(byId("cf-phone2").value),address:byId("cf-addr").value.trim(),opening:num(byId("cf-open").value),notes:byId("cf-notes").value.trim()};
-  if(id)Object.assign(C_get(id),vals);else db.customers.push(Object.assign({id:uid()},vals));
+  if(id)Object.assign(C_get(id),vals);else db.customers.push(Object.assign({id:uid(),sec:V.csec||"stands"},vals));
   save();closeModal();toast(t("toast_saved"));go(CUR);};
 }
 function custDel(id){askPin(()=>confirmBox(t("delete"),t("c_del_q"),()=>{db.customers=db.customers.filter(x=>x.id!==id);db.transactions=db.transactions.filter(x=>x.customerId!==id);if(typeof logAct==="function")logAct((LANG==="ar"?"حذف عميل":"Deleted customer"));save();toast(t("del_done"));go("cust");},true));}
@@ -3423,10 +3477,29 @@ function cxEval(expr,vals){
  try{const v=Function('"use strict";return('+e+')')();return isFinite(v)?v:0}catch(_){return 0}
 }
 function cxRowVals(b,row){const vals=[];b.cols.forEach(c=>{vals.push(c.type==="formula"?cxEval(c.formula,vals):num(row[c.id]))});return vals;}
-function cxColTotal(b,i,c){
- if(c.type==="number")return qfmt(b.rows.reduce((s,r)=>s+num(r[c.id]),0));
- if(c.type==="money"||c.type==="formula")return money(b.rows.reduce((s,r)=>s+cxRowVals(b,r)[i],0));
+function cxColTotal(b,i,c,rows){
+ rows=rows||b.rows;
+ if(c.type==="number")return qfmt(rows.reduce((s,r)=>s+num(r[c.id]),0));
+ if(c.type==="money"||c.type==="formula")return money(rows.reduce((s,r)=>s+cxRowVals(b,r)[i],0));
  return "";
+}
+let CXQ={};
+function cxRowMatch(b,r,q){
+ if(!q)return true;
+ const vals=cxRowVals(b,r);
+ return b.cols.some((c,ci)=>{
+  if(c.type==="formula")return String(money(vals[ci])).includes(q);
+  return String(r[c.id]??"").includes(q);
+ });
+}
+function cxVisible(b){const q=String(CXQ[b.id]||"").trim();const out=[];b.rows.forEach((r,ri)=>{if(cxRowMatch(b,r,q))out.push([r,ri]);});return out;}
+function cxTableHTML(pid,bid){
+ const b=cxBlk(pid,bid);if(!b)return"";
+ const vis=cxVisible(b);const rowsOnly=vis.map(x=>x[0]);
+ return`<div class="tbl-wrap"><table class="tbl"><thead><tr>${b.cols.map((c,ci)=>`<th>${esc(c.name)} <span style="opacity:.6;font-weight:600">(${CX_LET(ci)})</span></th>`).join("")}<th></th></tr></thead><tbody>
+ ${vis.map(([r,ri])=>{const vals=cxRowVals(b,r);return`<tr>${b.cols.map((c,ci)=>`<td>${cxCellHTML(pid,b,c,ci,r,ri,vals)}</td>`).join("")}<td><button class="icon-btn" onclick="cxRowDel('${pid}','${b.id}',${ri})" title="${t("delete")}">${ic("x")}</button></td></tr>`}).join("")}
+ </tbody>${b.showTotals!==false?`<tfoot><tr>${b.cols.map((c,ci)=>`<td class="num" id="cxt-${b.id}-${c.id}">${ci===0&&c.type==="text"?t("total"):cxColTotal(b,ci,c,rowsOnly)}</td>`).join("")}<td></td></tr></tfoot>`:""}</table></div>
+ ${vis.length!==b.rows.length?`<p class="hint" style="margin-top:6px">${vis.length} / ${b.rows.length}</p>`:""}`;
 }
 function cxKpiVal(pid,b){const s=b.src||{};if(s.mode==="manual")return num(s.value);
  const page=CX(pid);const tb=page&&page.blocks.find(x=>x.id===s.blockId&&x.type==="table");if(!tb)return 0;
@@ -3484,9 +3557,11 @@ function cxBlockHTML(pid,b,i,n){
   <div class="btn-row"><input class="inp" id="cxk-${b.id}" placeholder="..." style="max-width:280px" onkeydown="if(event.key==='Enter')cxCheckAdd('${pid}','${b.id}')"><button class="btn sm" onclick="cxCheckAdd('${pid}','${b.id}')">${ic("plus")} ${t("add")}</button></div></div>`;
  /* table */
  return`<div class="card tabbed">${cxHead(pid,b,i,n)}
- ${b.cols.length?`<div class="tbl-wrap"><table class="tbl"><thead><tr>${b.cols.map((c,ci)=>`<th>${esc(c.name)} <span style="opacity:.6;font-weight:600">(${CX_LET(ci)})</span></th>`).join("")}<th></th></tr></thead><tbody>
- ${b.rows.map((r,ri)=>{const vals=cxRowVals(b,r);return`<tr>${b.cols.map((c,ci)=>`<td>${cxCellHTML(pid,b,c,ci,r,ri,vals)}</td>`).join("")}<td><button class="icon-btn" onclick="cxRowDel('${pid}','${b.id}',${ri})" title="${t("delete")}">${ic("x")}</button></td></tr>`}).join("")}
- </tbody>${b.showTotals?`<tfoot><tr>${b.cols.map((c,ci)=>`<td class="num" id="cxt-${b.id}-${c.id}">${ci===0&&c.type==="text"?t("total"):cxColTotal(b,ci,c)}</td>`).join("")}<td></td></tr></tfoot>`:""}</table></div>
+ ${b.cols.length?`<div class="toolbar" style="margin:6px 0 10px">
+  <div class="search-wrap">${ic("search")}<input class="inp" placeholder="${t("search")}" value="${esc(CXQ[b.id]||"")}" oninput="CXQ['${b.id}']=this.value;refreshList('cx-list-${b.id}',cxTableHTML('${pid}','${b.id}'))"></div>
+  <span class="badge">${b.rows.length}</span>
+ </div>
+ <div id="cx-list-${b.id}">${cxTableHTML(pid,b.id)}</div>
  <div class="btn-row" style="margin-top:10px"><button class="btn soft sm" onclick="cxRowAdd('${pid}','${b.id}')">${ic("plus")} ${t("cx_row_add")}</button></div>`
  :`<p class="muted">${t("cx_cols")} ⚙</p><button class="btn soft sm" onclick="cxCols('${pid}','${b.id}')">${ic("gear")} ${t("cx_cols")}</button>`}
  </div>`;
@@ -3567,7 +3642,7 @@ function cxCell(pid,bid,ri,cid,val){
  save();
  const vals=cxRowVals(b,row);
  b.cols.forEach((c,i)=>{if(c.type==="formula"){const el=byId(`cxf-${b.id}-${ri}-${c.id}`);if(el)el.textContent=money(vals[i]);}});
- if(b.showTotals)b.cols.forEach((c,i)=>{const el=byId(`cxt-${b.id}-${c.id}`);if(el&&!(i===0&&c.type==="text"))el.textContent=cxColTotal(b,i,c);});
+ if(b.showTotals!==false){const rowsOnly=cxVisible(b).map(x=>x[0]);b.cols.forEach((c,i)=>{const el=byId(`cxt-${b.id}-${c.id}`);if(el&&!(i===0&&c.type==="text"))el.textContent=cxColTotal(b,i,c,rowsOnly);});}
 }
 /* column manager */
 let CXW=null;
@@ -3981,6 +4056,73 @@ function netBarC(){document.querySelectorAll(".netbar").forEach(el=>{const on=na
  el.className="netbar "+(on?(PENDINGW?"pending":"on"):"off");
  el.textContent=on?(PENDINGW?t("net_pend"):t("net_on")):t("net_off");});}
 if(typeof window!=="undefined"){window.addEventListener("online",netBarC);window.addEventListener("offline",netBarC);}
+
+/* ---------- driver-change notifications (🔔) ---------- */
+const NOTIF_KEY="nizam_notifs_v1";
+let NF_BASE=null;
+function notifAll(){try{return JSON.parse(localStorage.getItem(NOTIF_KEY)||"[]")}catch(e){return[]}}
+function notifSaveAll(a){try{localStorage.setItem(NOTIF_KEY,JSON.stringify(a.slice(-300)))}catch(e){}}
+function notifPush(n){const a=notifAll();a.push(Object.assign({id:uid(),ts:Date.now(),read:false},n));notifSaveAll(a);notifBadge();}
+function notifUnread(){return notifAll().filter(x=>!x.read).length;}
+function notifBadge(){const b=byId("bell-badge");if(!b)return;const n=notifUnread();b.style.display=n?"inline-block":"none";b.textContent=n>99?"99+":String(n);}
+function notifSig(tr){return{s:tr.status,n:(tr.entries||[]).length,u:num(tr.updatedAt)};}
+function notifLastEntry(tr){const es=tr.entries||[];const e=es[es.length-1];if(!e)return"";
+ const x=entryTotalsC(e,PMAP());
+ return `${e.sellerName||""} — ${LANG==="ar"?"بيع":"Sold"}: ${money(x.sold)} | ${LANG==="ar"?"محصل":"Collected"}: ${money(x.collected)}${x.debt?` | ${LANG==="ar"?"شكك":"Debt"}: ${money(x.debt)}`:""}`;}
+function notifScan(){
+ if(!USER||USER.role==="driver")return;
+ const cur={};TRIPS.forEach(tr=>cur[tr.id]=notifSig(tr));
+ if(NF_BASE===null){NF_BASE=cur;notifBadge();return;}
+ TRIPS.forEach(tr=>{
+  const b=NF_BASE[tr.id];const drv=tr.driverName||tr.driverEmail||"";
+  if(!b){if(tr.createdAt)notifPush({kind:"new_trip",tripId:tr.id,driver:drv,date:tr.date,detail:""});return;}
+  if(tr.status==="locked"&&b.s!=="locked"){notifPush({kind:"locked",tripId:tr.id,driver:drv,date:tr.date,detail:notifLastEntry(tr)});}
+  else if((tr.entries||[]).length!==b.n||num(tr.updatedAt)>b.u){notifPush({kind:"entries",tripId:tr.id,driver:drv,date:tr.date,detail:notifLastEntry(tr)});}
+ });
+ NF_BASE=cur;
+}
+function notifKindTxt(k){return t("nf_"+k);}
+function fmtTs(ts){try{return new Date(ts).toLocaleString(LANG==="ar"?"ar-EG":"en-GB")}catch(e){return""}}
+function notifRow(n){return `<div class="kv" style="cursor:pointer;gap:8px;${n.read?"opacity:.65":""}" onclick="notifView('${n.id}')">
+ <span>${n.read?"":"🔴 "}<b>${esc(n.driver||"")}</b> ${notifKindTxt(n.kind)}<br><small class="muted">${esc(n.date||"")} — ${fmtTs(n.ts)}</small></span><b>›</b></div>`;}
+function notifPanel(){
+ const a=notifAll().slice().reverse().slice(0,15);
+ modal(`${mhead(t("nf_title"),"alert")}<div class="modal-b">
+  ${a.length?a.map(notifRow).join(""):`<p class="muted">${t("nf_empty")}</p>`}
+ </div><div class="modal-f">
+  <button class="btn" onclick="notifHistory()">🕘 ${t("nf_hist")}</button>
+  <button class="btn ghost" onclick="notifMarkAll()">${t("nf_markall")}</button>
+  <button class="btn ghost" onclick="closeModal()">${t("nf_close")}</button></div>`);
+}
+function notifView(id){
+ const a=notifAll();const n=a.find(x=>x.id===id);if(!n)return;
+ if(!n.read){n.read=true;notifSaveAll(a);notifBadge();}
+ const tr=TRIPS.find(x=>x.id===n.tripId);
+ let tot="";
+ if(tr){const g=tripTotalsC(tr,PMAP());tot=`<div class="grid g3" style="margin-top:10px">
+  <div class="kv"><span>${LANG==="ar"?"إجمالي البيع":"Total sold"}</span><b>${money(g.sold)}</b></div>
+  <div class="kv"><span>${LANG==="ar"?"المحصل":"Collected"}</span><b>${money(g.collected)}</b></div>
+  <div class="kv"><span>${LANG==="ar"?"عدد التسجيلات":"Entries"}</span><b>${g.n}</b></div></div>`;}
+ modal(`${mhead(t("nf_title"),"alert")}<div class="modal-b">
+  <div class="kv"><span>${t("nf_driver")}</span><b>${esc(n.driver||"")}</b></div>
+  <div class="kv"><span>${t("nf_what")}</span><b>${notifKindTxt(n.kind)}</b></div>
+  <div class="kv"><span>${t("date")}</span><b>${esc(n.date||"")}</b></div>
+  <div class="kv"><span>${t("nf_when")}</span><b>${fmtTs(n.ts)}</b></div>
+  ${n.detail?`<div class="kv"><span>${t("nf_last")}</span><b>${esc(n.detail)}</b></div>`:""}
+  ${tot}
+ </div><div class="modal-f">
+  ${tr?`<button class="btn" onclick="closeModal();go('trips');setTimeout(()=>tripEntriesUI('${n.tripId}'),120)">${t("nf_expand")}</button>`:""}
+  <button class="btn ghost" onclick="notifPanel()">↩ ${t("nf_title")}</button>
+  <button class="btn ghost" onclick="closeModal()">${t("nf_close")}</button></div>`);
+}
+function notifHistory(){
+ const a=notifAll().slice().reverse();
+ modal(`${mhead(t("nf_hist_t"),"alert")}<div class="modal-b" style="max-height:60vh;overflow:auto">
+  ${a.length?a.map(notifRow).join(""):`<p class="muted">${t("nf_empty")}</p>`}
+ </div><div class="modal-f"><button class="btn ghost" onclick="notifMarkAll()">${t("nf_markall")}</button><button class="btn ghost" onclick="closeModal()">${t("nf_close")}</button></div>`);
+}
+function notifMarkAll(){const a=notifAll();a.forEach(x=>x.read=true);notifSaveAll(a);notifBadge();closeModal();}
+if(typeof window!=="undefined")setInterval(()=>{try{notifBadge()}catch(e){}},5000);
 function pushSoon(){if(!DBC||!USER||USER.role==="driver")return;clearTimeout(PUSH_T);PUSH_T=setTimeout(pushDirty,1200);}
 async function pushDirty(){
  if(!DBC||!USER)return;
@@ -4057,6 +4199,7 @@ function listenTrips(){
  if(!DBC)return;if(TRIPS_UNSUB)TRIPS_UNSUB();
  const q=USER.role==="driver"?FB.query(FB.collection(DBC,"trips"),FB.where("driverEmail","==",lcx(USER.email))):FB.collection(DBC,"trips");
  TRIPS_UNSUB=FB.onSnapshot(q,s=>{TRIPS=s.docs.map(d=>({id:d.id,...d.data()}));PENDINGW=s.metadata.hasPendingWrites;netBarC();
+  if(!s.metadata.hasPendingWrites)try{notifScan()}catch(e){}
   if(USER.role==="driver"||SIDE==="drv")drvRender();else if(CUR==="trips"&&byId("app").style.display!=="none")go("trips");
  },e=>console.warn("trips",e));
 }
@@ -4215,10 +4358,35 @@ function drvShell(inner){
  const adminMode=USER.role!=="driver";
  cshow(`<div class="netbar" id="netbar-d"></div>
  <div class="dv-bar"><b>${adminMode?"👑 ":"🚚 "}${esc(USER.name||USER.email)}</b>
+  <button class="mini-btn2" onclick="drvCustBrowse()">👥 ${t("dv_cust_t")}</button>
   ${adminMode?`<button class="mini-btn2" onclick="SIDE='mgmt';localStorage.setItem('portal_side','mgmt');enterMgmt()">${t("dv_to_mgmt")}</button>`:""}
   <button class="mini-btn2" onclick="doLogoutC()">${t("logout")} ⎋</button></div>
  <div class="dv-wrap">${inner}</div><div class="dv-truck">🚚</div>`);
  netBarC();
+}
+let DRVB={sec:"stands",q:""};
+function drvbList(){
+ const q=DRVB.q.trim();
+ const list=(db.customers||[]).filter(c=>cSec(c)===DRVB.sec&&(!q||String(c.name).includes(q)||String(c.address||"").includes(q)||String(c.phone||"").includes(q)||String(c.phone2||"").includes(q)||R_name(c.routeId).includes(q)))
+  .sort((a,b)=>String(a.name).localeCompare(String(b.name),"ar")).slice(0,300);
+ if(!list.length)return`<p class="muted" style="padding:12px">${t("no_results")}</p>`;
+ return`<div class="tbl-wrap"><table class="tbl"><thead><tr><th>${t("c_name")}</th><th>${t("c_route")}</th><th>${t("c_addr")}</th><th>${t("c_phone")}</th></tr></thead><tbody>
+ ${list.map(c=>`<tr><td class="st">${esc(c.name)}</td><td>${esc(R_name(c.routeId))}</td><td class="st">${esc(c.address||"")}</td>
+ <td>${c.phone?`<a class="tel" href="tel:${esc(fixPhone(c.phone))}">${esc(fixPhone(c.phone))}</a>`:"—"}</td></tr>`).join("")}
+ </tbody></table></div>`;
+}
+function drvbTabs(){
+ return custSecs().map(s=>`<button class="btn ${DRVB.sec===s.id?"":"ghost"} sm" onclick="DRVB.sec='${s.id}';byId('drvb-tabs').innerHTML=drvbTabsIn();refreshList('drvb-list',drvbList())">${esc(s.name)} <span class="badge">${(db.customers||[]).filter(c=>cSec(c)===s.id).length}</span></button>`).join(" ");
+}
+function drvbTabsIn(){return drvbTabs();}
+function drvCustBrowse(){
+ DRVB={sec:custSecs()[0].id,q:""};
+ modal(`${mhead(t("dv_cust_t"),"users")}<div class="modal-b et-wide">
+  <p class="tag-note">${t("dv_cust_hint")}</p>
+  <div class="toolbar" id="drvb-tabs" style="flex-wrap:wrap;gap:6px">${drvbTabs()}</div>
+  <div class="toolbar"><div class="search-wrap">${ic("search")}<input class="inp" placeholder="${t("c_sec_search")}" oninput="DRVB.q=this.value;refreshList('drvb-list',drvbList())"></div></div>
+  <div id="drvb-list" style="max-height:52vh;overflow:auto">${drvbList()}</div>
+ </div><div class="modal-f"><button class="btn ghost" onclick="closeModal()">${t("nf_close")}</button></div>`,true);
 }
 function drvTrip(){const em=USER.role==="driver"?lcx(USER.email):lcx(DRV_SEL);return TRIPS.find(x=>x.driverEmail===em&&x.date===DRV_DATE)||null;}
 function drvRender(){
@@ -4323,7 +4491,7 @@ async function entrySaveT(id,i,assignedId){
 /* ---------- synced multi-select seller picker (both portals) ---------- */
 let SPK={q:"",route:"all",sel:{}};
 function spkFiltered(){const q=SPK.q.trim();
- return (db.customers||[]).filter(c=>(SPK.route==="all"||c.routeId===SPK.route)&&(!q||String(c.name).includes(q)||String(c.address||"").includes(q)||String(c.phone||"").includes(q)))
+ return (db.customers||[]).filter(c=>(!SPK.sec||SPK.sec==="all"||cSec(c)===SPK.sec)&&(SPK.route==="all"||c.routeId===SPK.route)&&(!q||String(c.name).includes(q)||String(c.address||"").includes(q)||String(c.phone||"").includes(q)))
   .sort((a,b)=>String(a.name).localeCompare(String(b.name),"ar")).slice(0,300);}
 function spkList(){
  const rows=spkFiltered();
@@ -4338,10 +4506,11 @@ function spkList(){
 function spkTgl(id){SPK.sel[id]=!SPK.sel[id];if(!SPK.sel[id])delete SPK.sel[id];refreshList("spk-list",spkList());const n=byId("spk-n");if(n)n.textContent=Object.keys(SPK.sel).length;}
 function spkAll(){spkFiltered().forEach(c=>SPK.sel[c.id]=true);refreshList("spk-list",spkList());const n=byId("spk-n");if(n)n.textContent=Object.keys(SPK.sel).length;}
 function sellerPickUI(tripIdv){
- SPK={q:"",route:"all",sel:{}};
+ SPK={q:"",route:"all",sec:"all",sel:{}};
  modal(`${mhead(t("sp_title"),"users")}<div class="modal-b et-wide">
   <p class="tag-note">${t("sp_hint")}</p>
   <div class="toolbar">
+   <select class="inp" style="max-width:190px" onchange="SPK.sec=this.value;refreshList('spk-list',spkList())"><option value="all">${t("all")} — ${t("c_title")}</option>${custSecs().map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join("")}</select>
    <select class="inp" style="max-width:180px" onchange="SPK.route=this.value;refreshList('spk-list',spkList())"><option value="all">${t("all")}</option>${(db.routes||[]).map(r=>`<option value="${r.id}">${esc(r.name)}</option>`).join("")}</select>
    <div class="search-wrap">${ic("search")}<input class="inp" placeholder="${t("search")}" oninput="SPK.q=this.value;refreshList('spk-list',spkList())"></div>
    <button class="btn soft sm" onclick="spkAll()">${t("as_all")}</button>
@@ -4388,7 +4557,7 @@ function countUp(){
 function enterMgmt(){
  appShow();initApp();
  const nb=byId("netbar-app");if(nb)netBarC();
- renderShellNav();go("dash");
+ renderShellNav();go("dash");notifBadge();
  listenState();listenTrips();listenUsers();
  setTimeout(()=>{if(USER.role==="admin")pushDirty();},2500);
  if(!db.meta.onboarded&&USER.role==="admin")onboarding();
