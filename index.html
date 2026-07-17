@@ -452,6 +452,129 @@ tr.on-row{background:var(--green-soft)}
 @media(max-width:640px){#modal-root .modal:has(.et-wide){width:100%;max-height:96vh}}
 
 </style>
+<style id="candy-skin">
+/* ============ ACCENTS (primary ramp) ============ */
+html[data-accent="grape"]{--green:#7c3aed;--green-2:#6d28d9;--green-3:#5b21b6;--green-soft:#efe7ff}
+html[data-accent="emerald"]{--green:#10b981;--green-2:#059669;--green-3:#047857;--green-soft:#d1fae5}
+html[data-accent="forest"]{--green:#0E5A3C;--green-2:#12744E;--green-3:#0B4930;--green-soft:#dcf0e5}
+html[data-accent="ocean"]{--green:#0ea5e9;--green-2:#0284c7;--green-3:#0369a1;--green-soft:#e0f2fe}
+html[data-accent="indigo"]{--green:#6366f1;--green-2:#4f46e5;--green-3:#4338ca;--green-soft:#e0e7ff}
+html[data-accent="rose"]{--green:#f43f5e;--green-2:#e11d48;--green-3:#be123c;--green-soft:#ffe4e6}
+html[data-accent="amber"]{--green:#f59e0b;--green-2:#d97706;--green-3:#b45309;--green-soft:#fef3c7}
+html[data-accent="teal"]{--green:#14b8a6;--green-2:#0d9488;--green-3:#0f766e;--green-soft:#ccfbf1}
+html[data-accent="crimson"]{--green:#dc2626;--green-2:#b91c1c;--green-3:#991b1b;--green-soft:#fee2e2}
+html[data-accent="slate"]{--green:#475569;--green-2:#334155;--green-3:#1e293b;--green-soft:#e2e8f0}
+:root{--green:#7c3aed;--green-2:#6d28d9;--green-3:#5b21b6;--green-soft:#efe7ff}
+[data-theme="dark"]{--green-soft:color-mix(in srgb,var(--green) 24%,#0b0b0b)}
+
+/* ============ THEME TOKEN CONTRACT (defaults) ============ */
+:root{--cbd:#241239;--card-bd:2.5px solid var(--cbd);--card-sh:5px 5px 0 var(--cbd);--btn-bd:2.5px solid var(--cbd);--btn-sh:4px 4px 0 var(--cbd);--modal-sh:9px 9px 0 rgba(36,18,57,.22);--r:20px;--r-s:14px;--side-bg:linear-gradient(178deg,var(--green-2),var(--green-3));--side-ink:#fff;--nav-on-bg:var(--green);--nav-on-ink:#fff;--tbl-head:transparent;--amber:#ffbd00;--amber-soft:#fff3cf;--navy:#12a7ef;--navy-soft:#dcf1ff;--red:#ff3d7f;--red-soft:#ffe1ec}
+
+/* 1) CANDY — playful, chunky */
+[data-ui-theme="candy"]{--paper:#fdeede;--card:#fff;--line:#ecdfce;--line-2:#dcc9b4;--ink:#241239;--ink-2:#5a4a6b;--ink-3:#8b7c99;--cbd:#241239;--card-bd:2.5px solid var(--cbd);--card-sh:5px 5px 0 var(--cbd);--btn-bd:2.5px solid var(--cbd);--btn-sh:4px 4px 0 var(--cbd);--modal-sh:9px 9px 0 rgba(36,18,57,.22);--r:20px;--r-s:14px;--side-bg:linear-gradient(178deg,var(--green-2),var(--green-3));--side-ink:#fff}
+[data-ui-theme="candy"][data-theme="dark"]{--paper:#191026;--card:#271a3d;--line:#3a2b52;--line-2:#4a3a63;--ink:#f6ecff;--ink-2:#c9b8e0;--ink-3:#a695ba;--cbd:#f6ecff;--modal-sh:9px 9px 0 rgba(246,236,255,.18)}
+[data-ui-theme="candy"] body{background-image:radial-gradient(color-mix(in srgb,var(--cbd) 8%,transparent) .9px,transparent .9px);background-size:24px 24px}
+[data-ui-theme="candy"] .btn:hover,[data-ui-theme="candy"] .wbtn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--cbd)!important}
+[data-ui-theme="candy"] .btn:active,[data-ui-theme="candy"] .kpi:active,[data-ui-theme="candy"] .icon-btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--cbd)!important}
+
+/* 2) MINIMAL — clean SaaS */
+[data-ui-theme="minimal"]{--paper:#f6f7f9;--card:#ffffff;--line:#e7eaee;--line-2:#d7dbe0;--ink:#0f172a;--ink-2:#5b6472;--ink-3:#8a93a3;--cbd:transparent;--card-bd:1px solid var(--line);--card-sh:0 1px 2px rgba(16,24,40,.05),0 8px 20px -12px rgba(16,24,40,.14);--btn-bd:1px solid transparent;--btn-sh:0 1px 2px rgba(16,24,40,.10);--modal-sh:0 24px 50px -16px rgba(16,24,40,.28);--r:12px;--r-s:9px;--side-bg:#ffffff;--side-ink:#334155;--nav-on-bg:var(--green-soft);--nav-on-ink:var(--green-3);--tbl-head:#f8fafc}
+[data-ui-theme="minimal"] #sidebar{border-inline-end:1px solid var(--line)}
+[data-ui-theme="minimal"][data-theme="dark"]{--paper:#0f1216;--card:#171b21;--line:#262c35;--line-2:#333b45;--ink:#e6e9ee;--ink-2:#9aa3af;--ink-3:#6b7482;--side-bg:#12151a;--side-ink:#cbd5e1;--tbl-head:#12151a;--nav-on-bg:color-mix(in srgb,var(--green) 26%,#0b0b0b);--nav-on-ink:#fff}
+
+/* 3) MIDNIGHT — dark premium */
+[data-ui-theme="midnight"]{--paper:#0b1020;--card:#141b31;--line:rgba(255,255,255,.09);--line-2:rgba(255,255,255,.16);--ink:#e9eefc;--ink-2:#a7b4d4;--ink-3:#6f7ea4;--cbd:transparent;--card-bd:1px solid var(--line);--card-sh:0 12px 34px -16px rgba(0,0,0,.75);--btn-bd:1px solid transparent;--btn-sh:0 8px 22px -8px color-mix(in srgb,var(--green) 55%,transparent);--modal-sh:0 30px 60px -20px rgba(0,0,0,.8);--r:16px;--r-s:12px;--side-bg:#0c1224;--side-ink:#c7d2ea;--nav-on-bg:color-mix(in srgb,var(--green) 30%,transparent);--nav-on-ink:#fff;--tbl-head:rgba(255,255,255,.03)}
+[data-ui-theme="midnight"] body{background:radial-gradient(1000px 520px at 100% -12%, color-mix(in srgb,var(--green) 20%,transparent), transparent),var(--paper)}
+[data-ui-theme="midnight"] .card:hover,[data-ui-theme="midnight"] .kpi:hover{border-color:color-mix(in srgb,var(--green) 45%,var(--line))}
+
+/* 4) GLASS — glassmorphism */
+[data-ui-theme="glass"]{--paper:#e8effb;--card:rgba(255,255,255,.55);--line:rgba(255,255,255,.7);--line-2:rgba(255,255,255,.85);--ink:#182338;--ink-2:#4a5978;--ink-3:#7684a0;--cbd:transparent;--card-bd:1px solid rgba(255,255,255,.7);--card-sh:0 12px 34px -14px rgba(30,50,90,.28);--btn-bd:1px solid rgba(255,255,255,.6);--btn-sh:0 8px 20px -10px rgba(30,50,90,.3);--modal-sh:0 24px 60px -20px rgba(30,50,90,.4);--r:22px;--r-s:16px;--side-bg:rgba(255,255,255,.5);--side-ink:#243352;--nav-on-bg:color-mix(in srgb,var(--green) 82%,#fff);--nav-on-ink:#fff;--tbl-head:rgba(255,255,255,.35)}
+[data-ui-theme="glass"] body{background:radial-gradient(1100px 560px at 8% -10%, #c7d2fe66, transparent),radial-gradient(1000px 520px at 112% 8%, #a7f3d066, transparent),radial-gradient(900px 500px at 60% 120%, #fbcfe866, transparent),var(--paper)}
+[data-ui-theme="glass"] .card,[data-ui-theme="glass"] .kpi,[data-ui-theme="glass"] #sidebar,[data-ui-theme="glass"] .modal,[data-ui-theme="glass"] .hero{backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3)}
+[data-ui-theme="glass"][data-theme="dark"]{--paper:#0f1830;--card:rgba(30,44,74,.5);--line:rgba(255,255,255,.14);--ink:#e7eefc;--ink-2:#aab7d6;--ink-3:#7d8bab;--side-bg:rgba(20,30,55,.5);--side-ink:#d4ddf2;--tbl-head:rgba(255,255,255,.05)}
+
+/* 5) CORPORATE — classic admin */
+[data-ui-theme="corporate"]{--paper:#eef1f5;--card:#ffffff;--line:#dde3ea;--line-2:#cbd3dd;--ink:#1f2a37;--ink-2:#5a6a7d;--ink-3:#8996a6;--cbd:transparent;--card-bd:1px solid var(--line);--card-sh:0 1px 3px rgba(16,24,40,.10);--btn-bd:1px solid transparent;--btn-sh:none;--modal-sh:0 20px 40px -14px rgba(16,24,40,.25);--r:8px;--r-s:6px;--side-bg:#1e293b;--side-ink:#c7d2e0;--nav-on-bg:color-mix(in srgb,var(--green) 20%,transparent);--nav-on-ink:#fff;--tbl-head:#f3f6f9}
+[data-ui-theme="corporate"] .nav-item.on{border-inline-start:3px solid var(--green)}
+[data-ui-theme="corporate"][data-theme="dark"]{--paper:#0e141b;--card:#151c25;--line:#28313d;--line-2:#38424f;--ink:#e5eaf0;--ink-2:#9aa6b4;--ink-3:#6f7c8b;--side-bg:#0b1017;--tbl-head:#131a22}
+
+/* ============ COMPONENT CONTRACT (screen only) ============ */
+@media screen{
+ body{background:var(--paper);color:var(--ink)}
+ .card,.kpi{background:var(--card)!important;border:var(--card-bd)!important;box-shadow:var(--card-sh)!important;border-radius:var(--r)!important;transition:transform .18s cubic-bezier(.34,1.5,.5,1),box-shadow .2s,border-color .2s}
+ .modal{background:var(--card)!important;border:var(--card-bd)!important;box-shadow:var(--modal-sh)!important;border-radius:var(--r)!important}
+ .btn,.wbtn{border:var(--btn-bd)!important;box-shadow:var(--btn-sh)!important;border-radius:var(--r-s)!important;font-weight:800;position:relative;overflow:hidden;transition:transform .16s cubic-bezier(.34,1.5,.5,1),box-shadow .16s,filter .15s}
+ .btn:not(.ghost):not(.soft):hover{filter:brightness(1.06)}
+ .btn.ghost{background:var(--card)!important;color:var(--ink)!important}
+ .btn.soft{color:var(--ink)!important}
+ .btn.amber,.btn.gold{color:#3a2600!important}
+ .icon-btn{border:var(--btn-bd)!important;box-shadow:var(--btn-sh)!important;border-radius:var(--r-s)!important;background:var(--card)!important;color:var(--ink);position:relative;overflow:hidden}
+ .badge,.chip{border-radius:calc(var(--r-s) - 2px)}
+ #sidebar{background:var(--side-bg)!important}
+ #sidebar .brand b,#sidebar .nav-item{color:var(--side-ink)}
+ .nav-item{border-radius:var(--r-s)!important;position:relative;overflow:hidden;transition:transform .18s cubic-bezier(.34,1.5,.5,1),background .2s}
+ .nav-item:hover{transform:translateX(-3px)}
+ .nav-item.on{background:var(--nav-on-bg)!important;color:var(--nav-on-ink)!important}
+ .hero{border-radius:var(--r)!important}
+ .tbl thead th{background:var(--tbl-head)}
+ .field label svg,.card h3 svg{width:1.05em;height:1.05em;vertical-align:-2px;flex-shrink:0}
+ .modal-h svg{width:20px;height:20px;flex-shrink:0}
+ .kv svg{width:16px;height:16px;flex-shrink:0}
+ .insight .ic svg{width:19px;height:19px}
+ .inp,.winp{border-radius:var(--r-s)!important}
+}
+.delivery-scene{position:relative;width:100%;height:150px;overflow:hidden;pointer-events:none}
+.delivery-scene.ds-fixed{position:fixed;left:0;bottom:0;z-index:0;opacity:.98}
+.delivery-scene.ds-inflow{margin-top:18px;border:var(--card-bd,1px solid var(--line));border-radius:var(--r,18px);background:var(--card)}
+.delivery-scene svg{width:100%;height:100%;display:block}
+.dsv-road{stroke:var(--ink-3,#94a3b8);opacity:.35}
+.dsv-dash{stroke:var(--ink-3,#94a3b8);opacity:.55;stroke-width:3;stroke-dasharray:18 16;animation:dsvDash 1s linear infinite}
+@keyframes dsvDash{to{stroke-dashoffset:-34}}
+.dsv-truck{animation:dsvDrive 7s cubic-bezier(.55,0,.45,1) infinite}
+.dsv-bob{animation:dsvBob .5s ease-in-out infinite}
+@keyframes dsvDrive{0%{transform:translateX(-120px)}12%{transform:translateX(70px)}52%{transform:translateX(70px)}92%{transform:translateX(520px)}100%{transform:translateX(520px)}}
+@keyframes dsvBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}
+.dsv-wheel{transform-box:fill-box;transform-origin:center;animation:dsvSpin 1s linear infinite}
+@keyframes dsvSpin{to{transform:rotate(360deg)}}
+.dsv-body{fill:var(--green)}
+.dsv-cab{fill:var(--green-2)}
+.dsv-box{fill:#fff;stroke:var(--green-3);stroke-width:2}
+.dsv-win{fill:color-mix(in srgb,var(--card) 70%,#dbeafe)}
+.dsv-house{fill:var(--green-soft);stroke:var(--green-3);stroke-width:2}
+.dsv-pin{fill:var(--green)}
+.dsv-speed{stroke:var(--green);stroke-width:3;stroke-linecap:round;opacity:0;animation:dsvSpeed 7s ease-in-out infinite}
+@keyframes dsvSpeed{0%,88%{opacity:0;transform:translateX(0)}92%{opacity:.7;transform:translateX(-14px)}100%{opacity:0;transform:translateX(-30px)}}
+.dsv-cloud{fill:var(--ink-3);opacity:.14;animation:dsvCloud 16s linear infinite}
+.dsv-cloud.c2{animation-duration:24s;animation-delay:-8s}
+@keyframes dsvCloud{from{transform:translateX(440px)}to{transform:translateX(-120px)}}
+.rp{position:absolute;border-radius:50%;transform:translate(-50%,-50%);background:currentColor;opacity:.22;pointer-events:none;animation:uxrp .55s ease-out forwards}
+@keyframes uxrp{from{width:0;height:0;opacity:.32}to{width:360px;height:360px;opacity:0}}
+.ms-wrap{position:relative}
+.ms{display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-height:46px;padding:8px 10px;border:1px solid var(--line);border-radius:var(--r-s);background:var(--card);cursor:text}
+.ms:focus-within{border-color:var(--green);box-shadow:0 0 0 3px var(--green-soft)}
+.ms-chip{display:inline-flex;align-items:center;gap:6px;background:var(--green-soft);color:var(--green-3);font-weight:800;font-size:.82rem;padding:4px 10px;border-radius:20px;white-space:nowrap}
+.ms-chip b{opacity:.55;font-size:.7rem}
+.ms-chip a{color:inherit;font-weight:900;text-decoration:none;cursor:pointer}
+.ms-input{flex:1;min-width:130px;border:0;outline:0;background:transparent;font-family:inherit;font-weight:700;color:var(--ink);font-size:.9rem;padding:4px 2px}
+.ms-drop{display:none;position:absolute;left:0;right:0;top:calc(100% + 5px);z-index:60;max-height:280px;overflow-y:auto;overflow-x:hidden;border:1px solid var(--line);border-radius:var(--r-s);background:var(--card);box-shadow:var(--card-sh)}
+.ms-wrap.open .ms-drop{display:block}
+.ms-opt{display:flex;align-items:center;gap:10px;padding:9px 12px;cursor:pointer;font-weight:700;color:var(--ink)}
+.ms-opt:hover,.ms-opt.hi{background:var(--green-soft)}
+.ms-nm{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ms-opt-n{font-size:.74rem;color:var(--ink-3);font-weight:800;flex-shrink:0}
+.ms-ck{width:18px;height:18px;border:2px solid var(--line-2);border-radius:5px;flex-shrink:0;position:relative;background:var(--card)}
+.ms-opt.on .ms-ck{background:var(--green);border-color:var(--green)}
+.ms-opt.on .ms-ck::after{content:"";position:absolute;left:5px;top:1px;width:4px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.ms-empty{padding:14px;color:var(--ink-3);font-weight:700;text-align:center}
+.inv-seg{display:inline-flex;gap:4px;padding:4px;background:var(--green-soft);border-radius:calc(var(--r-s) + 4px);margin-bottom:14px;flex-wrap:wrap}
+.inv-seg button{border:0;background:transparent;font-family:inherit;font-weight:800;font-size:.9rem;color:var(--green-3);padding:8px 16px;border-radius:var(--r-s);cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:background .18s,color .18s,box-shadow .18s}
+.inv-seg button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 5px rgba(0,0,0,.14)}
+.inv-seg button svg{width:16px;height:16px}
+#ux-sound{position:fixed;inset-block-end:74px;inset-inline-end:16px;z-index:70;width:44px;height:44px;border-radius:var(--r-s);background:var(--card);color:var(--ink);border:var(--btn-bd);box-shadow:var(--btn-sh);font-size:19px;display:grid;place-items:center;cursor:pointer}
+.welcome .pane{position:relative;z-index:1}
+
+</style>
+
 </head>
 <body>
 <div id="cloud-root"></div>
@@ -2285,10 +2408,22 @@ const cur=()=>db.settings.currency||t("currency");
 const DB_KEY="nizam_db_v1";
 let db=null;
 function seedProducts(){const P=[["كاندي","ctn",200],["مارشميلو","ctn",300],["مقرمشات","bag",200],["لب عباد","bag",50],["لب سوبر","bag",50],["لب كوسه","bag",50],["سوداني لبناني","bag",50],["سوداني شوكلاته","bag",50],["شوكوين","bag",50],["سوداني بالسمسم والعسل","bag",50],["سوداني مقرمش","bag",0],["ذره أسباني","bag",0],["شوكلاته حجر","ctn",0],["لبان","ctn",750],["شوكلاته","ctn",1000],["ملبس","bag",50],["لبان عبد المولي","ctn",950]];
- return P.map(([n,u,p])=>({id:uid(),name:n,unit:u,price:p,cost:0,stock:0,min:10,active:true}));}
-function seedRoutes(){return["بهنباي","كرايس","فرغان","ديرب نجم","شيبة","الزنكلون","مهدي","صفط","الاسدية","دويدة","كفر ابراهيم","ابو متنا","ميت الغماري","إكوة","كفر الباشا"].map(n=>({id:uid(),name:n}));}
-function freshDB(){return{meta:{v:1,created:todayISO(),onboarded:false,lastBackup:null,savedAt:0},settings:{biz:"",lang:"ar",theme:"light",currency:"ج.م",pin:"",aiKey:"",aiModel:"claude-haiku-4-5-20251001",navNames:{},accent:"green",fontScale:"n",bizPhone:"",bizAddr:"",printFoot:"",invWorkerDef:"",lowDef:10},products:seedProducts(),routes:seedRoutes(),customers:[],transactions:[],invoices:[],moves:[],custom:[],activity:[]};}
-function loadDB(){try{const raw=localStorage.getItem(DB_KEY);if(raw){db=JSON.parse(raw);["products","routes","customers","transactions","invoices","moves","custom","activity"].forEach(k=>{if(!Array.isArray(db[k]))db[k]=[]});db.settings=Object.assign(freshDB().settings,db.settings||{});db.meta=Object.assign(freshDB().meta,db.meta||{});return}}catch(e){console.warn("db load",e)}db=freshDB();}
+ return P.map(([n,u,p])=>({id:uid(),name:n,unit:u,price:p,cost:0,stock:0,min:10,active:true,sec:"stands"}));}function seedRoutes(){return["بهنباي","كرايس","فرغان","ديرب نجم","شيبة","الزنكلون","مهدي","صفط","الاسدية","دويدة","كفر ابراهيم","ابو متنا","ميت الغماري","إكوة","كفر الباشا"].map(n=>({id:uid(),name:n}));}
+function freshDB(){return{meta:{v:1,created:todayISO(),onboarded:false,lastBackup:null,savedAt:0},settings:{biz:"",lang:"ar",theme:"light",currency:"ج.م",pin:"",aiKey:"",aiModel:"claude-haiku-4-5-20251001",navNames:{},accent:"green",fontScale:"n",bizPhone:"",bizAddr:"",printFoot:"",invWorkerDef:"",lowDef:10},products:seedProducts(),routes:seedRoutes(),customers:[],transactions:[],invoices:[],moves:[],custom:[],activity:[],custlog:[]};}
+function migrateDB(){
+ if(!db||typeof db!=="object")return;
+ ["products","routes","customers","transactions","invoices","moves","custom","activity","custlog","notifs"].forEach(k=>{if(!Array.isArray(db[k]))db[k]=[]});
+ db.settings=db.settings||{};db.meta=db.meta||{};
+ if(!db.settings.uiTheme)db.settings.uiTheme="candy";
+ if(!db.settings.accent)db.settings.accent="green";
+ if(!Array.isArray(db.settings.custSecExtra))db.settings.custSecExtra=[];
+ db.products.forEach(p=>{if(p&&!p.sec)p.sec="stands";});
+ db.customers.forEach(c=>{if(c&&!c.sec)c.sec="stands";});
+ const cById={};db.customers.forEach(c=>{if(c&&c.id)cById[c.id]=c;});
+ db.invoices.forEach(v=>{if(!v)return;if(!Array.isArray(v.lines))v.lines=[];if(!v.sec){const c=v.customerId?cById[v.customerId]:null;v.sec=(c&&c.sec)?c.sec:"stands";}if(v.status===undefined)v.status="confirmed";if(!Array.isArray(v.txIds))v.txIds=[];if(v.createdAt===undefined)v.createdAt=0;if(v.editedAt===undefined)v.editedAt=null;if(v.paid===undefined)v.paid=0;});
+}
+function loadDB(){
+try{const raw=localStorage.getItem(DB_KEY);if(raw){db=JSON.parse(raw);["products","routes","customers","transactions","invoices","moves","custom","activity","custlog"].forEach(k=>{if(!Array.isArray(db[k]))db[k]=[]});db.settings=Object.assign(freshDB().settings,db.settings||{});db.meta=Object.assign(freshDB().meta,db.meta||{});migrateDB();return}}catch(e){console.warn("db load",e)}db=freshDB();}
 function save(){try{localStorage.setItem(DB_KEY,JSON.stringify(db))}catch(e){toast(LANG==="ar"?"مساحة التخزين ممتلئة — نزّل نسخة احتياطية":"Storage full — download a backup","err")}}
 const P_get=id=>db.products.find(p=>p.id===id);
 const R_get=id=>db.routes.find(r=>r.id===id);
@@ -2316,14 +2451,14 @@ const PAGES=[["dash","nav_dash","home"],["inv","nav_inv","receipt"],["cust","nav
 let CUR="dash";
 function navName(k,l){return (db.settings.navNames||{})[k]||t(l);}
 function custSecs(){const base=[{id:"stands",k:"c_sec_stands"},{id:"lebban",k:"c_sec_lebban"},{id:"prv",k:"c_sec_prv"}];const ov=(db.settings&&db.settings.custSecNames)||{};const extra=(db.settings&&Array.isArray(db.settings.custSecExtra))?db.settings.custSecExtra:[];const list=base.map(s=>({id:s.id,name:ov[s.id]||t(s.k),extra:false})).concat(extra.map(s=>({id:s.id,name:ov[s.id]||s.name,extra:true})));return ordApply(list,db.settings&&db.settings.custSecOrder,x=>x.id);}
-function custSecAdd(){const nn=prompt(t("c_sec_add_q"));if(nn===null)return;const v=String(nn).trim();if(!v)return;db.settings.custSecExtra=db.settings.custSecExtra||[];const id="cs_"+uid();db.settings.custSecExtra.push({id,name:v});save();toast(t("toast_saved"));V.csec=id;go(CUR);}
+function custSecAdd(){const nn=prompt(t("c_sec_add_q"));if(nn===null)return;const v=String(nn).trim();if(!v)return;db.settings.custSecExtra=db.settings.custSecExtra||[];const id="cs_"+uid();db.settings.custSecExtra.push({id,name:v});save();toast(t("toast_saved"));go("cust:"+id);}
 function custSecDel(id){const s=custSecs().find(x=>x.id===id);if(!s||!s.extra)return;
  if(db.customers.some(c=>cSec(c)===id))return toast(t("c_sec_del_no"),"err");
- confirmBox(t("delete"),t("c_sec_del_q"),()=>{db.settings.custSecExtra=(db.settings.custSecExtra||[]).filter(x=>x.id!==id);if(db.settings.custSecNames)delete db.settings.custSecNames[id];save();if(V.csec===id)V.csec="stands";toast(t("del_done"));go(CUR);},true);}
+ confirmBox(t("delete"),t("c_sec_del_q"),()=>{db.settings.custSecExtra=(db.settings.custSecExtra||[]).filter(x=>x.id!==id);if(db.settings.custSecNames)delete db.settings.custSecNames[id];save();if(V.csec===id)V.csec="stands";toast(t("del_done"));go("cust:stands");},true);}
 function custSecName(id){const s=custSecs().find(x=>x.id===id);return s?s.name:custSecs()[0].name;}
 function cSec(c){return c&&c.sec?c.sec:"stands";}
 function custSecRename(id){const nn=prompt(t("c_sec_rename"),custSecName(id));if(nn===null)return;const v=String(nn).trim();if(!v)return;db.settings.custSecNames=db.settings.custSecNames||{};db.settings.custSecNames[id]=v;save();toast(t("toast_saved"));go(CUR);}
-function custSecGo(id){V.csec=id;go(CUR);}
+function custSecGo(id){go("cust:"+id);}
 /* ---------- drag & drop reordering (nav sections + customer sections) ---------- */
 let DND={k:null,type:null};
 function secDragStart(ev,type,k){DND={k,type};if(ev.dataTransfer){ev.dataTransfer.effectAllowed="move";try{ev.dataTransfer.setData("text/plain",k)}catch(e){}}}
@@ -2374,10 +2509,20 @@ function custFiltered(){
   if(s.routes.length&&!s.routes.includes(c.routeId))return false;
   if(q&&!(c.name.includes(q)||(c.address||"").includes(q)||(c.phone||"").includes(q)||(c.phone2||"").includes(q)||R_name(c.routeId).includes(q)))return false;
   return true;
- }).sort((a,b)=>String(a.name).localeCompare(String(b.name),"ar"));
+ }).sort((a,b)=>{
+  if(s.routes.length){const ia=s.routes.indexOf(a.routeId),ib=s.routes.indexOf(b.routeId);if(ia!==ib)return ia-ib;}
+  return String(a.name).localeCompare(String(b.name),"ar");
+ });
 }
 function allNav(){
- const base=PAGES.map(([k,l,icn])=>({k,label:navName(k,l),icon:icn})).filter(x=>typeof PERMV!=="function"||PERMV(x.k)!=="hide");
+ if(typeof SIDE!=="undefined"&&SIDE==="prv")return perfumeNav();
+ const base=[];
+ PAGES.forEach(([k,l,icn])=>{
+  if(typeof PERMV==="function"&&PERMV(k)==="hide")return;
+  if(k==="cust"){custSecs().forEach(s=>base.push({k:"cust:"+s.id,label:s.name,icon:"users"}));}
+  else if(k==="inv"){custSecs().forEach(s=>base.push({k:"inv:"+s.id,label:t("i_sec_prefix")+" "+s.name,icon:"receipt"}));}
+  else base.push({k,label:navName(k,l),icon:icn});
+ });
  const customs=(db.custom||[]).map(c=>({k:"cx_"+c.id,label:c.name,icon:c.icon||"box"})).filter(x=>typeof PERMV!=="function"||PERMV("custom")!=="hide");
  const i=base.findIndex(x=>x.k==="ai");
  const merged=i<0?base.concat(customs):base.slice(0,i).concat(customs,base.slice(i));
@@ -2385,9 +2530,15 @@ function allNav(){
 }
 function go(p){
  if(p.startsWith("cx_")&&(typeof CX!=="function"||!CX(p.slice(3))))p="dash";
+ if(p==="cust")p="cust:"+((V.csec&&custSecs().some(s=>s.id===V.csec))?V.csec:(custSecs()[0]||{id:"stands"}).id);
+ if(p.startsWith("cust:")){let id=p.slice(5);if(!custSecs().some(s=>s.id===id)){id=(custSecs()[0]||{id:"stands"}).id;p="cust:"+id;}V.csec=id;}
+ if(p==="inv")p="inv:"+((typeof INVSEC!=="undefined"&&INVSEC&&custSecs().some(s=>s.id===INVSEC))?INVSEC:(custSecs()[0]||{id:"stands"}).id);
+ if(p.startsWith("inv:")){let id=p.slice(4);if(!custSecs().some(s=>s.id===id)){id=(custSecs()[0]||{id:"stands"}).id;p="inv:"+id;}INVSEC=id;}
  CUR=p;CHARTS={};renderShellNav();
  const el=byId("page");
  if(p.startsWith("cx_")){el.innerHTML=cxPage(p.slice(3));cxAfter(p.slice(3));}
+ else if(p.startsWith("cust:")){el.innerHTML=page_cust();}
+ else if(p.startsWith("inv:")){el.innerHTML=page_inv();}
  else{const fn=window["page_"+p];el.innerHTML=fn?fn():"";const after=window["after_"+p];if(after)after();}
  if(typeof enforceRO==="function")enforceRO();
  if(typeof pageFx==="function")pageFx(p);
@@ -2396,9 +2547,16 @@ function go(p){
 function renderShellNav(){
  const items=allNav();
  byId("nav").innerHTML=items.map(it=>`<button class="nav-item ${CUR===it.k?"on":""}" draggable="true" data-dnd-nav="${it.k}" title="${t("drag_order")}" ondragstart="secDragStart(event,'nav','${it.k}')" ondragover="secDragOver(event)" ondrop="secDrop(event,'nav','${it.k}')" onclick="go('${it.k}')">${ic(it.icon)}<span>${esc(it.label)}</span></button>`).join("")
-  +`<button class="nav-item" style="color:#F2C98C" onclick="cxNew()">${ic("plus")}<span>${t("cx_add")}</span></button>`;
+  +(SIDE==="prv"?`<button class="nav-item" style="color:#fca5a5" onclick="doLogoutC()">${ic("lock")}<span>${t("logout")}</span></button>`:`<button class="nav-item" style="color:#F2C98C" onclick="cxNew()">${ic("plus")}<span>${t("cx_add")}</span></button>`);
  const mob=["dash","inv","cust","col"];
- byId("bottomnav").innerHTML=mob.map(k=>{const it=items.find(x=>x.k===k);return`<button class="${CUR===k?"on":""}" onclick="go('${k}')">${ic(it.icon)}<span>${esc(it.label)}</span></button>`}).join("")+`<button onclick="moreMenu()" class="${mob.includes(CUR)?"":"on"}">${ic("menu")}<span>${t("more")}</span></button>`;
+ byId("bottomnav").innerHTML=mob.map(k=>{
+  let it,key,on,label;
+  if(k==="cust"){it=items.find(x=>x.k&&x.k.indexOf("cust:")===0);key=it?it.k:"cust";on=CUR.indexOf("cust:")===0;label=t("nav_cust");it=it||{icon:"users"};}
+  else if(k==="inv"){it=items.find(x=>x.k&&x.k.indexOf("inv:")===0);key=it?it.k:"inv";on=CUR.indexOf("inv:")===0;label=t("nav_inv");it=it||{icon:"receipt"};}
+  else{it=items.find(x=>x.k===k);key=k;on=CUR===k;label=it?it.label:"";}
+  if(!it)return"";
+  return`<button class="${on?"on":""}" onclick="go('${key}')">${ic(it.icon)}<span>${esc(label)}</span></button>`;
+ }).join("")+`<button onclick="moreMenu()" class="${(CUR==="dash"||CUR==="col"||CUR.indexOf("inv:")===0||CUR.indexOf("cust:")===0)?"":"on"}">${ic("menu")}<span>${t("more")}</span></button>`;
  const it=items.find(x=>x.k===CUR);byId("tb-title").textContent=it?it.label:"";
  byId("brand-name").textContent=db.settings.biz||t("appName");
  document.title=(db.settings.biz||t("appName"));
@@ -2426,8 +2584,9 @@ function initApp(){
  LANG=db.settings.lang||"ar";
  document.documentElement.lang=LANG;document.documentElement.dir=LANG==="ar"?"rtl":"ltr";
  document.documentElement.setAttribute("data-theme",db.settings.theme||"light");
- document.documentElement.setAttribute("data-accent",db.settings.accent||"green");
+ document.documentElement.setAttribute("data-accent",db.settings.accent||"green");document.documentElement.setAttribute("data-ui-theme",db.settings.uiTheme||"candy");
  document.documentElement.setAttribute("data-font",db.settings.fontScale||"n");
+ try{localStorage.setItem("ui_theme",db.settings.uiTheme||"candy");localStorage.setItem("ui_accent",db.settings.accent||"green");}catch(e){}
  if(typeof Chart!=="undefined"){Chart.defaults.font.family="'Cairo',sans-serif";Chart.defaults.font.weight="700";Chart.defaults.color="#5C6357";}
  const tl=byId("tb-lang");if(tl)tl.onclick=()=>setLang(LANG==="ar"?"en":"ar");
  const tt=byId("tb-theme");if(tt)tt.onclick=()=>setTheme((db.settings.theme==="dark")?"light":"dark");
@@ -2669,7 +2828,7 @@ function importProductsUI(){
  byId("imp-go").onclick=()=>{if(!parsed)return;const skipDup=byId("imp-dup").checked;let added=0;
   parsed.forEach(r=>{if(skipDup&&db.products.some(p=>p.name===r.name))return;
    const u=/كرتون/.test(r.unit)?"ctn":(/قطع/.test(r.unit)?"pc":"bag");
-   db.products.push({id:uid(),name:r.name,unit:u,price:r.price,cost:r.cost,stock:r.stock,min:r.min,active:true});added++;});
+   db.products.push({id:uid(),name:r.name,unit:u,price:r.price,cost:r.cost,stock:r.stock,min:r.min,active:true,sec:prodSecCur()});added++;});
   save();closeModal();toast(`${t("im_done")} — ${added}`);go("prod");};
 }
 
@@ -2677,20 +2836,13 @@ function importProductsUI(){
 function dlBlob(blob,name){const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},400);}
 function backupJSON(){db.meta.lastBackup=todayISO();save();dlBlob(new Blob([JSON.stringify(db)],{type:"application/json"}),`نسخة-احتياطية-${todayISO()}.json`);toast(t("export_done"));}
 function restoreJSON(file){const rd=new FileReader();rd.onload=()=>{try{const d=JSON.parse(rd.result);if(!d||!d.meta||!Array.isArray(d.products))throw 0;
- confirmBox(t("st_restore"),t("st_restore_q"),()=>{db=d;const fresh=freshDB();db.meta=Object.assign(fresh.meta,db.meta);db.settings=Object.assign(fresh.settings,db.settings||{});["products","routes","customers","transactions","invoices","moves","custom"].forEach(k=>{if(!Array.isArray(db[k]))db[k]=[]});save();LANG=db.settings.lang||"ar";setLang(LANG);toast(t("restore_done"));},true);
+ confirmBox(t("st_restore"),t("st_restore_q"),()=>{db=d;const fresh=freshDB();db.meta=Object.assign(fresh.meta,db.meta);db.settings=Object.assign(fresh.settings,db.settings||{});["products","routes","customers","transactions","invoices","moves","custom"].forEach(k=>{if(!Array.isArray(db[k]))db[k]=[]});migrateDB();save();LANG=db.settings.lang||"ar";setLang(LANG);toast(t("restore_done"));},true);
  }catch(e){toast(t("invalid_file"),"err")}};rd.readAsText(file);}
 
 /* ---- print ---- */
 function printHTML(html){const pr=byId("print-root");pr.innerHTML=html+`<div class="p-madeby">Made by Mohamed Ragab</div>`;document.body.classList.add("printing");setTimeout(()=>{window.print();setTimeout(()=>{document.body.classList.remove("printing");pr.innerHTML=""},400)},50);}
 function pHead(title,sub){return`<div class="p-head"><h2>${esc(db.settings.biz||t("appName"))}</h2><div class="p-title">${esc(title)}</div><div class="p-sub"><span>${esc(sub||"")}</span><span>${fmtD(todayISO())}</span></div></div>`;}
-function printInvoice(id){
- const inv=db.invoices.find(x=>x.id===id);if(!inv)return;const s=invTotals(inv);
- const rows=(inv.lines||[]).map(l=>{const p=num(l.price);return`<tr><td class="st">${esc(l.pname||(P_get(l.pid)||{}).name||"")}</td><td class="num">${money(p)}</td><td class="num">${qfmt(l.out)}</td><td class="num">${money(p*num(l.out))}</td><td class="num">${qfmt(l.ret)}</td><td class="num">${money(p*num(l.ret))}</td><td class="num">${qfmt(num(l.out)-num(l.ret))}</td><td class="num">${money(p*(num(l.out)-num(l.ret)))}</td></tr>`}).join("");
- printHTML(`${pHead(t("i_head"),`${fmtD(inv.date)}${inv.routeId?" — "+esc(R_name(inv.routeId)):""}`)}
- <table class="p-tbl"><thead><tr><th>${t("s_product")}</th><th>${t("i_price")}</th><th>${t("i_out")}</th><th>${t("i_vout")}</th><th>${t("i_ret")}</th><th>${t("i_vret")}</th><th>${t("i_net")}</th><th>${t("i_income")}</th></tr></thead>
- <tbody>${rows}</tbody><tfoot><tr><td class="st">${t("i_total")}</td><td></td><td class="num">${qfmt(s.qout)}</td><td class="num">${money(s.vout)}</td><td class="num">${qfmt(s.qret)}</td><td class="num">${money(s.vret)}</td><td class="num">${qfmt(s.net)}</td><td class="num">${money(s.inc)}</td></tr></tfoot></table>
- <div class="p-foot"><span>${t("i_worker")}: ${esc(inv.worker||"................")}</span><span>${t("sig")}: ................</span></div>`);
-}
+function printInvoice(id){const inv=db.invoices.find(x=>x.id===id);if(!inv)return;printHTML(invPrintBlock(inv,false));}
 function printCollectSheet(routeId){
  const bal=balances();const list=db.customers.filter(c=>(!routeId||c.routeId===routeId)).sort((a,b)=>String(a.name).localeCompare(String(b.name),"ar"));
  printCustSheet(list,routeId?R_name(routeId):t("all"),bal);
@@ -2702,13 +2854,20 @@ function printCustSheet(list,subtitle,bal){
  <tfoot><tr><td></td><td class="st">${t("total")}</td><td></td><td></td><td class="num">${money(list.reduce((s,c)=>s+num(bal[c.id]),0))}</td><td></td><td></td></tr></tfoot></table>
  <div class="p-foot"><span>${t("collector")}: ................</span><span>${t("sig")}: ................</span></div>`);
 }
+function printCustList(list,subtitle,bal){
+ const rows=list.map((c,i)=>`<tr><td>${i+1}</td><td class="st">${esc(c.name)}</td><td class="st">${esc(R_name(c.routeId))}</td><td class="st">${esc(c.address||"")}</td><td class="num" dir="ltr">${esc(fixPhone(c.phone))}</td><td class="num">${money(num(bal[c.id]))}</td></tr>`).join("");
+ printHTML(`${pHead(t("c_sheet"),subtitle)}
+ <table class="p-tbl green"><thead><tr><th>#</th><th>${t("c_name")}</th><th>${t("c_route")}</th><th>${t("c_addr")}</th><th>${t("c_phone")}</th><th>${t("c_bal")}</th></tr></thead><tbody>${rows}</tbody>
+ <tfoot><tr><td></td><td class="st">${t("total")}</td><td></td><td></td><td></td><td class="num">${money(list.reduce((s,c)=>s+num(bal[c.id]),0))}</td></tr></tfoot></table>
+ <div class="p-foot"><span>${t("count")}: ${list.length}</span><span>${t("sig")}: ................</span></div>`);
+}
 function printCustFiltered(){
- const list=custFiltered();if(!list.length)return toast(t("no_results"),"err");
- const s=rfState();const sub=esc(custSecName(V.csec))+(s.routes.length?" — "+s.routes.map(R_name).join("، "):"")+(s.debt?" — "+t("c_debtors"):"");
- printCustSheet(list,sub,balances());
+ const list=selectedOrShown();if(!list.length)return toast(t("no_results"),"err");
+ const s=rfState();const sub=esc(custSecName(V.csec))+(s.routes.length?" — "+s.routes.map(R_name).join("، "):"")+(cselCount()?" — "+cselCount()+" "+t("rf_sel"):"")+(s.debt?" — "+t("c_debtors"):"");
+ printCustList(list,sub,balances());
 }
 function exportCustFiltered(){
- const list=custFiltered();if(!list.length)return toast(t("no_results"),"err");
+ const list=selectedOrShown();if(!list.length)return toast(t("no_results"),"err");
  const bal=balances();
  const rows=[[t("c_name"),t("c_route"),t("c_addr"),t("c_phone"),t("c_bal")].map(h=>XC(h,XS.head()))];
  list.forEach(c=>rows.push([XC(c.name,XS.st),XC(R_name(c.routeId),XS.cell),XC(c.address||"",XS.st),XC(fixPhone(c.phone),XS.cell),XC(num(bal[c.id]),XS.money)]));
@@ -2744,11 +2903,11 @@ async function askClaude(question,history){
 const unitName=u=>({bag:t("p_unit_bag"),ctn:t("p_unit_ctn"),pc:t("p_unit_pc")}[u]||u||"");
 function prodStats(from,to){
  const m={};
- db.invoices.forEach(v=>{if((from&&v.date<from)||(to&&v.date>to))return;(v.lines||[]).forEach(l=>{const key=l.pid||l.pname;if(!m[key])m[key]={name:l.pname||(P_get(l.pid)||{}).name||"—",qout:0,qret:0,inc:0};m[key].qout+=num(l.out);m[key].qret+=num(l.ret);m[key].inc+=num(l.price)*(num(l.out)-num(l.ret));});});
+ db.invoices.forEach(v=>{if((from&&v.date<from)||(to&&v.date>to)||!invConfirmed(v))return;(v.lines||[]).forEach(l=>{const key=l.pid||l.pname;if(!m[key])m[key]={name:l.pname||(P_get(l.pid)||{}).name||"—",qout:0,qret:0,inc:0};m[key].qout+=num(l.out);m[key].qret+=num(l.ret);m[key].inc+=num(l.price)*(num(l.out)-num(l.ret));});});
  return Object.values(m).sort((a,b)=>b.inc-a.inc);
 }
-function salesByDay(days){
- const out=[];for(let i=days-1;i>=0;i--){const d=daysAgo(i);const inc=db.invoices.filter(v=>v.date===d).reduce((s,v)=>s+invTotals(v).inc,0);out.push({d,inc});}
+function salesByDay(days,sec){
+ const out=[];for(let i=days-1;i>=0;i--){const d=daysAgo(i);const inc=db.invoices.filter(v=>v.date===d&&invConfirmed(v)&&(!sec||(v.sec||"stands")===sec)).reduce((s,v)=>s+invTotals(v).inc,0);out.push({d,inc});}
  return out;
 }
 const V={pq:"",cq:"",croute:"all",mv_pid:"all",csec:"stands",cqs:{}};
@@ -2764,26 +2923,30 @@ function dashHero(){
   <div class="hero-orbs"><span>📊</span><span>🚚</span><span>💰</span></div>
  </div></div>`;
 }
+function dashSec(){return (typeof SIDE!=="undefined"&&SIDE==="prv")?"prv":null;}
 function page_dash(){
- const today=todayISO();const bal=balances();
- const sToday=db.invoices.filter(v=>v.date===today).reduce((s,v)=>s+invTotals(v).inc,0);
- const rToday=db.invoices.filter(v=>v.date===today).reduce((s,v)=>s+invTotals(v).vret,0);
- const colToday=db.transactions.filter(x=>x.type==="pay"&&x.date===today).reduce((s,x)=>s+num(x.amount),0);
- const debts=Object.values(bal).reduce((s,v)=>s+Math.max(0,v),0);
- const low=db.products.filter(p=>p.active&&num(p.stock)<=num(p.min));
+ const today=todayISO();const bal=balances();const sec=dashSec();
+ const cust=db.customers.filter(c=>!sec||cSec(c)===sec);const custIds=new Set(cust.map(c=>c.id));
+ const inDay=v=>v.date===today&&invConfirmed(v)&&(!sec||(v.sec||"stands")===sec);
+ const sToday=db.invoices.filter(inDay).reduce((s,v)=>s+invTotals(v).inc,0);
+ const rToday=db.invoices.filter(inDay).reduce((s,v)=>s+invTotals(v).vret,0);
+ const colToday=db.transactions.filter(x=>x.type==="pay"&&x.date===today&&(!sec||custIds.has(x.customerId))).reduce((s,x)=>s+num(x.amount),0);
+ const debts=cust.reduce((s,c)=>s+Math.max(0,num(bal[c.id])),0);
+ const low=db.products.filter(p=>p.active&&num(p.stock)<=num(p.min)&&(!sec||pSec(p)===sec));
  const oldBackup=db.customers.length&&(!db.meta.lastBackup||db.meta.lastBackup<daysAgo(7));
- const ins=genInsights().slice(0,3);
+ const ins=(typeof genInsights==="function"?genInsights():[]).slice(0,3);
  return`${dashHero()}
  ${oldBackup?`<div class="tag-note">${t("d_backup_hint")}</div>`:""}
+ ${sec?`<div class="tag-note">${t("wl_prv")}</div>`:""}
  <div class="grid g4" style="margin-bottom:16px">
   <div class="kpi" style="--kc:var(--green)"><div class="lbl">${ic("receipt")} ${t("d_sales")}</div><div class="val">${money(sToday)}</div><div class="sub">${cur()} — ${t("d_returns")}: ${money(rToday)}</div></div>
   <div class="kpi" style="--kc:var(--amber)"><div class="lbl">${ic("cash")} ${t("d_col")}</div><div class="val">${money(colToday)}</div><div class="sub">${cur()}</div></div>
-  <div class="kpi" style="--kc:var(--red)"><div class="lbl">${ic("wallet")} ${t("d_debts")}</div><div class="val">${money(debts)}</div><div class="sub">${db.customers.filter(c=>num(bal[c.id])>0).length} ${t("c_debtors")}</div></div>
+  <div class="kpi" style="--kc:var(--red)"><div class="lbl">${ic("wallet")} ${t("d_debts")}</div><div class="val">${money(debts)}</div><div class="sub">${cust.filter(c=>num(bal[c.id])>0).length} ${t("c_debtors")}</div></div>
   <div class="kpi" style="--kc:var(--navy)"><div class="lbl">${ic("box")} ${t("d_low")}</div><div class="val">${low.length}</div><div class="sub">${esc(low.slice(0,3).map(p=>p.name).join("، "))}</div></div>
  </div>
  <div class="card tabbed"><h3>${ic("plus")} ${t("d_quick")}</h3><div class="btn-row">
   <button class="btn lg" onclick="invEdit()">${ic("receipt")} ${t("d_newinv")}</button>
-  <button class="btn amber lg" onclick="go('col')">${ic("cash")} ${t("d_newcol")}</button>
+  ${sec?"":`<button class="btn amber lg" onclick="go('col')">${ic("cash")} ${t("d_newcol")}</button>`}
   <button class="btn navy lg" onclick="custEdit()">${ic("users")} ${t("d_newcust")}</button>
   <button class="btn soft lg" onclick="stockOp('in')">${ic("store")} ${t("d_stockin")}</button>
  </div></div>
@@ -2791,18 +2954,29 @@ function page_dash(){
   <div class="card tabbed" style="--tab:var(--navy)"><h3>${ic("chart")} ${t("d_trend")}</h3><div class="chart-box sm"><canvas id="ch-dash"></canvas></div></div>
   <div class="card tabbed" style="--tab:var(--amber)"><h3>${ic("spark")} ${t("d_insights")}</h3>
    ${ins.length?ins.map(x=>`<div class="insight ${x.kind}"><div class="ic">${ic(x.icon)}</div><div><b>${esc(x.title)}</b><p>${esc(x.body)}</p></div></div>`).join(""):`<p class="muted">${t("r_nodata")}</p>`}
-   <button class="btn ghost sm" onclick="go('ai')">${ic("spark")} ${t("nav_ai")}</button>
+   ${sec?"":`<button class="btn ghost sm" onclick="go('ai')">${ic("spark")} ${t("nav_ai")}</button>`}
   </div>
- </div>`;
+ </div>${deliveryScene('ds-inflow')}`;
 }
 function after_dash(){
- const data=salesByDay(14);
+ const data=salesByDay(14,dashSec());
  chart("ch-dash",{type:"line",data:{labels:data.map(x=>x.d.slice(5).split("-").reverse().join("/")),datasets:[{data:data.map(x=>x.inc),borderColor:"#0E5A3C",backgroundColor:"rgba(14,90,60,.12)",fill:true,tension:.35,pointRadius:2.5}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}});
 }
 
 /* ---------- products ---------- */
+function pSec(p){return p&&p.sec?p.sec:"stands";}
+let PRODSEC="stands";
+function prodSecCur(){return (typeof SIDE!=="undefined"&&SIDE==="prv")?"prv":((custSecs().some(s=>s.id===PRODSEC))?PRODSEC:"stands");}
+function prodSecGo(id){PRODSEC=id;go("prod");}
+Object.assign(T.ar,{p_sec_prefix:"أصناف",s_sec_prefix:"مخزن",i_pickprod:"اختيار أصناف (متعدد)"});
+Object.assign(T.en,{p_sec_prefix:"Products",s_sec_prefix:"Inventory",i_pickprod:"Select products (multi)"});
+function prodSecTabs(kind){
+ if(typeof SIDE!=="undefined"&&SIDE==="prv")return"";
+ const pre=kind==="stock"?t("s_sec_prefix"):t("p_sec_prefix");
+ return`<div class="toolbar" style="margin-bottom:10px;gap:6px;flex-wrap:wrap">${custSecs().map(s=>`<button class="btn ${PRODSEC===s.id?"":"ghost"} sm" onclick="prodSecGo('${s.id}')">${pre} ${esc(s.name)} <span class="badge">${db.products.filter(p=>pSec(p)===s.id).length}</span></button>`).join("")}</div>`;
+}
 function page_prod(){
- return`<div class="toolbar">
+ return`${prodSecTabs("prod")}<div class="toolbar">
   <div class="search-wrap">${ic("search")}<input class="inp" placeholder="${t("search")}" value="${esc(V.pq)}" oninput="V.pq=this.value;refreshList('prod-list',prodTable())"></div>
   <button class="btn" onclick="prodEdit()">${ic("plus")} ${t("p_new")}</button>
   <button class="btn ghost" onclick="importProductsUI()">${ic("up")} ${t("importX")}</button>
@@ -2811,9 +2985,10 @@ function page_prod(){
  </div><div id="prod-list">${prodTable()}</div>`;
 }
 function prodTable(){
- const q=V.pq.trim();
- const list=db.products.filter(p=>!q||p.name.includes(q));
- if(!db.products.length)return`<div class="card">${emptyBox("box",t("p_empty"),t("p_empty_p"),`<div class="btn-row" style="justify-content:center"><button class="btn" onclick="prodEdit()">${ic("plus")} ${t("p_new")}</button><button class="btn ghost" onclick="importProductsUI()">${ic("up")} ${t("importX")}</button></div>`)}</div>`;
+ const sec=prodSecCur();const q=V.pq.trim();
+ const inSec=db.products.filter(p=>pSec(p)===sec);
+ const list=inSec.filter(p=>!q||p.name.includes(q));
+ if(!inSec.length)return`<div class="card">${emptyBox("box",t("p_empty"),t("p_empty_p"),`<div class="btn-row" style="justify-content:center"><button class="btn" onclick="prodEdit()">${ic("plus")} ${t("p_new")}</button><button class="btn ghost" onclick="importProductsUI()">${ic("up")} ${t("importX")}</button></div>`)}</div>`;
  if(!list.length)return`<div class="card"><p class="muted">${t("no_results")}</p></div>`;
  return`<div class="tbl-wrap"><table class="tbl"><thead><tr><th>${t("p_name")}</th><th>${t("p_unit")}</th><th>${t("p_price")}</th><th>${t("p_stock")}</th><th>${t("p_value")}</th><th>${t("p_status")}</th><th>${t("actions")}</th></tr></thead><tbody>
  ${list.map(p=>`<tr><td class="st">${esc(p.name)}</td><td>${unitName(p.unit)}</td><td class="num">${money(p.price)}</td>
@@ -2824,7 +2999,7 @@ function prodTable(){
  </tbody></table></div>`;
 }
 function prodEdit(id){
- const p=id?P_get(id):{name:"",unit:"bag",price:0,cost:0,stock:0,min:10,active:true};
+ const p=id?P_get(id):{name:"",unit:"bag",price:0,cost:0,stock:0,min:10,active:true,sec:prodSecCur()};
  modal(`${mhead(id?t("edit"):t("p_new"),"box")}<div class="modal-b">
   <div class="field"><label>${t("p_name")} *</label><input class="inp" id="pf-name" value="${esc(p.name)}"></div>
   <div class="frow"><div class="field"><label>${t("p_unit")}</label><select class="inp" id="pf-unit">
@@ -2840,20 +3015,22 @@ function prodEdit(id){
   const rv=byId("pf-retv").value.trim();
   const vals={name,unit:byId("pf-unit").value,price:num(byId("pf-price").value),returnValue:rv===""?"":num(rv),cost:num(byId("pf-cost").value),min:num(byId("pf-min").value),active:byId("pf-act").checked};
   if(id)Object.assign(P_get(id),vals);
-  else{const st=num(byId("pf-stock").value);const np=Object.assign({id:uid(),stock:st},vals);db.products.push(np);if(st)addMove(np.id,"in",st,LANG==="ar"?"رصيد افتتاحي":"Opening balance");}
+  else{const st=num(byId("pf-stock").value);const np=Object.assign({id:uid(),stock:st,sec:prodSecCur()},vals);db.products.push(np);if(st)addMove(np.id,"in",st,LANG==="ar"?"رصيد افتتاحي":"Opening balance");}
   save();closeModal();toast(t("toast_saved"));go(CUR);};
 }
 function prodDel(id){askPin(()=>confirmBox(t("delete"),t("p_del_q"),()=>{const p=P_get(id);(db.invoices||[]).forEach(v=>(v.lines||[]).forEach(l=>{if(l.pid===id)l.pname=l.pname||p.name}));db.products=db.products.filter(x=>x.id!==id);save();toast(t("del_done"));go(CUR);},true));}
 
 /* ---------- stock ---------- */
 function page_stock(){
- const totalVal=db.products.reduce((s,p)=>s+num(p.stock)*num(p.price),0);
- const low=db.products.filter(p=>p.active&&num(p.stock)<=num(p.min)).length;
- return`
+ const sec=prodSecCur();
+ const secProds=db.products.filter(p=>pSec(p)===sec);
+ const totalVal=secProds.reduce((s,p)=>s+num(p.stock)*num(p.price),0);
+ const low=secProds.filter(p=>p.active&&num(p.stock)<=num(p.min)).length;
+ return`${prodSecTabs("stock")}
  <div class="grid g3" style="margin-bottom:16px">
   <div class="kpi" style="--kc:var(--green)"><div class="lbl">${ic("store")} ${t("p_value")}</div><div class="val">${money(totalVal)}</div><div class="sub">${cur()}</div></div>
   <div class="kpi" style="--kc:var(--red)"><div class="lbl">${ic("alert")} ${t("d_low")}</div><div class="val">${low}</div><div class="sub">${t("s_low")}</div></div>
-  <div class="kpi" style="--kc:var(--navy)"><div class="lbl">${ic("box")} ${t("p_title")}</div><div class="val">${db.products.filter(p=>p.active).length}</div><div class="sub">${t("p_active")}</div></div>
+  <div class="kpi" style="--kc:var(--navy)"><div class="lbl">${ic("box")} ${t("p_title")}</div><div class="val">${secProds.filter(p=>p.active).length}</div><div class="sub">${t("p_active")}</div></div>
  </div>
  <div class="toolbar">
   <button class="btn" onclick="stockOp('in')">${ic("up")} ${t("s_in")}</button>
@@ -2863,15 +3040,15 @@ function page_stock(){
   <button class="btn ghost" onclick="printStock()">${ic("print")} ${t("print_stock")}</button>
  </div>
  <div class="card tabbed"><h3>${ic("box")} ${t("p_stock")}</h3><div class="tbl-wrap"><table class="tbl"><thead><tr><th>${t("s_product")}</th><th>${t("p_stock")}</th><th>${t("p_min")}</th><th>${t("p_status")}</th><th>${t("p_value")}</th></tr></thead><tbody>
-  ${db.products.filter(p=>p.active).map(p=>`<tr><td class="st">${esc(p.name)}</td><td class="num">${qfmt(p.stock)} ${unitName(p.unit)}</td><td class="num">${qfmt(p.min)}</td>
+  ${secProds.filter(p=>p.active).map(p=>`<tr><td class="st">${esc(p.name)}</td><td class="num">${qfmt(p.stock)} ${unitName(p.unit)}</td><td class="num">${qfmt(p.min)}</td>
   <td>${num(p.stock)<=num(p.min)?`<span class="badge r">${t("s_low")}</span>`:`<span class="badge g">${t("s_ok")}</span>`}</td><td class="num">${money(num(p.stock)*num(p.price))}</td></tr>`).join("")}
  </tbody></table></div></div>
  <div class="card tabbed" style="--tab:var(--navy)"><h3>${ic("route")} ${t("s_moves")}</h3>
- <div class="toolbar"><select class="inp" style="max-width:230px" onchange="V.mv_pid=this.value;refreshList('mv-list',movesTable())"><option value="all">${t("all")}</option>${db.products.map(p=>`<option value="${p.id}" ${V.mv_pid===p.id?"selected":""}>${esc(p.name)}</option>`).join("")}</select></div>
+ <div class="toolbar"><select class="inp" style="max-width:230px" onchange="V.mv_pid=this.value;refreshList('mv-list',movesTable())"><option value="all">${t("all")}</option>${secProds.map(p=>`<option value="${p.id}" ${V.mv_pid===p.id?"selected":""}>${esc(p.name)}</option>`).join("")}</select></div>
  <div id="mv-list">${movesTable()}</div></div>`;
 }
 function movesTable(){
- const mv=db.moves.filter(m=>V.mv_pid==="all"||m.pid===V.mv_pid).slice().reverse().slice(0,120);
+ const sec=prodSecCur();const mv=db.moves.filter(m=>(V.mv_pid==="all"?((P_get(m.pid)?pSec(P_get(m.pid)):"stands")===sec):m.pid===V.mv_pid)).slice().reverse().slice(0,120);
  if(!mv.length)return`<p class="muted">${t("s_empty")}</p>`;
  const badge={in:"g",dmg:"r",adj:"a",out:"n",ret:"a"};
  return`<div class="tbl-wrap"><table class="tbl navy"><thead><tr><th>${t("date")}</th><th>${t("s_product")}</th><th>${t("s_type")}</th><th>${t("s_qty")}</th><th>${t("notes")}</th></tr></thead><tbody>
@@ -2881,7 +3058,7 @@ function movesTable(){
 function stockOp(type){
  const title=type==="in"?t("s_in"):type==="dmg"?t("s_dmg"):t("s_adj");
  modal(`${mhead(title,"store")}<div class="modal-b">
-  <div class="field"><label>${t("s_product")}</label><select class="inp" id="so-pid">${db.products.filter(p=>p.active).map(p=>`<option value="${p.id}">${esc(p.name)} — ${qfmt(p.stock)}</option>`).join("")}</select></div>
+  <div class="field"><label>${t("s_product")}</label><select class="inp" id="so-pid">${db.products.filter(p=>p.active&&pSec(p)===prodSecCur()).map(p=>`<option value="${p.id}">${esc(p.name)} — ${qfmt(p.stock)}</option>`).join("")}</select></div>
   <div class="frow"><div class="field"><label>${type==="adj"?t("s_newbal"):t("s_qty")}</label><input class="inp num" id="so-qty" type="number" step="any" inputmode="decimal"></div>
   <div class="field"><label>${t("date")}</label><input class="inp" id="so-date" type="date" value="${todayISO()}"></div></div>
   <div class="field"><label>${t("s_reason")} (${t("optional")})</label><input class="inp" id="so-note"></div>
@@ -2894,96 +3071,236 @@ function stockOp(type){
 }
 
 /* ---------- invoices ---------- */
+let INVVIEW="new";
+function invSetView(v){INVVIEW=v;go(CUR);}
 function page_inv(){
- const list=db.invoices.slice().sort((a,b)=>String(b.date).localeCompare(String(a.date)));
- return`<div class="toolbar"><button class="btn lg" onclick="invEdit()">${ic("plus")} ${t("i_new")}</button></div>
- ${!list.length?`<div class="card">${emptyBox("receipt",t("i_empty"),t("i_empty_p"),`<button class="btn" onclick="invEdit()">${ic("plus")} ${t("i_new")}</button>`)}</div>`:
- `<div class="card tabbed" style="--tab:var(--navy)"><h3>${ic("receipt")} ${t("i_list")}</h3><div class="tbl-wrap"><table class="tbl navy"><thead><tr><th>${t("date")}</th><th>${t("i_route")}</th><th>${t("i_worker")}</th><th>${t("i_vout")}</th><th>${t("i_vret")}</th><th>${t("i_income")}</th><th>${t("actions")}</th></tr></thead><tbody>
- ${list.map(v=>{const s=invTotals(v);return`<tr><td class="num">${fmtD(v.date)}</td><td>${v.routeId?esc(R_name(v.routeId)):"—"}</td><td>${esc(v.worker||"—")}</td><td class="num">${money(s.vout)}</td><td class="num">${money(s.vret)}</td><td class="num money-pos">${money(s.inc)}</td>
- <td><div class="row-act">
-  <button class="icon-btn" title="${t("edit")}" onclick="invEdit('${v.id}')">${ic("edit")}</button>
-  <button class="icon-btn" title="${t("print")}" onclick="printInvoice('${v.id}')">${ic("print")}</button>
-  <button class="icon-btn" title="${t("exportX")}" onclick="exportInvoice('${v.id}')">${ic("dl")}</button>
-  <button class="icon-btn" title="${t("i_dup")}" onclick="invDup('${v.id}')">${ic("copy")}</button>
-  <button class="icon-btn" title="${t("delete")}" onclick="invDel('${v.id}')">${ic("trash")}</button>
- </div></td></tr>`}).join("")}
- </tbody></table></div></div>`}`;
+ const seg=`<div class="inv-seg">
+  <button class="${INVVIEW!=="log"?"on":""}" onclick="invSetView('new')">${ic("receipt")} ${t("i_title")}</button>
+  <button class="${INVVIEW==="log"?"on":""}" onclick="invSetView('log')">${ic("chart")} ${t("nav_invlog")}</button>
+ </div>`;
+ if(INVVIEW==="log"){
+  return`${seg}
+  <div class="toolbar">
+   <div class="search-wrap">${ic("search")}<input class="inp" placeholder="${t("i_search_cust")}" value="${esc(INVQ.q)}" oninput="INVQ.q=this.value;refreshList('inv-list',invListHtml())"></div>
+   <div class="field" style="margin:0"><input class="inp" type="date" value="${esc(INVQ.date)}" onchange="INVQ.date=this.value;go(CUR)" title="${t("i_search_date")}"></div>
+   ${(INVQ.q||INVQ.date)?`<button class="btn ghost sm" onclick="INVQ={q:'',date:''};go(CUR)">✕ ${t("rf_clear")}</button>`:""}
+   ${db.invoices.length?`<button class="btn ghost" onclick="printInvoicesFiltered()" title="${t("i_printall")}">${ic("print")} ${t("i_printall")}</button>`:""}
+  </div>
+  <div id="inv-list">${invListHtml()}</div>`;
+ }
+ const pend=db.invoices.filter(v=>(v.sec||"stands")===INVSEC&&!invConfirmed(v)).length;
+ return`${seg}
+  <div class="toolbar">
+   <button class="btn lg" onclick="invEdit()">${ic("plus")} ${t("i_new")}</button>
+   ${pend?`<span class="badge a" style="align-self:center">⏳ ${pend} ${t("i_pending")}</span>`:""}
+   <span style="flex:1"></span>
+   <button class="btn ghost sm" onclick="invSetView('log')">${ic("chart")} ${t("nav_invlog")} ←</button>
+  </div>
+  <div id="inv-list">${invDailyHtml()}</div>`;
 }
+function invTableHtml(list,head){
+ if(!db.invoices.length)return`<div class="card">${emptyBox("receipt",t("i_empty"),t("i_empty_p"),`<button class="btn" onclick="invEdit()">${ic("plus")} ${t("i_new")}</button>`)}</div>`;
+ if(!list.length)return`<div class="card"><p class="muted">${t("no_results")}</p></div>`;
+ return`<div class="card tabbed" style="--tab:var(--navy)"><h3>${ic("receipt")} ${esc(head||t("i_list"))}</h3><div class="tbl-wrap"><table class="tbl navy"><thead><tr><th>${t("i_cust")}</th><th>${t("c_phone")}</th><th>${t("i_created")}</th><th>${t("i_edited")}</th><th>${t("i_status")}</th><th>${t("i_income")}</th><th>${t("actions")}</th></tr></thead><tbody>
+ ${list.map(v=>{const s=invTotals(v);const conf=invConfirmed(v);return`<tr>
+  <td class="st">${esc(invCustName(v)||"—")}</td>
+  <td class="num" dir="ltr">${esc(invCustPhone(v)||"—")}</td>
+  <td class="num">${v.createdAt?invFmtTs(v.createdAt):fmtD(v.date)}</td>
+  <td class="num">${v.editedAt?invFmtTs(v.editedAt):t("i_none")}</td>
+  <td>${conf?`<span class="badge g">${t("i_confirmed")}</span>`:`<span class="badge a">${t("i_pending")}</span>`}</td>
+  <td class="num money-pos">${money(s.inc)}</td>
+  <td><div class="row-act">
+   ${conf?`<button class="icon-btn" title="${t("i_unconfirm")}" style="color:var(--red)" onclick="invUnconfirm('${v.id}')">${ic("x")}</button>`:`<button class="icon-btn" title="${t("i_confirm")}" style="color:var(--green)" onclick="invConfirm('${v.id}')">${ic("check")}</button>`}
+   <button class="icon-btn" title="${t("edit")}" onclick="invEdit('${v.id}')">${ic("edit")}</button>
+   <button class="icon-btn" title="${t("print")}" onclick="printInvoice('${v.id}')">${ic("print")}</button>
+   <button class="icon-btn" title="${t("exportX")}" onclick="exportInvoice('${v.id}')">${ic("dl")}</button>
+   <button class="icon-btn" title="${t("i_dup")}" onclick="invDup('${v.id}')">${ic("copy")}</button>
+   <button class="icon-btn" title="${t("delete")}" onclick="invDel('${v.id}')">${ic("trash")}</button>
+  </div></td></tr>`}).join("")}
+ </tbody></table></div></div>`;
+}
+function invListHtml(){return invTableHtml(invFiltered(),t("nav_invlog"));}
+function invDailyHtml(){const today=todayISO();const list=db.invoices.filter(v=>(v.sec||"stands")===INVSEC&&(v.date===today||!invConfirmed(v))).sort((a,b)=>num(b.createdAt||0)-num(a.createdAt||0)||String(b.date).localeCompare(String(a.date)));return invTableHtml(list,LANG==="ar"?"فواتير اليوم والمعلّقة":"Today & pending");}
+Object.assign(T.ar,{i_cust:"العميل",i_selcust:"اختر العميل",i_nocust:"بدون عميل محدد",i_paid:"المدفوع",i_prevbal:"الرصيد السابق",i_rembal:"الرصيد المتبقي",i_status:"الحالة",i_pending:"قيد الانتظار",i_confirmed:"مؤكدة",i_confirm:"تأكيد ✓",i_unconfirm:"إلغاء التأكيد",i_created:"تاريخ الإنشاء",i_edited:"آخر تعديل",i_search_date:"بحث بالتاريخ",i_search_cust:"بحث باسم العميل / الهاتف",i_printall:"طباعة الكل (كل فاتورة في صفحة)",i_confirmed_ok:"تم تأكيد الفاتورة ومزامنتها ✓",i_unconf_ok:"تم إلغاء التأكيد — الفاتورة قيد الانتظار",i_addr:"العنوان",i_none:"—"});
+Object.assign(T.en,{i_cust:"Customer",i_selcust:"Select customer",i_nocust:"No customer",i_paid:"Amount paid",i_prevbal:"Previous balance",i_rembal:"Remaining balance",i_status:"Status",i_pending:"Pending",i_confirmed:"Confirmed",i_confirm:"Confirm",i_unconfirm:"Unconfirm",i_created:"Created",i_edited:"Last edit",i_search_date:"Search by date",i_search_cust:"Search by customer / phone",i_printall:"Print all (one per page)",i_confirmed_ok:"Invoice confirmed & synced ✓",i_unconf_ok:"Unconfirmed — pending",i_addr:"Address",i_none:"—"});
+let INVSEC="stands";
+Object.assign(T.ar,{i_sec_prefix:"فواتير"});
+Object.assign(T.en,{i_sec_prefix:"Invoices"});
+let INVQ={q:"",date:""};
+
+function invConfirmed(v){return v&&v.status!=="pending";}
+function invCust(v){return (v&&v.customerId)?C_get(v.customerId):null;}
+function invCustName(v){const c=invCust(v);return c?c.name:((v&&v.custName)?v.custName:"");}
+function invCustPhone(v){const c=invCust(v);return fixPhone(c?c.phone:((v&&v.custPhone)?v.custPhone:""));}
+Object.assign(T.ar,{i_pickcust:"اختيار العملاء (بحث وتحديد متعدد)",i_multi_note:"تم اختيار {n} عملاء — سيتم إنشاء فاتورة منفصلة لكل عميل"});
+Object.assign(T.en,{i_pickcust:"Select customers (search & multi-select)",i_multi_note:"{n} customers selected — a separate invoice will be created for each"});
+function invPrevBal(){return (INV&&INV.customerId)?calcBal(INV.customerId):0;}
+function invSyncPrimary(){const ids=INV.custSel||[];INV.customerId=ids[0]||"";const c=INV.customerId?C_get(INV.customerId):null;INV.custName=c?c.name:"";INV.custPhone=c?fixPhone(c.phone):"";INV.custAddress=c?(c.address||""):"";INV.sec=c?cSec(c):(typeof INVSEC!=="undefined"?INVSEC:"stands");}
+function invCustInfo(){const c=INV.customerId?C_get(INV.customerId):null;const rt=byId("if-cust-route");if(rt)rt.textContent=c?(R_name(c.routeId)||"—"):"—";const ad=byId("if-cust-addr");if(ad)ad.textContent=c?(c.address||"—"):"—";const ph=byId("if-cust-phone");if(ph)ph.textContent=c?(fixPhone(c.phone)||"—"):"—";}function invFootUpdate(){const single=!INV.custSel||INV.custSel.length<=1;const p=byId("if-prev"),r=byId("if-rem");if(!single){if(p)p.textContent="—";if(r)r.textContent="—";return;}const total=invTotals(INV).inc;const prev=invPrevBal();const paid=num(INV.paid);if(p)p.textContent=money(prev);if(r)r.textContent=money(prev+total-paid);}
+function invCustChips(){if(!INV.custSel||!INV.custSel.length)return `<span class="muted">${t("i_nocust")}</span>`;return INV.custSel.map(id=>{const c=C_get(id);return `<span class="badge g" style="padding:4px 8px;display:inline-flex;align-items:center;gap:6px">${esc(c?c.name:id)}<a href="javascript:void 0" onclick="invCustRm('${id}')" style="color:inherit;font-weight:800">✕</a></span>`;}).join("");}
+function invCustRm(id){INV.custSel=(INV.custSel||[]).filter(x=>x!==id);invSyncPrimary();invModal(INV.id);}
+let ICP={q:"",route:"all",sel:{}};
+function invCustPick(){ICP={q:"",route:"all",sel:{}};(INV.custSel||[]).forEach(id=>ICP.sel[id]=true);
+ modal(`${mhead(t("i_pickcust"),"users")}<div class="modal-b et-wide">
+  <div class="toolbar"><div class="search-wrap">${ic("search")}<input class="inp" placeholder="${t("c_name")}" oninput="ICP.q=this.value;refreshList('icp-list',icpList())"></div>
+   <select class="inp" style="max-width:180px" onchange="ICP.route=this.value;refreshList('icp-list',icpList())"><option value="all">${t("all")}</option>${db.routes.map(r=>`<option value="${r.id}">${esc(r.name)}</option>`).join("")}</select>
+   <button class="btn soft sm" onclick="icpAll()">${t("as_all")}</button></div>
+  <div id="icp-list" style="max-height:52vh;overflow:auto">${icpList()}</div>
+ </div><div class="modal-f"><button class="btn" onclick="icpApply()">${ic("check")} ${t("confirm")} (<span id="icp-n">${Object.keys(ICP.sel).length}</span>)</button><button class="btn ghost" onclick="invModal(INV.id)">${t("cancel")}</button></div>`,true);}
+function icpFiltered(){const q=ICP.q.trim();return db.customers.filter(c=>(ICP.route==="all"||c.routeId===ICP.route)&&(!q||String(c.name).includes(q)||String(c.phone||"").includes(q))).sort((a,b)=>String(a.name).localeCompare(String(b.name),"ar")).slice(0,400);}
+function icpList(){const rows=icpFiltered();if(!rows.length)return`<p class="muted" style="padding:10px">${t("no_results")}</p>`;
+ return`<div class="tbl-wrap"><table class="tbl"><thead><tr><th style="width:34px"></th><th>${t("c_name")}</th><th>${t("c_phone")}</th><th>${t("c_route")}</th></tr></thead><tbody>
+ ${rows.map(c=>`<tr onclick="icpTgl('${c.id}')" style="cursor:pointer"><td><input type="checkbox" ${ICP.sel[c.id]?"checked":""} onclick="event.stopPropagation();icpTgl('${c.id}')"></td><td class="st">${esc(c.name)}</td><td class="num" dir="ltr">${esc(fixPhone(c.phone)||"—")}</td><td>${esc(R_name(c.routeId))}</td></tr>`).join("")}
+ </tbody></table></div>`;}
+function icpTgl(id){if(ICP.sel[id])delete ICP.sel[id];else ICP.sel[id]=true;refreshList("icp-list",icpList());const n=byId("icp-n");if(n)n.textContent=Object.keys(ICP.sel).length;}
+function icpAll(){icpFiltered().forEach(c=>ICP.sel[c.id]=true);refreshList("icp-list",icpList());const n=byId("icp-n");if(n)n.textContent=Object.keys(ICP.sel).length;}
+function icpApply(){INV.custSel=Object.keys(ICP.sel);invSyncPrimary();invModal(INV.id);}
+function invApplyEffects(v){applyInvStock(v,1);v.txIds=[];if(v.customerId&&C_get(v.customerId)){const s=invTotals(v);const total=num(s.inc);const paid=num(v.paid);v.prevBal=calcBal(v.customerId);if(total){const i1=uid();db.transactions.push({id:i1,customerId:v.customerId,type:"debt",amount:total,date:v.date,note:(LANG==="ar"?"فاتورة ":"Invoice ")+fmtD(v.date),invId:v.id});v.txIds.push(i1);}if(paid>0){const i2=uid();db.transactions.push({id:i2,customerId:v.customerId,type:"pay",amount:paid,date:v.date,note:(LANG==="ar"?"دفعة فاتورة":"Invoice payment"),invId:v.id});v.txIds.push(i2);}}}
+function invReverseEffects(v){applyInvStock(v,-1);if(v.txIds&&v.txIds.length){const set=v.txIds.slice();db.transactions=db.transactions.filter(x=>set.indexOf(x.id)<0);v.txIds=[];}}
+function invConfirm(id){const v=db.invoices.find(x=>x.id===id);if(!v||invConfirmed(v))return;invApplyEffects(v);v.status="confirmed";v.confirmedAt=Date.now();if(typeof logAct==="function")logAct((LANG==="ar"?"تأكيد فاتورة ":"Confirm invoice ")+fmtD(v.date));save();toast(t("i_confirmed_ok"));go("inv");}
+function invUnconfirm(id){const v=db.invoices.find(x=>x.id===id);if(!v||!invConfirmed(v))return;invReverseEffects(v);v.status="pending";v.confirmedAt=null;if(typeof logAct==="function")logAct((LANG==="ar"?"إلغاء تأكيد فاتورة ":"Unconfirm invoice ")+fmtD(v.date));save();toast(t("i_unconf_ok"));go("inv");}
+function invFmtTs(ts){if(!ts)return t("i_none");try{return new Date(num(ts)).toLocaleString(LANG==="ar"?"ar-EG":"en-GB")}catch(e){return t("i_none")}}
+function invFiltered(){let list=db.invoices.slice();if(typeof INVSEC!=="undefined"&&INVSEC)list=list.filter(v=>(v.sec||"stands")===INVSEC);const q=(INVQ.q||"").trim();const d=(INVQ.date||"").trim();if(d)list=list.filter(v=>v.date===d);if(q)list=list.filter(v=>String(invCustName(v)||"").includes(q)||String(invCustPhone(v)||"").includes(q));return list.sort((a,b)=>num(b.createdAt||0)-num(a.createdAt||0)||String(b.date).localeCompare(String(a.date)));}
+function invPrintBlock(inv,brk){const s=invTotals(inv);const c=invCust(inv);const name=invCustName(inv)||"—";const phone=invCustPhone(inv)||"—";const route=(c?R_name(c.routeId):(inv.routeId?R_name(inv.routeId):""))||"—";const addr=(c?c.address:inv.custAddress)||"—";const total=num(s.inc);const paid=num(inv.paid);const prev=inv.customerId?((invConfirmed(inv)&&inv.prevBal!==undefined)?num(inv.prevBal):calcBal(inv.customerId)):0;const rem=prev+total-paid;
+ const rows=(inv.lines||[]).map(l=>{const p=num(l.price);const net=num(l.out)-num(l.ret);return`<tr><td class="st">${esc(l.pname||(P_get(l.pid)||{}).name||"")}</td><td class="num">${qfmt(net)}</td><td class="num">${money(p)}</td><td class="num">${money(p*net)}</td></tr>`}).join("");
+ const cell=(lbl,val,ltr,strong)=>`<td style="padding:7px 8px;border:1px solid #bbb;vertical-align:top;text-align:center${strong?";background:#f3f3f3":""}"><div style="font-weight:800;font-size:.8em;color:#555;margin-bottom:3px">${lbl}</div><div${ltr?' dir="ltr"':""} style="${strong?"font-weight:800;font-size:1.05em":""}">${val}</div></td>`;
+ return`<div class="inv-print" style="${brk?"page-break-after:always;":""}padding:6px 2px">${pHead(t("i_head"),invConfirmed(inv)?"":t("i_pending"))}
+ <table style="width:100%;margin:14px 0 16px;border-collapse:collapse"><tr>${cell(t("c_name"),esc(name))}${cell(t("c_route"),esc(route))}${cell(t("i_addr"),esc(addr))}${cell(t("c_phone"),esc(phone),true)}${cell(t("date"),fmtD(inv.date))}</tr></table>
+ <table class="p-tbl" style="margin-bottom:16px"><thead><tr><th>${t("s_product")}</th><th>${t("s_qty")}</th><th>${t("i_price")}</th><th>${t("total")}</th></tr></thead>
+ <tbody>${rows}</tbody><tfoot><tr><td class="st">${t("i_total")}</td><td class="num">${qfmt(s.net)}</td><td></td><td class="num">${money(total)}</td></tr></tfoot></table>
+ <table style="width:100%;margin-top:14px;border-collapse:collapse"><tr>${cell(t("i_prevbal"),money(prev))}${cell(t("i_paid"),money(paid))}${cell(t("i_rembal"),money(rem),false,true)}</tr></table></div>`;}
+function printInvoicesFiltered(){const list=invFiltered();if(!list.length)return toast(t("no_results"),"err");printHTML(list.map((v,i)=>invPrintBlock(v,i<list.length-1)).join(""));}
+let IPP={q:"",sel:{}};
+function invProdPick(){IPP={q:"",sel:{}};
+ modal(`${mhead(t("i_pickprod"),"box")}<div class="modal-b et-wide">
+  <div class="toolbar"><div class="search-wrap">${ic("search")}<input class="inp" placeholder="${t("p_name")}" oninput="IPP.q=this.value;refreshList('ipp-list',ippList())"></div><button class="btn soft sm" onclick="ippAll()">${t("as_all")}</button></div>
+  <div id="ipp-list" style="max-height:52vh;overflow:auto">${ippList()}</div>
+ </div><div class="modal-f"><button class="btn" onclick="ippApply()">${ic("check")} ${t("add")} (<span id="ipp-n">0</span>)</button><button class="btn ghost" onclick="invModal(INV.id)">${t("cancel")}</button></div>`,true);}
+function ippProds(){const sec=(INV&&INV.sec)?INV.sec:"stands";const q=IPP.q.trim();return db.products.filter(p=>p.active&&pSec(p)===sec&&(!q||p.name.includes(q))).sort((a,b)=>String(a.name).localeCompare(String(b.name),"ar"));}
+function ippList(){const rows=ippProds();if(!rows.length)return`<p class="muted" style="padding:10px">${t("p_empty")}</p>`;
+ return`<div class="tbl-wrap"><table class="tbl"><thead><tr><th style="width:34px"></th><th>${t("p_name")}</th><th>${t("p_price")}</th><th>${t("p_stock")}</th></tr></thead><tbody>
+ ${rows.map(p=>`<tr onclick="ippTgl('${p.id}')" style="cursor:pointer"><td><input type="checkbox" ${IPP.sel[p.id]?"checked":""} onclick="event.stopPropagation();ippTgl('${p.id}')"></td><td class="st">${esc(p.name)}</td><td class="num">${money(p.price)}</td><td class="num">${qfmt(p.stock)}</td></tr>`).join("")}
+ </tbody></table></div>`;}
+function ippTgl(id){if(IPP.sel[id])delete IPP.sel[id];else IPP.sel[id]=true;refreshList("ipp-list",ippList());const n=byId("ipp-n");if(n)n.textContent=Object.keys(IPP.sel).length;}
+function ippAll(){ippProds().forEach(p=>IPP.sel[p.id]=true);refreshList("ipp-list",ippList());const n=byId("ipp-n");if(n)n.textContent=Object.keys(IPP.sel).length;}
+function ippApply(){Object.keys(IPP.sel).forEach(pid=>{const p=P_get(pid);if(p&&!INV.lines.some(l=>l.pid===pid))INV.lines.push({pid,pname:p.name,price:num(p.price),out:0,ret:0});});invModal(INV.id);}
 let INV=null;
+
 function invEdit(id){
  const src=id?db.invoices.find(x=>x.id===id):null;
- INV=src?JSON.parse(JSON.stringify(src)):{id:null,date:todayISO(),routeId:"",worker:"",lines:[],stockApplied:true,note:""};
+ INV=src?JSON.parse(JSON.stringify(src)):{id:null,date:todayISO(),customerId:"",custName:"",custPhone:"",custAddress:"",sec:(typeof INVSEC!=="undefined"?INVSEC:"stands"),routeId:"",worker:"",lines:[],paid:0,stockApplied:true,status:"pending",createdAt:0,editedAt:null,txIds:[],note:""};
+ INV.custSel=INV.customerId?[INV.customerId]:[];
  if(!id&&!INV.lines.length)invAddAll(true);
  invModal(id);
 }
 function invDup(id){const src=db.invoices.find(x=>x.id===id);if(!src)return;INV=JSON.parse(JSON.stringify(src));INV.id=null;INV.date=todayISO();invModal(null);}
 function invModal(id){
+ INV.custSel=INV.custSel||(INV.customerId?[INV.customerId]:[]);
+ const single=INV.custSel.length<=1;
  modal(`${mhead(id?t("edit")+" — "+t("i_title"):t("i_new"),"receipt")}<div class="modal-b">
-  <div class="grid g3">
+  <div class="frow">
+   <div class="field"><label>${t("i_cust")} *</label><div id="if-cust-chips" style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-height:34px">${invCustChips()}</div>
+    <button class="btn soft sm" style="margin-top:6px" onclick="invCustPick()">${ic("users")} ${t("i_pickcust")}</button></div>
    <div class="field"><label>${t("date")}</label><input class="inp" type="date" value="${INV.date}" onchange="INV.date=this.value"></div>
-   <div class="field"><label>${t("i_route")}</label><select class="inp" onchange="INV.routeId=this.value"><option value="">—</option>${db.routes.map(r=>`<option value="${r.id}" ${INV.routeId===r.id?"selected":""}>${esc(r.name)}</option>`).join("")}</select></div>
-   <div class="field"><label>${t("i_worker")}</label><input class="inp" value="${esc(INV.worker||"")}" oninput="INV.worker=this.value"></div>
   </div>
-  <div class="btn-row" style="margin-bottom:10px">
+  <div class="grid g3" id="if-cust-info" style="margin:-2px 0 8px;${single?"":"display:none"}">
+   <div class="kv" style="border:0"><span>${t("c_route")}</span><b id="if-cust-route">—</b></div>
+   <div class="kv" style="border:0"><span>${t("i_addr")}</span><b id="if-cust-addr">—</b></div>
+   <div class="kv" style="border:0"><span>${t("c_phone")}</span><b id="if-cust-phone" dir="ltr">—</b></div>
+  </div>
+  ${single?"":`<p class="tag-note" style="margin:-2px 0 8px">${t("i_multi_note").replace("{n}",INV.custSel.length)}</p>`}
+  <div class="btn-row" style="margin-bottom:10px;flex-wrap:wrap">
    <button class="btn soft sm" onclick="invAddAll()">${ic("plus")} ${t("i_addall")}</button>
-   <select class="inp" style="max-width:210px" id="if-addsel"><option value="">${t("i_addone")}...</option>${db.products.filter(p=>p.active).map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join("")}</select>
+   <button class="btn soft sm" onclick="invProdPick()">${ic("box")} ${t("i_pickprod")}</button>
+   <select class="inp" style="max-width:210px" id="if-addsel"><option value="">${t("i_addone")}...</option>${db.products.filter(p=>p.active&&pSec(p)===(INV.sec||"stands")).map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join("")}</select>
   </div>
   <div id="if-lines"></div>
+  <div class="grid g3" style="margin-top:12px">
+   <div class="kv"><span>${t("i_prevbal")}</span><b id="if-prev">—</b></div>
+   <div class="field"><label>${t("i_paid")}</label><input class="inp num" type="number" step="any" inputmode="decimal" value="${num(INV.paid)||""}" oninput="INV.paid=num(this.value);invFootUpdate()"></div>
+   <div class="kv"><span>${t("i_rembal")}</span><b id="if-rem" class="money-neg">—</b></div>
+  </div>
   <label class="check-row" style="margin-top:12px"><span class="switch"><input type="checkbox" ${INV.stockApplied?"checked":""} onchange="INV.stockApplied=this.checked"><i></i></span> ${t("i_apply")}</label>
  </div><div class="modal-f"><button class="btn lg" onclick="invSave()">${ic("check")} ${t("save")}</button><button class="btn ghost" onclick="closeModal()">${t("cancel")}</button></div>`,true);
  byId("if-addsel").onchange=e=>{const pid=e.target.value;if(!pid)return;invAddLine(pid);e.target.value="";};
  invRenderLines();
+ if(single&&INV.customerId)invCustInfo();
+ invFootUpdate();
 }
-function invAddAll(silent){db.products.filter(p=>p.active).forEach(p=>{if(!INV.lines.some(l=>l.pid===p.id))INV.lines.push({pid:p.id,pname:p.name,price:num(p.price),out:0,ret:0});});if(!silent)invRenderLines();}
+function invAddAll(silent){db.products.filter(p=>p.active&&pSec(p)===(INV.sec||"stands")).forEach(p=>{if(!INV.lines.some(l=>l.pid===p.id))INV.lines.push({pid:p.id,pname:p.name,price:num(p.price),out:0,ret:0});});if(!silent)invRenderLines();}
 function invAddLine(pid){const p=P_get(pid);if(!p||INV.lines.some(l=>l.pid===pid))return invRenderLines();INV.lines.push({pid,pname:p.name,price:num(p.price),out:0,ret:0});invRenderLines();}
 function invRenderLines(){
  const el=byId("if-lines");if(!el)return;
- el.innerHTML=`<div class="tbl-wrap"><table class="tbl navy" style="min-width:780px"><thead><tr><th>${t("s_product")}</th><th>${t("i_price")}</th><th>${t("i_out")}</th><th>${t("i_vout")}</th><th>${t("i_ret")}</th><th>${t("i_vret")}</th><th>${t("i_net")}</th><th>${t("i_income")}</th><th></th></tr></thead><tbody>
+ el.innerHTML=`<div class="tbl-wrap"><table class="tbl navy"><thead><tr><th>${t("s_product")}</th><th>${t("s_qty")}</th><th>${t("i_price")}</th><th>${t("total")}</th><th></th></tr></thead><tbody>
  ${INV.lines.map((l,i)=>`<tr>
   <td class="st">${esc(l.pname||(P_get(l.pid)||{}).name||"")}</td>
-  <td><input class="inp num" type="number" step="any" inputmode="decimal" value="${num(l.price)}" oninput="invUpd(${i},'price',this.value)"></td>
   <td><input class="inp num" type="number" step="any" inputmode="decimal" value="${num(l.out)||""}" placeholder="0" oninput="invUpd(${i},'out',this.value)"></td>
-  <td class="num" id="if-vout-${i}">${money(num(l.price)*num(l.out))}</td>
-  <td><input class="inp num" type="number" step="any" inputmode="decimal" value="${num(l.ret)||""}" placeholder="0" oninput="invUpd(${i},'ret',this.value)"></td>
-  <td class="num" id="if-vret-${i}">${money(num(l.price)*num(l.ret))}</td>
-  <td class="num" id="if-net-${i}">${qfmt(num(l.out)-num(l.ret))}</td>
-  <td class="num money-pos" id="if-inc-${i}">${money(num(l.price)*(num(l.out)-num(l.ret)))}</td>
+  <td><input class="inp num" type="number" step="any" inputmode="decimal" value="${num(l.price)}" oninput="invUpd(${i},'price',this.value)"></td>
+  <td class="num money-pos" id="if-inc-${i}">${money(num(l.price)*num(l.out))}</td>
   <td><button class="icon-btn" onclick="invRm(${i})" title="${t("delete")}">${ic("x")}</button></td></tr>`).join("")}
  </tbody><tfoot><tr id="if-totrow"></tr></tfoot></table></div>`;
- invTotalsRow();
+ invTotalsRow();invFootUpdate();
 }
 function invRm(i){INV.lines.splice(i,1);invRenderLines();}
 function invUpd(i,k,v){const l=INV.lines[i];if(!l)return;l[k]=num(v);
- byId("if-vout-"+i).textContent=money(num(l.price)*num(l.out));
- byId("if-vret-"+i).textContent=money(num(l.price)*num(l.ret));
- byId("if-net-"+i).textContent=qfmt(num(l.out)-num(l.ret));
- byId("if-inc-"+i).textContent=money(num(l.price)*(num(l.out)-num(l.ret)));
- invTotalsRow();
+ const el=byId("if-inc-"+i);if(el)el.textContent=money(num(l.price)*num(l.out));
+ invTotalsRow();invFootUpdate();
 }
 function invTotalsRow(){const s=invTotals(INV);const tr=byId("if-totrow");if(!tr)return;
- tr.innerHTML=`<td class="st">${t("i_total")}</td><td></td><td class="num">${qfmt(s.qout)}</td><td class="num">${money(s.vout)}</td><td class="num">${qfmt(s.qret)}</td><td class="num">${money(s.vret)}</td><td class="num">${qfmt(s.net)}</td><td class="num">${money(s.inc)}</td><td></td>`;
+ tr.innerHTML=`<td class="st">${t("i_total")}</td><td class="num">${qfmt(s.qout)}</td><td></td><td class="num money-pos">${money(s.inc)}</td><td></td>`;
 }
 function invSave(){
  INV.lines=INV.lines.filter(l=>num(l.out)||num(l.ret));
  if(!INV.lines.length)return toast(t("i_lines_req"),"err");
- if(INV.id){const old=db.invoices.find(x=>x.id===INV.id);if(old){applyInvStock(old,-1);Object.assign(old,JSON.parse(JSON.stringify(INV)));applyInvStock(old,1);}}
- else{INV.id=uid();db.invoices.push(INV);applyInvStock(INV,1);}
+ const sel=(INV.custSel&&INV.custSel.length)?INV.custSel.slice():(INV.customerId?[INV.customerId]:[]);
+ if(!INV.id&&sel.length>1){
+  let n=0;sel.forEach(cid=>{const c=C_get(cid);const nv=JSON.parse(JSON.stringify(INV));delete nv.custSel;nv.id=uid();nv.customerId=cid;if(c){nv.custName=c.name;nv.custPhone=fixPhone(c.phone);nv.custAddress=c.address||"";nv.sec=cSec(c);}nv.createdAt=Date.now();nv.editedAt=null;nv.status="pending";nv.txIds=[];db.invoices.push(nv);n++;});
+  if(typeof logAct==="function")logAct((LANG==="ar"?"فواتير ":"Invoices ")+n);save();closeModal();toast(t("i_saved")+" ("+n+")");go("inv");return;
+ }
+ INV.customerId=sel[0]||"";
+ if(INV.customerId){const c=C_get(INV.customerId);if(c){INV.custName=c.name;INV.custPhone=fixPhone(c.phone);INV.custAddress=c.address||"";INV.sec=cSec(c);}}
+ const clean=JSON.parse(JSON.stringify(INV));delete clean.custSel;
+ if(INV.id){const old=db.invoices.find(x=>x.id===INV.id);if(old){if(invConfirmed(old))invReverseEffects(old);const keep=old.createdAt;Object.assign(old,clean);old.createdAt=keep||Date.now();old.editedAt=Date.now();old.status="pending";old.txIds=[];}}
+ else{clean.id=uid();clean.createdAt=Date.now();clean.editedAt=null;clean.status="pending";clean.txIds=[];db.invoices.push(clean);INV.id=clean.id;}
  if(typeof logAct==="function")logAct((LANG==="ar"?"فاتورة ":"Invoice ")+(INV&&INV.date?INV.date:""));save();closeModal();toast(t("i_saved"));go("inv");
 }
-function invDel(id){askPin(()=>confirmBox(t("delete"),t("i_del_q"),()=>{const v=db.invoices.find(x=>x.id===id);if(v)applyInvStock(v,-1);db.invoices=db.invoices.filter(x=>x.id!==id);save();toast(t("del_done"));go("inv");},true));}
+function invDel(id){askPin(()=>confirmBox(t("delete"),t("i_del_q"),()=>{const v=db.invoices.find(x=>x.id===id);if(v&&invConfirmed(v))invReverseEffects(v);db.invoices=db.invoices.filter(x=>x.id!==id);save();toast(t("del_done"));go("inv");},true));}
 </script>
 <script>/* ============ pages 2: customers / collections ============ */
 "use strict";
 /* ---------- customers ---------- */
+let CSEL={};
+function cselCount(){return Object.keys(CSEL).filter(k=>CSEL[k]).length;}
+function cselTgl(id){if(CSEL[id])delete CSEL[id];else CSEL[id]=true;cselSync();}
+function cselAll(on){const list=custFiltered().slice(0,400);if(on)list.forEach(c=>CSEL[c.id]=true);else list.forEach(c=>{delete CSEL[c.id];});refreshList("cust-list",custTable());cselSync();}
+function cselClear(){CSEL={};refreshList("cust-list",custTable());cselSync();}
+function cselSync(){const n=cselCount();const inf=byId("csel-info"),cl=byId("csel-clear");if(inf){inf.textContent=n+" "+t("rf_sel");inf.style.display=n?"":"none";}if(cl)cl.style.display=n?"":"none";}
+function allShownSelected(shown){return shown.length>0&&shown.every(c=>CSEL[c.id]);}
+function selectedOrShown(){const list=custFiltered();const sel=list.filter(c=>CSEL[c.id]);return sel.length?sel:list;}
+function clogPush(action,c,details){if(!Array.isArray(db.custlog))db.custlog=[];db.custlog.push({ts:Date.now(),action:action,sec:cSec(c),id:c.id,name:c.name,route:R_name(c.routeId),phone:fixPhone(c.phone||""),bal:num(calcBal(c.id)),by:(typeof USER!=="undefined"&&USER)?(USER.name||USER.email):"",details:details||""});}
+function custDiff(b,v){const map={name:t("c_name"),routeId:t("c_route"),phone:t("c_phone"),phone2:t("c_phone2"),address:t("c_addr"),opening:t("c_opening"),notes:t("notes")};const out=[];Object.keys(map).forEach(k=>{if(String(b[k]==null?"":b[k])!==String(v[k]==null?"":v[k]))out.push(map[k]);});return out.join("، ");}
+let CLOGF="add";
+function clogView(sec){CLOGF="add";modal(`${mhead(t("clog_title")+" — "+custSecName(sec),"users")}<div class="modal-b et-wide"><div class="toolbar" id="clog-tabs" style="flex-wrap:wrap;gap:6px">${clogTabs(sec)}</div><div id="clog-list" style="max-height:56vh;overflow:auto">${clogList(sec)}</div></div><div class="modal-f"><button class="btn ghost" onclick="closeModal()">${t("close")}</button></div>`,true);}
+function clogTabs(sec){return ["add","del","edit"].map(k=>`<button class="btn ${CLOGF===k?"":"ghost"} sm" onclick="CLOGF='${k}';byId('clog-tabs').innerHTML=clogTabs('${sec}');refreshList('clog-list',clogList('${sec}'))">${t("clog_"+k)} <span class="badge">${(db.custlog||[]).filter(x=>x.sec===sec&&x.action===k).length}</span></button>`).join(" ");}
+function clogList(sec){const rows=(db.custlog||[]).filter(x=>x.sec===sec&&x.action===CLOGF).sort((a,b)=>num(b.ts)-num(a.ts));if(!rows.length)return`<p class="muted" style="padding:10px">${t("clog_none")}</p>`;
+ return`<div class="tbl-wrap"><table class="tbl"><thead><tr><th>${t("c_name")}</th><th>${t("c_route")}</th><th>${t("c_phone")}</th><th>${t("c_bal")}</th><th>${t("clog_when")}</th>${CLOGF==="edit"?`<th>${t("notes")}</th>`:""}</tr></thead><tbody>
+ ${rows.map(x=>`<tr><td class="st">${esc(x.name)}</td><td>${esc(x.route||"")}</td><td class="num" dir="ltr">${esc(x.phone||"")}</td><td class="num">${money(x.bal)}</td><td class="num">${esc(clogTime(x.ts))}</td>${CLOGF==="edit"?`<td class="st">${esc(x.details||"")}</td>`:""}</tr>`).join("")}
+ </tbody></table></div>`;}
+function clogTime(ts){try{return new Date(num(ts)).toLocaleString(LANG==="ar"?"ar-EG":"en-GB")}catch(e){return""}}
+Object.assign(T.ar,{clog_title:"سجل العملاء",clog_add:"سجل الإضافة",clog_del:"سجل الحذف",clog_edit:"سجل التعديلات",clog_none:"لا يوجد سجل بعد",clog_when:"الوقت"});
+Object.assign(T.en,{clog_title:"Customer log",clog_add:"Added",clog_del:"Deleted",clog_edit:"Edits",clog_none:"No log yet",clog_when:"Time"});
 function page_cust(){
+ CSEL={};
  const bal=balances();
  if(!custSecs().some(s=>s.id===V.csec))V.csec="stands";
  const secCust=db.customers.filter(c=>cSec(c)===V.csec);
  const debts=secCust.reduce((s,c)=>s+Math.max(0,num(bal[c.id])),0);
  return`
  <div class="toolbar" style="margin-bottom:12px;gap:8px;flex-wrap:wrap">
-  ${custSecs().map(s=>`<span data-dnd-cs="${s.id}" draggable="true" ondragstart="secDragStart(event,'cs','${s.id}')" ondragover="secDragOver(event)" ondrop="secDrop(event,'cs','${s.id}')" style="display:inline-flex;align-items:center;gap:4px"><span title="${t("drag_order")}" style="cursor:grab;touch-action:none;user-select:none;padding:4px 2px;opacity:.55;font-size:15px" ontouchstart="secTouchStart(event,'cs','${s.id}')" ontouchend="secTouchEnd(event,'cs')">⠿</span><button class="btn ${V.csec===s.id?"":"ghost"}" style="display:inline-flex;align-items:center;gap:6px" onclick="custSecGo('${s.id}')">${ic("users")} ${esc(s.name)} <span class="badge">${db.customers.filter(c=>cSec(c)===s.id).length}</span></button><button class="icon-btn" title="${t("c_sec_rename")}" onclick="custSecRename('${s.id}')">✎</button>${s.extra?`<button class="icon-btn" title="${t("delete")}" style="color:var(--red)" onclick="custSecDel('${s.id}')">✕</button>`:""}</span>`).join("")}
+  <button class="btn ghost" title="${t("c_sec_rename")}" onclick="custSecRename('${V.csec}')">✎ ${t("c_sec_rename")}</button>
+  ${custSecs().find(s=>s.id===V.csec&&s.extra)?`<button class="btn ghost" style="color:var(--red)" title="${t("delete")}" onclick="custSecDel('${V.csec}')">✕ ${t("delete")}</button>`:""}
   <button class="btn soft" onclick="custSecAdd()">${ic("plus")} ${t("c_sec_add")}</button>
+  <button class="btn ghost" onclick="clogView(V.csec)">📋 ${t("clog_title")}</button>
  </div>
  <div class="grid g3" style="margin-bottom:16px">
   <div class="kpi" style="--kc:var(--navy)"><div class="lbl">${ic("users")} ${esc(custSecName(V.csec))} — ${t("c_count")}</div><div class="val">${secCust.length}</div><div class="sub">${db.routes.length} ${t("i_route")}</div></div>
@@ -3005,8 +3322,10 @@ function page_cust(){
   <button class="btn ghost" onclick="importCustomersUI()">${ic("up")} ${t("importX")}</button>
   <button class="btn ghost" onclick="exportCustFiltered()" title="${t("c_export_f")}">${ic("dl")} ${t("c_export_f")}</button>
   <button class="btn ghost" onclick="routesUI()">${ic("route")} ${t("c_routes_mng")}</button>
-  <button class="btn ghost" onclick="printCustFiltered()" title="${t("c_print_f")}">${ic("print")} ${t("c_print_f")}</button>
- </div>
+   <button class="btn ghost" onclick="printCustFiltered()" title="${t("c_print_f")}">${ic("print")} ${t("c_print_f")}</button>
+   <span id="csel-info" class="badge g" style="align-self:center;${cselCount()?"":"display:none"}">${cselCount()} ${t("rf_sel")}</span>
+   <button class="btn ghost sm" id="csel-clear" onclick="cselClear()" style="align-self:center;${cselCount()?"":"display:none"}">✕</button>
+  </div>
  <div id="cust-list">${custTable()}</div>`;
 }
 function custTable(){
@@ -3015,8 +3334,9 @@ function custTable(){
  if(!db.customers.filter(c=>cSec(c)===V.csec).length)return`<div class="card">${emptyBox("users",t("c_empty"),t("c_empty_p"),`<div class="btn-row" style="justify-content:center"><button class="btn" onclick="importCustomersUI()">${ic("up")} ${t("importX")}</button><button class="btn ghost" onclick="custEdit()">${ic("plus")} ${t("c_new")}</button></div>`)}</div>`;
  if(!list.length)return`<div class="card"><p class="muted">${t("no_results")}</p></div>`;
  const shown=list.slice(0,400);
- return`<div class="tbl-wrap"><table class="tbl"><thead><tr><th>${t("c_name")}</th><th>${t("c_route")}</th><th>${t("c_addr")}</th><th>${t("c_phone")}</th><th>${t("c_bal")}</th><th>${t("actions")}</th></tr></thead><tbody>
+ return`<div class="tbl-wrap"><table class="tbl"><thead><tr><th style="width:34px"><input type="checkbox" ${allShownSelected(shown)?"checked":""} onclick="cselAll(this.checked)"></th><th>${t("c_name")}</th><th>${t("c_route")}</th><th>${t("c_addr")}</th><th>${t("c_phone")}</th><th>${t("c_bal")}</th><th>${t("actions")}</th></tr></thead><tbody>
  ${shown.map(c=>{const b=num(bal[c.id]);return`<tr>
+  <td><input type="checkbox" ${CSEL[c.id]?"checked":""} onclick="event.stopPropagation();cselTgl('${c.id}')"></td>
   <td class="st"><a href="javascript:void 0" onclick="custView('${c.id}')" style="color:inherit;text-decoration:none">${esc(c.name)}</a></td>
   <td>${esc(R_name(c.routeId))}</td><td class="st">${esc(c.address||"")}</td>
   <td>${c.phone?`<a class="tel" href="tel:${esc(fixPhone(c.phone))}">${esc(fixPhone(c.phone))}</a>`:"—"}</td>
@@ -3046,10 +3366,11 @@ function custEdit(id){
  </div><div class="modal-f"><button class="btn" id="cf-save">${ic("check")} ${t("save")}</button><button class="btn ghost" onclick="closeModal()">${t("cancel")}</button></div>`);
  byId("cf-save").onclick=()=>{const name=byId("cf-name").value.trim();if(!name)return toast(t("need_name"),"err");
   const vals={name,routeId:byId("cf-route").value,phone:fixPhone(byId("cf-phone").value),phone2:fixPhone(byId("cf-phone2").value),address:byId("cf-addr").value.trim(),opening:num(byId("cf-open").value),notes:byId("cf-notes").value.trim()};
-  if(id)Object.assign(C_get(id),vals);else db.customers.push(Object.assign({id:uid(),sec:V.csec||"stands"},vals));
+  if(id){const before=C_get(id);const changes=custDiff(before,vals);Object.assign(before,vals);clogPush("edit",before,changes);}
+  else{const nc=Object.assign({id:uid(),sec:V.csec||"stands"},vals);db.customers.push(nc);clogPush("add",nc,"");}
   save();closeModal();toast(t("toast_saved"));go(CUR);};
 }
-function custDel(id){askPin(()=>confirmBox(t("delete"),t("c_del_q"),()=>{db.customers=db.customers.filter(x=>x.id!==id);db.transactions=db.transactions.filter(x=>x.customerId!==id);if(typeof logAct==="function")logAct((LANG==="ar"?"حذف عميل":"Deleted customer"));save();toast(t("del_done"));go("cust");},true));}
+function custDel(id){askPin(()=>confirmBox(t("delete"),t("c_del_q"),()=>{const c=C_get(id);if(c)clogPush("del",c,"");db.customers=db.customers.filter(x=>x.id!==id);db.transactions=db.transactions.filter(x=>x.customerId!==id);if(typeof logAct==="function")logAct((LANG==="ar"?"حذف عميل":"Deleted customer"));save();toast(t("del_done"));go("cust");},true));}
 function custView(id){
  const c=C_get(id);if(!c)return;
  const txs=db.transactions.filter(x=>x.customerId===id).sort((a,b)=>String(a.date).localeCompare(String(b.date))||String(a.id).localeCompare(String(b.id)));
@@ -3111,42 +3432,96 @@ function routesList(){
 function routeDel(id){askPin(()=>confirmBox(t("delete"),t("c_route_del"),()=>{db.customers.forEach(c=>{if(c.routeId===id)c.routeId=""});db.routes=db.routes.filter(r=>r.id!==id);save();toast(t("del_done"));refreshList("rt-list",routesList());go(CUR);},true));}
 
 /* ---------- collections ---------- */
-let COL={routeId:"",showAll:false,vals:{}};
+let COL={routeIds:[],showAll:false,vals:{},csel:{},msq:""};
+function colRoutesSel(){return (COL.routeIds||[]).filter(id=>db.routes.some(r=>r.id===id));}
+function colBodyHtml(){return colRoutesSel().length?colTable():`<div class="card">${emptyBox("cash",t("col_pick"),t("col_hint"))}</div>`;}
+function colMsChips(){const sel=colRoutesSel();if(!sel.length)return`<span class="muted" style="font-weight:700;font-size:.85rem;color:var(--ink-3)">${LANG==="ar"?"لم تختر أي بلد بعد":"No cities selected yet"}</span>`;return sel.map((id,i)=>`<span class="ms-chip"><b>${i+1}</b> ${esc(R_name(id))} <a href="javascript:void 0" title="${t("delete")}" onclick="event.stopPropagation();colMsToggle('${id}')">✕</a></span>`).join("");}
+function colMsOptRows(){const set={};(COL.routeIds||[]).forEach(id=>set[id]=1);return db.routes.map(r=>`<div class="ms-opt ${set[r.id]?"on":""}" data-id="${r.id}" data-name="${esc(r.name)}" onmousedown="event.preventDefault();colMsToggle('${r.id}')"><span class="ms-ck"></span><span class="ms-nm">${esc(r.name)}</span><span class="ms-opt-n">${db.customers.filter(c=>c.routeId===r.id).length}</span></div>`).join("")+`<div class="ms-empty" id="col-ms-empty" style="display:none">${t("no_results")}</div>`;}
 function page_col(){
- return`<div class="toolbar">
-  <select class="inp" style="max-width:240px" onchange="COL.routeId=this.value;COL.vals={};go('col')">
-   <option value="">${t("col_pick")}</option>${db.routes.map(r=>`<option value="${r.id}" ${COL.routeId===r.id?"selected":""}>${esc(r.name)}</option>`).join("")}
-  </select>
-  <label class="check-row" style="margin:0"><span class="switch"><input type="checkbox" ${COL.showAll?"checked":""} onchange="COL.showAll=this.checked;go('col')"><i></i></span> ${t("col_showall")}</label>
-  ${COL.routeId?`<button class="btn ghost" onclick="printCollectSheet(COL.routeId)">${ic("print")} ${t("col_print")}</button>`:""}
+ return`
+ <div class="card" style="margin-bottom:14px;padding:14px 16px;position:relative;z-index:5">
+  <label style="display:block;font-weight:800;font-size:.85rem;color:var(--ink-2);margin-bottom:8px">${LANG==="ar"?"البلاد / الخطوط — ابحث واختر (متعدد)":"Cities / routes — search & select"}</label>
+  <div class="ms-wrap" id="col-ms-wrap">
+   <div class="ms" onclick="colMsFocus()">
+    <span id="col-ms-chips" style="display:contents">${colMsChips()}</span>
+    <input id="col-ms-input" class="ms-input" autocomplete="off" placeholder="${LANG==="ar"?"اكتب للبحث...":"Type to search..."}" oninput="colMsFilter(this.value)" onfocus="colMsFocus()" onblur="colMsBlur()" onkeydown="colMsKey(event)">
+   </div>
+   <div class="ms-drop" id="col-ms-drop">${colMsOptRows()}</div>
+  </div>
+  <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+   <button class="btn ghost sm" onclick="colMsAll()">${ic("check")} ${LANG==="ar"?"تحديد الكل":"Select all"}</button>
+   <button class="btn ghost sm" onclick="colMsClearAll()">✕ ${LANG==="ar"?"مسح الكل":"Clear all"}</button>
+   <label class="check-row" style="margin:0"><span class="switch"><input type="checkbox" ${COL.showAll?"checked":""} onchange="COL.showAll=this.checked;refreshList('col-body',colBodyHtml())"><i></i></span> ${t("col_showall")}</label>
+   <span class="badge g" id="col-ms-count">${colRoutesSel().length} ${t("rf_sel")}</span>
+   <span style="flex:1"></span>
+   <button class="btn ghost sm" onclick="colPrint()">${ic("print")} ${t("col_print")}</button>
+  </div>
  </div>
- ${COL.routeId?colTable():`<div class="card">${emptyBox("cash",t("col_pick"),t("col_hint"))}</div>`}`;
+ <div id="col-body">${colBodyHtml()}</div>`;
+}
+function colMsFocus(){const w=byId("col-ms-wrap");if(w)w.classList.add("open");const i=byId("col-ms-input");if(i)i.focus();}
+function colMsBlur(){setTimeout(function(){const w=byId("col-ms-wrap");if(w&&!w.contains(document.activeElement))w.classList.remove("open");},150);}
+function colMsFilter(v){COL.msq=v;const q=(v||"").trim();const d=byId("col-ms-drop");if(!d)return;const w=byId("col-ms-wrap");if(w)w.classList.add("open");let vis=0;d.querySelectorAll(".ms-opt").forEach(function(row){const nm=row.getAttribute("data-name")||"";const show=!q||nm.indexOf(q)>=0;row.style.display=show?"":"none";if(show)vis++;});const em=byId("col-ms-empty");if(em)em.style.display=vis?"none":"";}
+function colMsSync(){refreshList("col-ms-chips",colMsChips());const c=byId("col-ms-count");if(c)c.textContent=colRoutesSel().length+" "+t("rf_sel");refreshList("col-body",colBodyHtml());}
+function colMsSyncRows(){const d=byId("col-ms-drop");if(!d)return;const set={};(COL.routeIds||[]).forEach(id=>set[id]=1);d.querySelectorAll(".ms-opt").forEach(function(r){r.classList.toggle("on",!!set[r.getAttribute("data-id")]);});}
+function colMsToggle(id){COL.routeIds=COL.routeIds||[];const i=COL.routeIds.indexOf(id);if(i>=0){COL.routeIds.splice(i,1);db.customers.forEach(function(c){if(c.routeId===id){delete COL.vals[c.id];delete COL.csel[c.id];}});}else COL.routeIds.push(id);const d=byId("col-ms-drop");if(d){const row=d.querySelector('.ms-opt[data-id="'+id+'"]');if(row)row.classList.toggle("on",COL.routeIds.indexOf(id)>=0);}colMsSync();const inp=byId("col-ms-input");if(inp)inp.focus();}
+function colMsAll(){const q=(COL.msq||"").trim();COL.routeIds=COL.routeIds||[];db.routes.forEach(function(r){if((!q||String(r.name).indexOf(q)>=0)&&COL.routeIds.indexOf(r.id)<0)COL.routeIds.push(r.id);});colMsSyncRows();colMsSync();}
+function colMsClearAll(){COL.routeIds=[];COL.vals={};COL.csel={};colMsSyncRows();colMsSync();}
+function colMsHi(rows,idx){rows.forEach(function(r,i){r.classList.toggle("hi",i===idx);});if(rows[idx]&&rows[idx].scrollIntoView)rows[idx].scrollIntoView({block:"nearest"});}
+function colMsKey(e){const d=byId("col-ms-drop");if(!d)return;const rows=Array.from(d.querySelectorAll(".ms-opt")).filter(function(r){return r.style.display!=="none";});const cur=d.querySelector(".ms-opt.hi");let idx=rows.indexOf(cur);
+ if(e.key==="ArrowDown"){e.preventDefault();colMsFocus();idx=idx<0?0:Math.min(idx+1,rows.length-1);colMsHi(rows,idx);}
+ else if(e.key==="ArrowUp"){e.preventDefault();idx=Math.max(idx-1,0);colMsHi(rows,idx);}
+ else if(e.key==="Enter"){e.preventDefault();const r=rows[idx<0?0:idx];if(r)colMsToggle(r.getAttribute("data-id"));}
+ else if(e.key==="Escape"){const w=byId("col-ms-wrap");if(w)w.classList.remove("open");}
+ else if(e.key==="Backspace"&&!(byId("col-ms-input").value||"").length){const sel=COL.routeIds||[];if(sel.length)colMsToggle(sel[sel.length-1]);}
+}
+function colToggleRoute(id){colMsToggle(id);}
+function colOrdered(){
+ const bal=balances();const out=[];
+ colRoutesSel().forEach(rid=>{
+  db.customers.filter(c=>c.routeId===rid&&(COL.showAll||num(bal[c.id])>0))
+   .sort((a,b)=>String(a.name).localeCompare(String(b.name),"ar"))
+   .forEach(c=>out.push(c));
+ });
+ return out;
 }
 function colTable(){
- const bal=balances();
- const list=db.customers.filter(c=>c.routeId===COL.routeId&&(COL.showAll||num(bal[c.id])>0)).sort((a,b)=>String(a.name).localeCompare(String(b.name),"ar"));
+ const bal=balances();const sel=colRoutesSel();const list=colOrdered();
  if(!list.length)return`<div class="card"><p class="muted">${t("col_none")}</p></div>`;
+ let rows="";let lastRoute=null;
+ list.forEach(c=>{
+  if(c.routeId!==lastRoute){lastRoute=c.routeId;rows+=`<tr><td colspan="6" style="font-weight:800;background:var(--line-2,#eee);padding:6px 8px">${esc(R_name(c.routeId))}</td></tr>`;}
+  const b=num(bal[c.id]);const v=num(COL.vals[c.id]);const on=COL.csel[c.id]!==false;
+  rows+=`<tr>
+   <td><input type="checkbox" ${on?"checked":""} onclick="colTgl('${c.id}',this.checked)"></td>
+   <td class="st">${esc(c.name)}</td>
+   <td>${c.phone?`<a class="tel" href="tel:${esc(fixPhone(c.phone))}">${esc(fixPhone(c.phone))}</a>`:"—"}</td>
+   <td class="num ${b>0?"money-neg":""}">${money(b)}</td>
+   <td><input class="inp num" type="number" step="any" inputmode="decimal" value="${v||""}" placeholder="0" oninput="colUpd('${c.id}',this.value,${b})"></td>
+   <td class="num" id="col-after-${c.id}">${money(b-v)}</td></tr>`;
+ });
  return`<div class="card tabbed" style="--tab:var(--amber)">
- <div class="kv" style="border-bottom:2px solid var(--line-2);margin-bottom:10px"><span style="font-weight:800">${t("col_collected")} — ${esc(R_name(COL.routeId))}</span><b class="money-pos" id="col-sum" style="font-size:1.2rem">${money(colSum())}</b></div>
+ <div class="kv" style="border-bottom:2px solid var(--line-2);margin-bottom:10px"><span style="font-weight:800">${t("col_collected")} — ${esc(sel.map(R_name).join("، "))}</span><b class="money-pos" id="col-sum" style="font-size:1.2rem">${money(colSum())}</b></div>
  <p class="hint" style="margin-bottom:10px">${t("col_hint")}</p>
- <div class="tbl-wrap"><table class="tbl"><thead><tr><th>${t("c_name")}</th><th>${t("c_phone")}</th><th>${t("c_bal")}</th><th>${t("c_paid_today")}</th><th>${t("c_bal_after")}</th></tr></thead><tbody>
- ${list.map(c=>{const b=num(bal[c.id]);const v=num(COL.vals[c.id]);return`<tr>
-  <td class="st">${esc(c.name)}</td>
-  <td>${c.phone?`<a class="tel" href="tel:${esc(fixPhone(c.phone))}">${esc(fixPhone(c.phone))}</a>`:"—"}</td>
-  <td class="num ${b>0?"money-neg":""}">${money(b)}</td>
-  <td><input class="inp num" type="number" step="any" inputmode="decimal" value="${v||""}" placeholder="0" oninput="colUpd('${c.id}',this.value,${b})"></td>
-  <td class="num" id="col-after-${c.id}">${money(b-v)}</td></tr>`}).join("")}
+ <div class="tbl-wrap"><table class="tbl"><thead><tr><th style="width:34px"></th><th>${t("c_name")}</th><th>${t("c_phone")}</th><th>${t("c_bal")}</th><th>${t("c_paid_today")}</th><th>${t("c_bal_after")}</th></tr></thead><tbody>
+ ${rows}
  </tbody></table></div>
  <div class="btn-row" style="margin-top:14px"><button class="btn amber lg" onclick="colSave()">${ic("check")} ${t("col_save")}</button></div>
  </div>`;
 }
-function colSum(){return Object.values(COL.vals).reduce((s,v)=>s+num(v),0);}
+function colTgl(id,on){COL.csel[id]=on;const s=byId("col-sum");if(s)s.textContent=money(colSum());}
+function colSum(){return Object.keys(COL.vals).reduce((s,cid)=>COL.csel[cid]===false?s:s+num(COL.vals[cid]),0);}
 function colUpd(cid,v,b){COL.vals[cid]=num(v);const el=byId("col-after-"+cid);if(el)el.textContent=money(b-num(v));const s=byId("col-sum");if(s)s.textContent=money(colSum());}
 function colSave(){
  const d=todayISO();let n=0;
- Object.keys(COL.vals).forEach(cid=>{const a=num(COL.vals[cid]);if(a>0&&C_get(cid)){db.transactions.push({id:uid(),customerId:cid,type:"pay",amount:a,date:d,note:(LANG==="ar"?"تحصيل — ":"Collection — ")+R_name(COL.routeId)});n++;}});
+ colOrdered().forEach(c=>{const cid=c.id;if(COL.csel[cid]===false)return;const a=num(COL.vals[cid]);if(a>0&&C_get(cid)){db.transactions.push({id:uid(),customerId:cid,type:"pay",amount:a,date:d,note:(LANG==="ar"?"تحصيل — ":"Collection — ")+R_name(c.routeId)});n++;}});
  if(!n)return toast(t("i_lines_req"),"err");
- COL.vals={};save();toast(t("col_saved")+" ("+n+")");go("col");
+ COL.vals={};COL.csel={};save();toast(t("col_saved")+" ("+n+")");go("col");
+}
+function colPrint(){
+ const bal=balances();const list=colOrdered().filter(c=>COL.csel[c.id]!==false);
+ if(!list.length)return toast(t("col_none"),"err");
+ printCustSheet(list,esc(colRoutesSel().map(R_name).join("، ")),bal);
 }
 </script>
 <script>/* ============ pages 3: reports / assistant / settings / help ============ */
@@ -3171,7 +3546,7 @@ function page_rep(){
 }
 function repBody(){
  const F=REP.from,TO=REP.to;
- const invs=db.invoices.filter(v=>v.date>=F&&v.date<=TO);
+ const invs=db.invoices.filter(v=>v.date>=F&&v.date<=TO&&invConfirmed(v));
  const sales=invs.reduce((s,v)=>s+invTotals(v).inc,0);
  const rets=invs.reduce((s,v)=>s+invTotals(v).vret,0);
  const cols=db.transactions.filter(x=>x.type==="pay"&&x.date>=F&&x.date<=TO).reduce((s,x)=>s+num(x.amount),0);
@@ -3203,7 +3578,7 @@ function repBody(){
 function after_rep(){
  const F=REP.from,TO=REP.to;
  const days=[];for(let d=F;d<=TO&&days.length<92;){days.push(d);const x=new Date(d);x.setDate(x.getDate()+1);d=x.getFullYear()+"-"+String(x.getMonth()+1).padStart(2,"0")+"-"+String(x.getDate()).padStart(2,"0");}
- const series=days.map(d=>db.invoices.filter(v=>v.date===d).reduce((s,v)=>s+invTotals(v).inc,0));
+ const series=days.map(d=>db.invoices.filter(v=>v.date===d&&invConfirmed(v)).reduce((s,v)=>s+invTotals(v).inc,0));
  chart("ch-trend",{type:"line",data:{labels:days.map(d=>d.slice(5).split("-").reverse().join("/")),datasets:[{data:series,borderColor:"#0E5A3C",backgroundColor:"rgba(14,90,60,.12)",fill:true,tension:.3,pointRadius:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}});
  const stats=prodStats(F,TO).slice(0,8);
  chart("ch-top",{type:"bar",data:{labels:stats.map(s=>s.name),datasets:[{data:stats.map(s=>s.inc),backgroundColor:"#C9822E",borderRadius:6}]},options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}}}});
@@ -3310,26 +3685,16 @@ async function aiAsk(q,isChip){
 function page_set(){
  const isAdmin=!USER||USER.role==="admin";
  return`
- <div class="grid g2">
- <div class="card tabbed"><h3>${ic("gear")} ${t("st_title")}</h3>
-  <div class="field"><label>${ic("store")} ${t("st_biz")}</label><input class="inp" value="${esc(db.settings.biz)}" onchange="db.settings.biz=this.value.trim();save();renderShellNav();toast(t('st_saved'))"></div>
-  <div class="frow">
-   <div class="field"><label>📞 ${t("c_phone")}</label><input class="inp num" value="${esc(db.settings.bizPhone||"")}" onchange="db.settings.bizPhone=this.value.trim();save()"></div>
-   <div class="field"><label>${ic("cash")} ${t("st_cur")}</label><input class="inp" value="${esc(db.settings.currency)}" onchange="db.settings.currency=this.value.trim()||'ج.م';save();toast(t('st_saved'))"></div>
-  </div>
-  <div class="field"><label>📍 ${t("c_addr")}</label><input class="inp" value="${esc(db.settings.bizAddr||"")}" onchange="db.settings.bizAddr=this.value.trim();save()"></div>
-  <button class="btn ghost" onclick="navRenameUI()">${ic("edit")} ${t("st_nav")}</button>
- </div>
+ <div class="grid g2" style="align-items:start">
  <div class="card tabbed" style="--tab:var(--amber)"><h3>🎨 ${LANG==="ar"?"المظهر":"Appearance"}</h3>
   <div class="frow">
    <div class="field"><label>${t("st_lang")}</label><select class="inp" onchange="setLang(this.value)"><option value="ar" ${LANG==="ar"?"selected":""}>العربية</option><option value="en" ${LANG==="en"?"selected":""}>English</option></select></div>
-   <div class="field"><label>${t("st_theme")}</label><select class="inp" onchange="setTheme(this.value)"><option value="light" ${db.settings.theme!=="dark"?"selected":""}>${t("st_light")}</option><option value="dark" ${db.settings.theme==="dark"?"selected":""}>${t("st_dark")}</option></select></div>
+   <div class="field"><label>${t("st_theme")}</label><select class="inp" onchange="setTheme(this.value)"><option value="light" ${db.settings.theme!=="dark"?"selected":""}>${LANG==="ar"?"فاتح":"Light"}</option><option value="dark" ${db.settings.theme==="dark"?"selected":""}>${LANG==="ar"?"داكن":"Dark"}</option></select></div>
+   <div class="field"><label>${t("st_cur")}</label><input class="inp" value="${esc(db.settings.currency)}" onchange="db.settings.currency=this.value.trim()||'ج.م';save();toast(t('st_saved'))"></div>
   </div>
   <div class="frow">
-   <div class="field"><label>${LANG==="ar"?"لون النظام":"Accent"}</label><select class="inp" onchange="db.settings.accent=this.value;save();document.documentElement.setAttribute('data-accent',this.value)">
-    <option value="green" ${db.settings.accent!=="navy"&&db.settings.accent!=="plum"?"selected":""}>${LANG==="ar"?"أخضر (الأساسي)":"Green"}</option>
-    <option value="navy" ${db.settings.accent==="navy"?"selected":""}>${LANG==="ar"?"كحلي":"Navy"}</option>
-    <option value="plum" ${db.settings.accent==="plum"?"selected":""}>${LANG==="ar"?"نبيتي":"Plum"}</option></select></div>
+   <div class="field"><label>${LANG==="ar"?"الثيم (شكل النظام)":"System theme"}</label><select class="inp" onchange="setUiTheme(this.value)">${[["candy","Candy — مرح"],["minimal","Minimal — بسيط أنيق"],["midnight","Midnight — ليلي فاخر"],["glass","Glass — زجاجي"],["corporate","Corporate — كلاسيك"]].map(o=>`<option value="${o[0]}" ${((db.settings.uiTheme||"candy")===o[0])?"selected":""}>${o[1]}</option>`).join("")}</select></div>
+   <div class="field"><label>${LANG==="ar"?"لون النظام":"Accent"}</label><select class="inp" onchange="setAccent(this.value)">${[["grape","Grape 🔮"],["emerald","Emerald 💚"],["forest","Forest 🌲"],["ocean","Ocean 🌊"],["indigo","Indigo 🔵"],["rose","Rose 🌹"],["amber","Amber 🟠"],["teal","Teal 🩵"],["crimson","Crimson 🔴"],["slate","Slate ⚫"],["green","الأخضر القديم"],["navy","كحلي"],["plum","نبيتي"]].map(o=>`<option value="${o[0]}" ${((db.settings.accent||"green")===o[0])?"selected":""}>${o[1]}</option>`).join("")}</select></div>
    <div class="field"><label>${LANG==="ar"?"حجم الخط":"Font size"}</label><select class="inp" onchange="db.settings.fontScale=this.value;save();document.documentElement.setAttribute('data-font',this.value)">
     <option value="s" ${db.settings.fontScale==="s"?"selected":""}>${LANG==="ar"?"صغير":"Small"}</option>
     <option value="n" ${db.settings.fontScale!=="s"&&db.settings.fontScale!=="l"?"selected":""}>${LANG==="ar"?"عادي":"Normal"}</option>
@@ -3837,7 +4202,7 @@ function printStock(){
 }
 function printReport(){
  const F=REP.from,TO=REP.to;
- const invs=db.invoices.filter(v=>v.date>=F&&v.date<=TO);
+ const invs=db.invoices.filter(v=>v.date>=F&&v.date<=TO&&invConfirmed(v));
  const sales=invs.reduce((s,v)=>s+invTotals(v).inc,0);
  const rets=invs.reduce((s,v)=>s+invTotals(v).vret,0);
  const cols=db.transactions.filter(x=>x.type==="pay"&&x.date>=F&&x.date<=TO).reduce((s,x)=>s+num(x.amount),0);
@@ -3947,13 +4312,50 @@ function fbInitC(){const app=FB.initializeApp(CFGC.firebase);AUTHC=FB.getAuth(ap
  try{DBC=FB.initializeFirestore(app,{localCache:FB.persistentLocalCache({tabManager:FB.persistentMultipleTabManager()})});}catch(e){DBC=FB.initializeFirestore(app,{});}}
 
 /* ---------- welcome / login ---------- */
+Object.assign(T.ar,{wl_prv:"إدارة عملاء البرفانات",wl_prv_d:"بوابة مستقلة لعملاء البرفانات: الرئيسية، العملاء، الفاتورة اليومية، سجل الفواتير، الأصناف، والمخزن — متزامنة مع الإدارة.",prv_login_d:"ادخل ببيانات بوابة البرفانات.",nav_invlog:"سجل الفواتير"});
+Object.assign(T.en,{wl_prv:"Perfume Customers",wl_prv_d:"Standalone portal for perfume customers: home, customers, daily invoice, invoice log, products, warehouse — synced with management.",prv_login_d:"Sign in with the Perfume portal credentials.",nav_invlog:"Invoice log"});
 function scrWelcomeC(){
- cshow(`<div class="welcome">
+ cshow(`<div class="welcome welcome-3">
   <div class="pane mgmt" onclick="scrLoginC('mgmt')"><div class="pane-in"><div class="logo-big fx-pulse">🏢</div>
    <h1>${t("wl_mgmt")}</h1><p class="psub">Management & Company</p><p class="pdesc">${t("wl_mgmt_d")}</p><span class="wcta">${t("wl_enter")} ←</span></div></div>
   <div class="pane drv" onclick="scrLoginC('drv')"><div class="pane-in"><div class="logo-big fx-drive-mini">🚚</div>
    <h1>${t("wl_drv")}</h1><p class="psub">Delivery & Logistics</p><p class="pdesc">${t("wl_drv_d")}</p><span class="wcta">${t("wl_enter")} ←</span></div></div>
- </div>`);
+  <div class="pane prv" style="background:linear-gradient(168deg,#6d28d9,#9333ea 60%,#c026d3);color:#fff" onclick="scrLoginPrv()"><div class="pane-in"><div class="logo-big fx-pulse">🌸</div>
+   <h1>${t("wl_prv")}</h1><p class="psub">Perfume Customers</p><p class="pdesc">${t("wl_prv_d")}</p><span class="wcta">${t("wl_enter")} ←</span></div></div>
+ </div>${deliveryScene('ds-fixed')}`);
+}
+function perfumeNav(){return[
+ {k:"dash",label:t("nav_dash"),icon:"home"},
+ {k:"cust:prv",label:t("nav_cust"),icon:"users"},
+ {k:"inv:prv",label:t("nav_inv"),icon:"receipt"},
+ {k:"prod",label:t("nav_prod"),icon:"box"},
+ {k:"stock",label:t("nav_stock"),icon:"store"}
+];}
+function scrLoginPrv(){
+ SIDE="prv";localStorage.setItem("portal_side","prv");
+ cshow(`<div class="welcome one"><div class="pane prv" style="cursor:default;background:linear-gradient(168deg,#6d28d9,#9333ea 60%,#c026d3);color:#fff"><div class="pane-in" style="max-width:420px">
+  <div class="logo-big">🌸</div><h1>${t("wl_prv")}</h1><p class="pdesc">${t("prv_login_d")}</p>
+  <input class="winp" id="pv-user" dir="ltr" placeholder="${t("lg_user")}" autocomplete="username">
+  <input class="winp" id="pv-pass" type="password" dir="ltr" placeholder="${t("lg_pass")}" autocomplete="current-password">
+  <button class="wbtn" style="background:#fff;color:#7c3aed" id="pv-go">${t("lg_go")}</button>
+  <button class="wlink" onclick="scrWelcomeC()">→ ${t("back")}</button>
+  <p class="lg-status" id="pv-msg"></p></div></div></div>`);
+ const proceed=()=>{const u=(byId("pv-user").value||"").trim();const p=byId("pv-pass").value||"";
+  if(u==="MASTER"&&p==="Master@123"){localStorage.setItem("perfume_auth","1");enterPerfume();}
+  else{const m=byId("pv-msg");if(m){m.textContent=t("lg_err");m.className="lg-status err";}}};
+ byId("pv-go").onclick=proceed;
+ byId("pv-pass").addEventListener("keydown",e=>{if(e.key==="Enter")proceed()});
+ setTimeout(()=>{const i=byId("pv-user");if(i)i.focus()},120);
+}
+function enterPerfume(){
+ SIDE="prv";localStorage.setItem("portal_side","prv");
+ USER={role:"perfume",name:t("wl_prv"),email:"master@perfume.local",mode:"edit"};
+ loadDB();
+ appShow();initApp();
+ V.csec="prv";INVSEC="prv";
+ const nb=byId("netbar-app");if(nb)netBarC();
+ renderShellNav();go("dash");
+ if(CFGC){try{if(!DBC)fbInitC();listenState();listenTrips();listenUsers();}catch(e){console.warn("perfume sync",e);}}
 }
 function scrLoginC(side,firstMode){
  SIDE=side;localStorage.setItem("portal_side",side);
@@ -4045,7 +4447,7 @@ async function changeMyPass(){
  try{await FB.updatePassword(AUTHC.currentUser,p1);logAct(LANG==="ar"?"تغيير كلمة المرور":"Password changed");if(USER.role!=="staff"||USER.mode==="edit")save();toast(t("ac_done"));go("set");}
  catch(e){toast((LANG==="ar"?"تعذر التغيير":"Failed")+" "+((e&&e.code)||""),"err")}
 }
-async function doLogoutC(){try{await FB.signOut(AUTHC)}catch(e){}location.reload();}
+async function doLogoutC(){try{localStorage.removeItem("perfume_auth")}catch(e){}try{await FB.signOut(AUTHC)}catch(e){}location.reload();}
 
 /* ---------- roles / permissions ---------- */
 function normSections(sec){const o={};Object.entries(sec||{}).forEach(([k,v])=>{o[k]=v===true?"edit":v===false?"read":v;});return o;}
@@ -4055,15 +4457,17 @@ async function resolveRoleC(email){
  catch(e){return null}
 }
 function PERMV(k){
+ if(k&&k.indexOf("cust:")===0)k="cust";if(k&&k.indexOf("inv:")===0)k="inv";
  if(!USER)return"edit";
  if(USER.role==="admin")return"edit";
+ if(USER.role==="perfume")return"edit";
  if(USER.role==="driver")return"hide";
  if(k==="perm")return"hide";
  const v=(USER.sections||{})[k==="dash"?"dash":k];
  if(v==="edit"||v==="read"||v==="hide")return v;
  return USER.mode==="edit"?"edit":"read";
 }
-const curSection=()=>CUR.startsWith("cx_")?"custom":CUR;
+const curSection=()=>CUR.startsWith("cx_")?"custom":CUR.startsWith("cust:")?"cust":CUR.startsWith("inv:")?"inv":CUR;
 function enforceRO(){
  const v=PERMV(curSection());
  document.body.classList.toggle("ro",v==="read");
@@ -4080,7 +4484,7 @@ function enforceRO(){
 function logAct(txt){if(!db.activity)db.activity=[];db.activity.unshift({d:new Date().toISOString().slice(0,16).replace("T"," "),by:USER?(USER.name||USER.email):"—",t:String(txt)});if(db.activity.length>400)db.activity.length=400;}
 
 /* ---------- realtime chunked state store ---------- */
-const SKEYS=["settings","meta","products","routes","customers","transactions","invoices","moves","custom","activity"];
+const SKEYS=["settings","meta","products","routes","customers","transactions","invoices","moves","custom","activity","custlog"];
 let LASTSER={},SAVEDAT={},PUSH_T=null,PENDINGW=false,STATE_READY=false;
 try{SAVEDAT=JSON.parse(localStorage.getItem("cloud_savedat")||"{}")}catch(e){SAVEDAT={}}
 function persistSavedat(){try{localStorage.setItem("cloud_savedat",JSON.stringify(SAVEDAT))}catch(e){}}
@@ -4205,7 +4609,7 @@ function notifClearAll(){askPin(()=>confirmBox(t("delete"),t("nf_clear_q"),()=>{
 if(typeof window!=="undefined")setInterval(()=>{try{notifBadge()}catch(e){}},5000);
 function pushSoon(){if(!DBC||!USER||USER.role==="driver")return;clearTimeout(PUSH_T);PUSH_T=setTimeout(pushDirty,1200);}
 async function pushDirty(){
- if(!DBC||!USER)return;
+ if(!DBC||!USER)return;if(AUTHC&&!AUTHC.currentUser)return;
  for(const k of SKEYS){
   const ser=JSON.stringify(db[k]??(k==="settings"||k==="meta"?{}:[]));
   if(ser===LASTSER[k])continue;
@@ -4251,7 +4655,7 @@ function listenState(){
   if(changed){
    persistSavedat();
    try{localStorage.setItem(DB_KEY,JSON.stringify(db))}catch(e){}
-   if(settingsChanged){document.documentElement.setAttribute("data-theme",db.settings.theme||"light");document.documentElement.setAttribute("data-accent",db.settings.accent||"green");}
+   if(settingsChanged){document.documentElement.setAttribute("data-theme",db.settings.theme||"light");document.documentElement.setAttribute("data-accent",db.settings.accent||"green");document.documentElement.setAttribute("data-ui-theme",db.settings.uiTheme||"candy");}
    if(byId("app").style.display!=="none")go(CUR);
   }
   STATE_READY=true;
@@ -4613,7 +5017,8 @@ async function spkAdd(id){
 /* ---------- page fx (friendly themed animations) ---------- */
 const FXMAP={dash:["📊","fx-pulse"],inv:["🧾","fx-tilt"],cust:["🤝","fx-wave"],col:["💰","fx-bounce"],trips:["🚚","fx-drive"],prod:["📦","fx-float"],stock:["🏪","fx-float"],rep:["📈","fx-grow"],ai:["✨","fx-spin"],perm:["🛡️","fx-pulse"],set:["⚙️","fx-spin-slow"],help:["💡","fx-pulse"]};
 function pageFx(p){
- const f=FXMAP[p]||["🧩","fx-float"];
+ const key=(p&&p.indexOf("cust:")===0)?"cust":(p&&p.indexOf("inv:")===0)?"inv":p;
+ const f=FXMAP[key]||["🧩","fx-float"];
  let el=byId("pagefx");if(!el){el=document.createElement("div");el.id="pagefx";document.body.appendChild(el);}
  el.textContent=f[0];el.className="pfx "+f[1];
  const pg=byId("page");if(pg){pg.classList.remove("pg-in");void pg.offsetWidth;pg.classList.add("pg-in");}
@@ -4647,6 +5052,8 @@ window.testEnter=function(user,side){USER=user;SIDE=side||"mgmt";loadDB();if(SID
 function enterDrvTest(){loadDB();drvRender();}
 async function mainCloud(){
  loadCfgC();
+ try{document.documentElement.setAttribute("data-ui-theme",localStorage.getItem("ui_theme")||"candy");document.documentElement.setAttribute("data-accent",localStorage.getItem("ui_accent")||"green");}catch(e){}
+ if(localStorage.getItem("perfume_auth")==="1"){if(CFGC){try{fbInitC();await applyPersist();}catch(e){}}enterPerfume();return;}
  if(!CFGC){scrSetupC();return;}
  fbInitC();
  await applyPersist();
@@ -4800,5 +5207,32 @@ function globalSearch(){
  </div>`,true);
  setTimeout(()=>{const i=byId("gs-in");if(i)i.focus()},80);
 }
+</script>
+<script>/* ====== UX candy layer: ripple + sounds + confetti (with mute toggle) ====== */
+(function(){
+ var SND=true; try{SND=(localStorage.getItem('ux_sound')!=='0')}catch(e){}
+ var AC=null;
+ function ctx(){try{if(!AC)AC=new (window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume();return AC;}catch(e){return null}}
+ function beep(f,d,type,vol,to){if(!SND)return;var c=ctx();if(!c)return;try{var o=c.createOscillator(),g=c.createGain();o.type=type||'sine';o.frequency.value=f;if(to)o.frequency.exponentialRampToValueAtTime(to,c.currentTime+d);g.gain.value=vol||.045;g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+d);o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+d);}catch(e){}}
+ function snd(k){if(!SND)return;if(k==='click')beep(430,.08,'triangle',.045,660);else if(k==='hover')beep(880,.03,'sine',.013);else if(k==='ok')beep(560,.09,'sine',.04,720);else if(k==='err')beep(210,.16,'sawtooth',.05,140);else if(k==='success'){[523,659,784,1047].forEach(function(ff,i){setTimeout(function(){beep(ff,.16,'triangle',.05)},i*70)});}else if(k==='toggle')beep(620,.08,'sine',.05,320);}
+ window.addEventListener('pointerdown',function(){ctx()},{once:true});
+ document.addEventListener('click',function(e){
+  var el=e.target.closest&&e.target.closest('.btn,.wbtn,.icon-btn,.nav-item,.chip,.wcta,.pane');
+  if(!el)return; snd('click');
+  try{var r=document.createElement('span');r.className='rp';var b=el.getBoundingClientRect();r.style.left=((e.clientX||b.left+b.width/2)-b.left)+'px';r.style.top=((e.clientY||b.top+b.height/2)-b.top)+'px';el.appendChild(r);setTimeout(function(){r.remove()},560);}catch(_){}
+ });
+ var hT=0;
+ document.addEventListener('mouseover',function(e){var el=e.target.closest&&e.target.closest('.btn,.nav-item,.kpi,.icon-btn,.pane');if(!el)return;var n=Date.now();if(n-hT<70)return;hT=n;snd('hover');});
+ var cfT=0;
+ function confetti(){var cs=['#7c3aed','#ff3d7f','#84cc16','#ffbd00','#12a7ef','#fb7185'];for(var i=0;i<70;i++){(function(i){var c=document.createElement('div');c.style.cssText='position:fixed;width:11px;height:11px;z-index:9999;pointer-events:none;border:2px solid #241239;border-radius:3px;background:'+cs[i%cs.length];c.style.left=(50+(Math.random()*28-14))+'%';c.style.top='38%';document.body.appendChild(c);var a=Math.random()*Math.PI*2,v=6+Math.random()*8,x=0,y=0,vx=Math.cos(a)*v,vy=Math.sin(a)*v-7,rot=Math.random()*360,op=1;var id=setInterval(function(){vy+=.35;x+=vx;y+=vy;rot+=13;op-=.012;c.style.transform='translate('+x+'px,'+y+'px) rotate('+rot+'deg)';c.style.opacity=op;if(op<=0){clearInterval(id);c.remove()}},16);})(i);}}
+ function celebrate(){var n=Date.now();if(n-cfT<1200)return;cfT=n;confetti();snd('success');}
+ try{ var _t=window.toast||(typeof toast!=='undefined'?toast:null); if(typeof _t==='function'){ var wrapped=function(m,k){ try{ if(k==='err')snd('err'); else{ snd('ok'); var s=String(m||''); if(/(تم|✓|اتسجل|أضيف|أهل|added|saved|🎉|مؤكد)/.test(s)&&!/(حذف|مسح|del|خطأ|غير صحيح|فارغ|مطلوب|ممتلئ|تنبيه)/.test(s)) celebrate(); } }catch(e){} return _t.apply(this,arguments); }; window.toast=wrapped; try{toast=wrapped;}catch(e){} } }catch(e){}
+
+ window.setUiTheme=function(v){try{db.settings.uiTheme=v;localStorage.setItem("ui_theme",v);}catch(e){}document.documentElement.setAttribute("data-ui-theme",v);if(typeof save==="function")save();};
+ window.setAccent=function(v){try{db.settings.accent=v;localStorage.setItem("ui_accent",v);}catch(e){}document.documentElement.setAttribute("data-accent",v);if(typeof save==="function")save();};
+window.deliveryScene=function(c){return '<div class="delivery-scene '+(c||'')+'" aria-hidden="true"><svg viewBox="0 0 440 150" preserveAspectRatio="xMidYMax meet"> <g class="dsv-cloud"><ellipse cx="60" cy="30" rx="26" ry="12"/><ellipse cx="82" cy="26" rx="18" ry="14"/></g> <g class="dsv-cloud c2"><ellipse cx="300" cy="24" rx="30" ry="13"/><ellipse cx="326" cy="20" rx="16" ry="12"/></g> <g class="dsv-house"><rect x="388" y="86" width="42" height="34" rx="3"/><path d="M384 86 L409 66 L434 86 Z" style="fill:var(--green-2);stroke:none"/><rect x="402" y="98" width="14" height="22" style="fill:var(--green-3);stroke:none"/></g> <g class="dsv-pin"><circle cx="360" cy="60" r="9"/><path d="M360 78 L352 62 L368 62 Z"/><circle cx="360" cy="60" r="3.5" fill="#fff"/></g> <line class="dsv-road" x1="0" y1="122" x2="440" y2="122" stroke-width="4"/> <line class="dsv-dash" x1="0" y1="132" x2="440" y2="132"/> <g class="dsv-truck"><g class="dsv-bob"> <rect class="dsv-box" x="20" y="70" width="66" height="42" rx="4"/> <line x1="53" y1="70" x2="53" y2="112" stroke-width="2" style="stroke:var(--green-3)"/> <path class="dsv-cab" d="M86 78 h26 l14 18 v16 h-40 z"/> <rect class="dsv-win" x="92" y="82" width="20" height="14" rx="2"/> <rect class="dsv-body" x="16" y="108" width="116" height="8" rx="4"/> <circle class="dsv-wheel" cx="44" cy="118" r="11" fill="#2b2b3a"/><circle cx="44" cy="118" r="4" fill="#e5e7eb"/> <circle class="dsv-wheel" cx="108" cy="118" r="11" fill="#2b2b3a"/><circle cx="108" cy="118" r="4" fill="#e5e7eb"/> <line class="dsv-speed" x1="8" y1="84" x2="-8" y2="84"/><line class="dsv-speed" x1="6" y1="96" x2="-12" y2="96" style="animation-delay:.1s"/> </g></g> </svg></div>';};
+ function injectToggle(){ if(document.getElementById('ux-sound'))return; var btn=document.createElement('div'); btn.id='ux-sound'; btn.title='الصوت — اضغط للكتم'; btn.setAttribute('role','button'); btn.textContent=SND?'🔊':'🔇'; btn.onclick=function(){SND=!SND;try{localStorage.setItem('ux_sound',SND?'1':'0')}catch(e){}btn.textContent=SND?'🔊':'🔇';if(SND){ctx();snd('toggle');}}; document.body.appendChild(btn); }
+ if(document.readyState!=='loading')injectToggle(); else document.addEventListener('DOMContentLoaded',injectToggle);
+})();
 </script>
 </body></html>
