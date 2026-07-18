@@ -361,8 +361,8 @@ a.tel{color:var(--green-3);font-weight:800;text-decoration:none;direction:ltr;di
 .dv-truck{position:fixed;bottom:8px;inset-inline-start:-60px;font-size:30px;opacity:.25;pointer-events:none;animation:truckGo 26s linear infinite;z-index:2}
 @keyframes truckGo{0%{inset-inline-start:-60px}100%{inset-inline-start:110%}}
 /* staggered card entrance */
-#page .card{animation:pgin .3s ease backwards}
-#page .card:nth-child(2){animation-delay:.05s}#page .card:nth-child(3){animation-delay:.1s}#page .card:nth-child(4){animation-delay:.15s}
+#page.pg-in .card{animation:pgin .3s ease backwards}
+#page.pg-in .card:nth-child(2){animation-delay:.05s}#page.pg-in .card:nth-child(3){animation-delay:.1s}#page.pg-in .card:nth-child(4){animation-delay:.15s}
 @media (prefers-reduced-motion: reduce){.pfx,.dv-truck{display:none}#page .card{animation:none}
  .fx-pulse,.fx-tilt,.fx-wave,.fx-bounce,.fx-float,.fx-grow,.fx-spin,.fx-spin-slow,.fx-drive,.fx-drive-mini{animation:none}}
 @media print{.pfx,.dv-truck,.netbar{display:none!important}}
@@ -5041,13 +5041,15 @@ async function spkAdd(id){
 
 /* ---------- page fx (friendly themed animations) ---------- */
 const FXMAP={dash:["📊","fx-pulse"],inv:["🧾","fx-tilt"],cust:["🤝","fx-wave"],col:["💰","fx-bounce"],trips:["🚚","fx-drive"],prod:["📦","fx-float"],stock:["🏪","fx-float"],rep:["📈","fx-grow"],ai:["✨","fx-spin"],perm:["🛡️","fx-pulse"],set:["⚙️","fx-spin-slow"],help:["💡","fx-pulse"]};
+let PAGEFX_LAST=null;
 function pageFx(p){
  const key=(p&&p.indexOf("cust:")===0)?"cust":(p&&p.indexOf("inv:")===0)?"inv":p;
  const f=FXMAP[key]||["🧩","fx-float"];
  let el=byId("pagefx");if(!el){el=document.createElement("div");el.id="pagefx";document.body.appendChild(el);}
  el.textContent=f[0];el.className="pfx "+f[1];
- const pg=byId("page");if(pg){pg.classList.remove("pg-in");void pg.offsetWidth;pg.classList.add("pg-in");}
- countUp();
+ const nav=(key!==PAGEFX_LAST);PAGEFX_LAST=key;
+ const pg=byId("page");if(pg){pg.classList.remove("pg-in");if(nav){void pg.offsetWidth;pg.classList.add("pg-in");}}
+ if(nav)countUp();
 }
 function countUp(){
  if(typeof matchMedia!=="undefined"&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;
