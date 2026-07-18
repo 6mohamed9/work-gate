@@ -223,10 +223,10 @@ table.tbl{width:100%;border-collapse:collapse;font-size:.89rem;min-width:560px}
 /* ====== print ====== */
 #print-root{display:none}
 @media print{
-  @page{size:A4;margin:11mm}
+  @page{size:A4;margin:0}
   body.printing #app,body.printing #toast-root,body.printing #modal-root,body.printing #bottomnav{display:none!important}
   body.printing #print-root{display:block}
-  #print-root{font-size:12.5px;color:#000}
+  #print-root{font-size:12.5px;color:#000;padding:12mm 11mm}
   .p-head{text-align:center;margin-bottom:10px}
   .p-head h2{font-size:19px;margin-bottom:2px}
   .p-head .p-sub{font-size:13px;color:#333;display:flex;justify-content:space-between;border-bottom:2.5px solid #14324F;padding-bottom:6px;margin-top:6px;font-weight:700}
@@ -570,6 +570,7 @@ html[data-accent="slate"]{--green:#475569;--green-2:#334155;--green-3:#1e293b;--
 .inv-seg button{border:0;background:transparent;font-family:inherit;font-weight:800;font-size:.9rem;color:var(--green-3);padding:8px 16px;border-radius:var(--r-s);cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:background .18s,color .18s,box-shadow .18s}
 .inv-seg button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 5px rgba(0,0,0,.14)}
 .inv-seg button svg{width:16px;height:16px}
+@media print{#ux-sound,.delivery-scene,.pfx,#pagefx,.netbar,.icon-btn{display:none!important}}
 #ux-sound{position:fixed;inset-block-end:74px;inset-inline-end:16px;z-index:70;width:44px;height:44px;border-radius:var(--r-s);background:var(--card);color:var(--ink);border:var(--btn-bd);box-shadow:var(--btn-sh);font-size:19px;display:grid;place-items:center;cursor:pointer}
 .welcome .pane{position:relative;z-index:1}
 
@@ -2457,6 +2458,9 @@ function custSecDel(id){const s=custSecs().find(x=>x.id===id);if(!s||!s.extra)re
  confirmBox(t("delete"),t("c_sec_del_q"),()=>{db.settings.custSecExtra=(db.settings.custSecExtra||[]).filter(x=>x.id!==id);if(db.settings.custSecNames)delete db.settings.custSecNames[id];save();if(V.csec===id)V.csec="stands";toast(t("del_done"));go("cust:stands");},true);}
 function custSecName(id){const s=custSecs().find(x=>x.id===id);return s?s.name:custSecs()[0].name;}
 function cSec(c){return c&&c.sec?c.sec:"stands";}
+function secRoutes(secId){return db.routes.filter(function(r){return db.customers.some(function(c){return c.routeId===r.id&&cSec(c)===secId;});});}
+function routeOwners(rid){const o={};db.customers.forEach(function(c){if(c.routeId===rid)o[cSec(c)]=1;});return o;}
+function secRoutesEdit(secId,keepId){return db.routes.filter(function(r){if(r.id===keepId)return true;const o=routeOwners(r.id);if(!Object.keys(o).length)return true;return !!o[secId];});}
 function custSecRename(id){const nn=prompt(t("c_sec_rename"),custSecName(id));if(nn===null)return;const v=String(nn).trim();if(!v)return;db.settings.custSecNames=db.settings.custSecNames||{};db.settings.custSecNames[id]=v;save();toast(t("toast_saved"));go(CUR);}
 function custSecGo(id){go("cust:"+id);}
 /* ---------- drag & drop reordering (nav sections + customer sections) ---------- */
@@ -2840,8 +2844,8 @@ function restoreJSON(file){const rd=new FileReader();rd.onload=()=>{try{const d=
  }catch(e){toast(t("invalid_file"),"err")}};rd.readAsText(file);}
 
 /* ---- print ---- */
-function printHTML(html){const pr=byId("print-root");pr.innerHTML=html+`<div class="p-madeby">Made by Mohamed Ragab</div>`;document.body.classList.add("printing");setTimeout(()=>{window.print();setTimeout(()=>{document.body.classList.remove("printing");pr.innerHTML=""},400)},50);}
-function pHead(title,sub){return`<div class="p-head"><h2>${esc(db.settings.biz||t("appName"))}</h2><div class="p-title">${esc(title)}</div><div class="p-sub"><span>${esc(sub||"")}</span><span>${fmtD(todayISO())}</span></div></div>`;}
+function printHTML(html){const pr=byId("print-root");pr.innerHTML=html;document.body.classList.add("printing");setTimeout(()=>{window.print();setTimeout(()=>{document.body.classList.remove("printing");pr.innerHTML=""},400)},50);}
+function pHead(title,sub,noDate){return`<div class="p-head"><h2>${esc(db.settings.biz||t("appName"))}</h2><div class="p-title">${esc(title)}</div><div class="p-sub"><span>${esc(sub||"")}</span>${noDate?"":`<span>${fmtD(todayISO())}</span>`}</div></div>`;}
 function printInvoice(id){const inv=db.invoices.find(x=>x.id===id);if(!inv)return;printHTML(invPrintBlock(inv,false));}
 function printCollectSheet(routeId){
  const bal=balances();const list=db.customers.filter(c=>(!routeId||c.routeId===routeId)).sort((a,b)=>String(a.name).localeCompare(String(b.name),"ar"));
@@ -3139,6 +3143,10 @@ function invSyncPrimary(){const ids=INV.custSel||[];INV.customerId=ids[0]||"";co
 function invCustInfo(){const c=INV.customerId?C_get(INV.customerId):null;const rt=byId("if-cust-route");if(rt)rt.textContent=c?(R_name(c.routeId)||"—"):"—";const ad=byId("if-cust-addr");if(ad)ad.textContent=c?(c.address||"—"):"—";const ph=byId("if-cust-phone");if(ph)ph.textContent=c?(fixPhone(c.phone)||"—"):"—";}function invFootUpdate(){const single=!INV.custSel||INV.custSel.length<=1;const p=byId("if-prev"),r=byId("if-rem");if(!single){if(p)p.textContent="—";if(r)r.textContent="—";return;}const total=invTotals(INV).inc;const prev=invPrevBal();const paid=num(INV.paid);if(p)p.textContent=money(prev);if(r)r.textContent=money(prev+total-paid);}
 function invCustChips(){if(!INV.custSel||!INV.custSel.length)return `<span class="muted">${t("i_nocust")}</span>`;return INV.custSel.map(id=>{const c=C_get(id);return `<span class="badge g" style="padding:4px 8px;display:inline-flex;align-items:center;gap:6px">${esc(c?c.name:id)}<a href="javascript:void 0" onclick="invCustRm('${id}')" style="color:inherit;font-weight:800">✕</a></span>`;}).join("");}
 function invCustRm(id){INV.custSel=(INV.custSel||[]).filter(x=>x!==id);invSyncPrimary();invModal(INV.id);}
+function invManualToggle(){INV._manual=!INV._manual;if(INV._manual){INV.custSel=[];INV.customerId="";}else{INV.custName="";INV.custPhone="";INV.custAddress="";INV.saveCust=false;}invModal(INV.id);}
+function invManualSet(k,v){if(k==="name")INV.custName=v;else if(k==="phone")INV.custPhone=v;else if(k==="addr")INV.custAddress=v;else if(k==="route")INV.routeId=v;INV.custSel=[];INV.customerId="";if(typeof invFootUpdate==="function")invFootUpdate();}
+Object.assign(T.ar,{i_manual:"عميل جديد (يدوي)",i_savecust:"أضف هذا العميل لقاعدة العملاء"});
+Object.assign(T.en,{i_manual:"New customer (manual)",i_savecust:"Add this customer to the database"});
 let ICP={q:"",route:"all",sel:{}};
 function invCustPick(){ICP={q:"",route:"all",sel:{}};(INV.custSel||[]).forEach(id=>ICP.sel[id]=true);
  modal(`${mhead(t("i_pickcust"),"users")}<div class="modal-b et-wide">
@@ -3154,7 +3162,7 @@ function icpList(){const rows=icpFiltered();if(!rows.length)return`<p class="mut
  </tbody></table></div>`;}
 function icpTgl(id){if(ICP.sel[id])delete ICP.sel[id];else ICP.sel[id]=true;refreshList("icp-list",icpList());const n=byId("icp-n");if(n)n.textContent=Object.keys(ICP.sel).length;}
 function icpAll(){icpFiltered().forEach(c=>ICP.sel[c.id]=true);refreshList("icp-list",icpList());const n=byId("icp-n");if(n)n.textContent=Object.keys(ICP.sel).length;}
-function icpApply(){INV.custSel=Object.keys(ICP.sel);invSyncPrimary();invModal(INV.id);}
+function icpApply(){INV.custSel=Object.keys(ICP.sel);INV._manual=false;invSyncPrimary();invModal(INV.id);}
 function invApplyEffects(v){applyInvStock(v,1);v.txIds=[];if(v.customerId&&C_get(v.customerId)){const s=invTotals(v);const total=num(s.inc);const paid=num(v.paid);v.prevBal=calcBal(v.customerId);if(total){const i1=uid();db.transactions.push({id:i1,customerId:v.customerId,type:"debt",amount:total,date:v.date,note:(LANG==="ar"?"فاتورة ":"Invoice ")+fmtD(v.date),invId:v.id});v.txIds.push(i1);}if(paid>0){const i2=uid();db.transactions.push({id:i2,customerId:v.customerId,type:"pay",amount:paid,date:v.date,note:(LANG==="ar"?"دفعة فاتورة":"Invoice payment"),invId:v.id});v.txIds.push(i2);}}}
 function invReverseEffects(v){applyInvStock(v,-1);if(v.txIds&&v.txIds.length){const set=v.txIds.slice();db.transactions=db.transactions.filter(x=>set.indexOf(x.id)<0);v.txIds=[];}}
 function invConfirm(id){const v=db.invoices.find(x=>x.id===id);if(!v||invConfirmed(v))return;invApplyEffects(v);v.status="confirmed";v.confirmedAt=Date.now();if(typeof logAct==="function")logAct((LANG==="ar"?"تأكيد فاتورة ":"Confirm invoice ")+fmtD(v.date));save();toast(t("i_confirmed_ok"));go("inv");}
@@ -3164,7 +3172,7 @@ function invFiltered(){let list=db.invoices.slice();if(typeof INVSEC!=="undefine
 function invPrintBlock(inv,brk){const s=invTotals(inv);const c=invCust(inv);const name=invCustName(inv)||"—";const phone=invCustPhone(inv)||"—";const route=(c?R_name(c.routeId):(inv.routeId?R_name(inv.routeId):""))||"—";const addr=(c?c.address:inv.custAddress)||"—";const total=num(s.inc);const paid=num(inv.paid);const prev=inv.customerId?((invConfirmed(inv)&&inv.prevBal!==undefined)?num(inv.prevBal):calcBal(inv.customerId)):0;const rem=prev+total-paid;
  const rows=(inv.lines||[]).map(l=>{const p=num(l.price);const net=num(l.out)-num(l.ret);return`<tr><td class="st">${esc(l.pname||(P_get(l.pid)||{}).name||"")}</td><td class="num">${qfmt(net)}</td><td class="num">${money(p)}</td><td class="num">${money(p*net)}</td></tr>`}).join("");
  const cell=(lbl,val,ltr,strong)=>`<td style="padding:7px 8px;border:1px solid #bbb;vertical-align:top;text-align:center${strong?";background:#f3f3f3":""}"><div style="font-weight:800;font-size:.8em;color:#555;margin-bottom:3px">${lbl}</div><div${ltr?' dir="ltr"':""} style="${strong?"font-weight:800;font-size:1.05em":""}">${val}</div></td>`;
- return`<div class="inv-print" style="${brk?"page-break-after:always;":""}padding:6px 2px">${pHead(t("i_head"),invConfirmed(inv)?"":t("i_pending"))}
+ return`<div class="inv-print" style="${brk?"page-break-after:always;":""}padding:6px 2px">${pHead(t("i_head"),invConfirmed(inv)?"":t("i_pending"),true)}
  <table style="width:100%;margin:14px 0 16px;border-collapse:collapse"><tr>${cell(t("c_name"),esc(name))}${cell(t("c_route"),esc(route))}${cell(t("i_addr"),esc(addr))}${cell(t("c_phone"),esc(phone),true)}${cell(t("date"),fmtD(inv.date))}</tr></table>
  <table class="p-tbl" style="margin-bottom:16px"><thead><tr><th>${t("s_product")}</th><th>${t("s_qty")}</th><th>${t("i_price")}</th><th>${t("total")}</th></tr></thead>
  <tbody>${rows}</tbody><tfoot><tr><td class="st">${t("i_total")}</td><td class="num">${qfmt(s.net)}</td><td></td><td class="num">${money(total)}</td></tr></tfoot></table>
@@ -3189,7 +3197,7 @@ let INV=null;
 function invEdit(id){
  const src=id?db.invoices.find(x=>x.id===id):null;
  INV=src?JSON.parse(JSON.stringify(src)):{id:null,date:todayISO(),customerId:"",custName:"",custPhone:"",custAddress:"",sec:(typeof INVSEC!=="undefined"?INVSEC:"stands"),routeId:"",worker:"",lines:[],paid:0,stockApplied:true,status:"pending",createdAt:0,editedAt:null,txIds:[],note:""};
- INV.custSel=INV.customerId?[INV.customerId]:[];
+ INV.custSel=INV.customerId?[INV.customerId]:[];INV._manual=!INV.customerId&&!!(INV.custName&&String(INV.custName).trim());
  if(!id&&!INV.lines.length)invAddAll(true);
  invModal(id);
 }
@@ -3199,15 +3207,25 @@ function invModal(id){
  const single=INV.custSel.length<=1;
  modal(`${mhead(id?t("edit")+" — "+t("i_title"):t("i_new"),"receipt")}<div class="modal-b">
   <div class="frow">
-   <div class="field"><label>${t("i_cust")} *</label><div id="if-cust-chips" style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-height:34px">${invCustChips()}</div>
-    <button class="btn soft sm" style="margin-top:6px" onclick="invCustPick()">${ic("users")} ${t("i_pickcust")}</button></div>
+   <div class="field"><label>${t("i_cust")} *</label><div id="if-cust-chips" style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-height:34px">${INV._manual?`<span class="muted">${LANG==="ar"?"عميل يدوي (لمرة واحدة)":"Manual customer"}</span>`:invCustChips()}</div>
+    <div class="btn-row" style="margin-top:6px;gap:6px;flex-wrap:wrap"><button class="btn soft sm" onclick="invCustPick()">${ic("users")} ${t("i_pickcust")}</button><button class="btn ${INV._manual?"":"ghost"} sm" onclick="invManualToggle()">${ic("plus")} ${t("i_manual")}</button></div></div>
    <div class="field"><label>${t("date")}</label><input class="inp" type="date" value="${INV.date}" onchange="INV.date=this.value"></div>
   </div>
-  <div class="grid g3" id="if-cust-info" style="margin:-2px 0 8px;${single?"":"display:none"}">
+  ${INV._manual?`<div class="card" style="padding:12px;margin-bottom:8px;border:1px dashed var(--line-2)">
+   <div class="frow">
+    <div class="field"><label>${t("c_name")} *</label><input class="inp" value="${esc(INV.custName||"")}" oninput="invManualSet('name',this.value)"></div>
+    <div class="field"><label>${t("c_phone")}</label><input class="inp num" inputmode="tel" value="${esc(INV.custPhone||"")}" oninput="invManualSet('phone',this.value)"></div>
+   </div>
+   <div class="frow">
+    <div class="field"><label>${t("c_route")}</label><select class="inp" onchange="invManualSet('route',this.value)"><option value="">${t("c_no_route")}</option>${secRoutesEdit(INV.sec||"stands",INV.routeId).map(r=>`<option value="${r.id}" ${INV.routeId===r.id?"selected":""}>${esc(r.name)}</option>`).join("")}</select></div>
+    <div class="field"><label>${t("i_addr")}</label><input class="inp" value="${esc(INV.custAddress||"")}" oninput="invManualSet('addr',this.value)"></div>
+   </div>
+   <label class="check-row" style="margin-top:4px"><span class="switch"><input type="checkbox" ${INV.saveCust?"checked":""} onchange="INV.saveCust=this.checked"><i></i></span> ${t("i_savecust")} — ${esc(custSecName(INV.sec||"stands"))}</label>
+  </div>`:`<div class="grid g3" id="if-cust-info" style="margin:-2px 0 8px;${single?"":"display:none"}">
    <div class="kv" style="border:0"><span>${t("c_route")}</span><b id="if-cust-route">—</b></div>
    <div class="kv" style="border:0"><span>${t("i_addr")}</span><b id="if-cust-addr">—</b></div>
    <div class="kv" style="border:0"><span>${t("c_phone")}</span><b id="if-cust-phone" dir="ltr">—</b></div>
-  </div>
+  </div>`}
   ${single?"":`<p class="tag-note" style="margin:-2px 0 8px">${t("i_multi_note").replace("{n}",INV.custSel.length)}</p>`}
   <div class="btn-row" style="margin-bottom:10px;flex-wrap:wrap">
    <button class="btn soft sm" onclick="invAddAll()">${ic("plus")} ${t("i_addall")}</button>
@@ -3224,7 +3242,7 @@ function invModal(id){
  </div><div class="modal-f"><button class="btn lg" onclick="invSave()">${ic("check")} ${t("save")}</button><button class="btn ghost" onclick="closeModal()">${t("cancel")}</button></div>`,true);
  byId("if-addsel").onchange=e=>{const pid=e.target.value;if(!pid)return;invAddLine(pid);e.target.value="";};
  invRenderLines();
- if(single&&INV.customerId)invCustInfo();
+ if(!INV._manual&&single&&INV.customerId)invCustInfo();
  invFootUpdate();
 }
 function invAddAll(silent){db.products.filter(p=>p.active&&pSec(p)===(INV.sec||"stands")).forEach(p=>{if(!INV.lines.some(l=>l.pid===p.id))INV.lines.push({pid:p.id,pname:p.name,price:num(p.price),out:0,ret:0});});if(!silent)invRenderLines();}
@@ -3257,9 +3275,15 @@ function invSave(){
   let n=0;sel.forEach(cid=>{const c=C_get(cid);const nv=JSON.parse(JSON.stringify(INV));delete nv.custSel;nv.id=uid();nv.customerId=cid;if(c){nv.custName=c.name;nv.custPhone=fixPhone(c.phone);nv.custAddress=c.address||"";nv.sec=cSec(c);}nv.createdAt=Date.now();nv.editedAt=null;nv.status="pending";nv.txIds=[];db.invoices.push(nv);n++;});
   if(typeof logAct==="function")logAct((LANG==="ar"?"فواتير ":"Invoices ")+n);save();closeModal();toast(t("i_saved")+" ("+n+")");go("inv");return;
  }
- INV.customerId=sel[0]||"";
- if(INV.customerId){const c=C_get(INV.customerId);if(c){INV.custName=c.name;INV.custPhone=fixPhone(c.phone);INV.custAddress=c.address||"";INV.sec=cSec(c);}}
- const clean=JSON.parse(JSON.stringify(INV));delete clean.custSel;
+ if(INV._manual||(!sel.length&&(INV.custName||"").trim())){
+  if(!(INV.custName||"").trim())return toast(t("need_name"),"err");
+  if(INV.saveCust){const nc={id:uid(),sec:INV.sec||"stands",name:(INV.custName||"").trim(),routeId:INV.routeId||"",phone:fixPhone(INV.custPhone||""),phone2:"",address:(INV.custAddress||"").trim(),opening:0,notes:""};db.customers.push(nc);if(typeof clogPush==="function")clogPush("add",nc,"");INV.customerId=nc.id;}
+  else INV.customerId="";
+ }else{
+  INV.customerId=sel[0]||"";
+  if(INV.customerId){const c=C_get(INV.customerId);if(c){INV.custName=c.name;INV.custPhone=fixPhone(c.phone);INV.custAddress=c.address||"";INV.sec=cSec(c);}}
+ }
+ const clean=JSON.parse(JSON.stringify(INV));delete clean.custSel;delete clean._manual;delete clean.saveCust;
  if(INV.id){const old=db.invoices.find(x=>x.id===INV.id);if(old){if(invConfirmed(old))invReverseEffects(old);const keep=old.createdAt;Object.assign(old,clean);old.createdAt=keep||Date.now();old.editedAt=Date.now();old.status="pending";old.txIds=[];}}
  else{clean.id=uid();clean.createdAt=Date.now();clean.editedAt=null;clean.status="pending";clean.txIds=[];db.invoices.push(clean);INV.id=clean.id;}
  if(typeof logAct==="function")logAct((LANG==="ar"?"فاتورة ":"Invoice ")+(INV&&INV.date?INV.date:""));save();closeModal();toast(t("i_saved"));go("inv");
@@ -3314,7 +3338,7 @@ function page_cust(){
    <div id="rf-panel" style="display:none;position:absolute;top:110%;inset-inline-start:0;z-index:60;min-width:240px;max-height:320px;overflow:auto;background:var(--card,#fff);border:1px solid var(--line,#ddd);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.15);padding:10px">
     <label style="display:flex;gap:8px;align-items:center;padding:6px 4px;font-weight:700"><input type="checkbox" ${rfState().debt?"checked":""} onchange="rfToggleDebt(this.checked)"> ${t("rf_debt")}</label>
     <hr style="border:none;border-top:1px solid var(--line,#eee);margin:6px 0">
-    ${db.routes.map(r=>`<label style="display:flex;gap:8px;align-items:center;padding:5px 4px"><input type="checkbox" ${rfState().routes.includes(r.id)?"checked":""} onchange="rfToggleRoute('${r.id}',this.checked)"> ${esc(r.name)}</label>`).join("")||`<p class="muted" style="padding:4px">${t("c_no_route")}</p>`}
+    ${secRoutes(V.csec).map(r=>`<label style="display:flex;gap:8px;align-items:center;padding:5px 4px"><input type="checkbox" ${rfState().routes.includes(r.id)?"checked":""} onchange="rfToggleRoute('${r.id}',this.checked)"> ${esc(r.name)}</label>`).join("")||`<p class="muted" style="padding:4px">${t("c_no_route")}</p>`}
     <div class="btn-row" style="margin-top:8px"><button class="btn ghost" style="width:100%" onclick="rfClear()">✕ ${t("rf_clear")}</button></div>
    </div>
   </div>
@@ -3354,7 +3378,7 @@ function custEdit(id){
  modal(`${mhead(id?t("edit"):t("c_new"),"users")}<div class="modal-b">
   <div class="field"><label>${t("c_name")} *</label><input class="inp" id="cf-name" value="${esc(c.name)}"></div>
   <div class="frow">
-   <div class="field"><label>${t("c_route")}</label><select class="inp" id="cf-route"><option value="">${t("c_no_route")}</option>${db.routes.map(r=>`<option value="${r.id}" ${c.routeId===r.id?"selected":""}>${esc(r.name)}</option>`).join("")}</select></div>
+   <div class="field"><label>${t("c_route")}</label><select class="inp" id="cf-route"><option value="">${t("c_no_route")}</option>${secRoutesEdit(V.csec,c.routeId).map(r=>`<option value="${r.id}" ${c.routeId===r.id?"selected":""}>${esc(r.name)}</option>`).join("")}</select></div>
    <div class="field"><label>${t("c_phone")}</label><input class="inp num" id="cf-phone" inputmode="tel" value="${esc(c.phone||"")}"></div>
   </div>
   <div class="field"><label>${t("c_addr")}</label><input class="inp" id="cf-addr" value="${esc(c.address||"")}"></div>
